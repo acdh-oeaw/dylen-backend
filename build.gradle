@@ -12,11 +12,21 @@ repositories {
 	mavenCentral()
 }
 
+
 dependencies {
+	compileOnly 'org.projectlombok:lombok:1.18.12'
+	implementation 'com.graphql-java:graphql-java:11.0' // NEW
+	implementation 'com.graphql-java:graphql-java-spring-boot-starter-webmvc:1.0' // NEW
+	implementation 'com.graphql-java:graphql-java-tools:5.2.3'
+	implementation 'com.google.guava:guava:26.0-jre' // NEW
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	testImplementation('com.graphql-java:graphql-spring-boot-starter-test:5.0.2')
+	testCompile group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
+	annotationProcessor "org.projectlombok:lombok:1.18.12"
+	testAnnotationProcessor "org.projectlombok:lombok:1.18.12"
 }
 
 test {

@@ -1,0 +1,15 @@
+{
+    allAvailableCorpora {
+        id
+        name
+        sources {
+            id
+            name
+            networks {
+                id
+                text
+                year
+            }
+        }
+    }
+}

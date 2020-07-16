@@ -1,0 +1,46 @@
+type Query {
+    allAvailableCorpora: [Corpus]
+    #networkById(id: ID): Network
+}
+
+type Corpus {
+    id: ID
+    name: String
+    #sources: [Source]
+}
+
+type Source {
+    id: ID
+    name: String
+    networks: [Network]
+}
+
+type Network {
+    id: ID
+    text: String
+    year: Int
+    corpus: ID
+    source: ID
+    abs_freq: Int
+    rel_freq: Float
+    threshold: Float
+    nodes: [Node]
+    connections: [Connection]
+}
+
+type Node {
+    id: ID
+    cluster_id: Int
+    text: String
+    pos: String
+    similarity: Float
+    abs_freq: Int
+    rel_freq: Float
+}
+
+type Connection {
+    id: ID
+    node1: ID
+    node2: ID
+    similarity: Float
+}
