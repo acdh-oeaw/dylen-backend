@@ -5,7 +5,7 @@ import lombok.*;
 import java.util.List;
 
 @Data
-@RequiredArgsConstructor(staticName = "of", access = AccessLevel.PUBLIC)
+@AllArgsConstructor(staticName = "of", access = AccessLevel.PUBLIC)
 public class Corpus {
     @NonNull private String id;
     @NonNull private String name;

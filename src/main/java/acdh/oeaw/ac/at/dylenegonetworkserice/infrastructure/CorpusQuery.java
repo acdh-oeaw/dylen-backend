@@ -1,4 +1,4 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice;
+package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
