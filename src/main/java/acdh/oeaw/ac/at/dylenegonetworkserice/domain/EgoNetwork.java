@@ -1,6 +1,5 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
 
-import com.google.common.graph.ImmutableNetwork;
 import com.google.common.graph.Network;
 import lombok.*;
 
