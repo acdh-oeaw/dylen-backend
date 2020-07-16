@@ -13,10 +13,23 @@ public class TestFixture {
     public static final String CORPUS_ID = "TEST_ID";
     public static final String CORPUS_NAME = "TEST_NAME";
 
-    public static final Node NODE_1 = Node.of("NODE_1", 1, "TEST_NODE_1", "NOUN", 0.4f, 100,
-            0.3f);
-    public static final Node NODE_2 = Node.of("NODE_1", 1, "TEST_NODE_1", "NOUN", 0.4f, 100,
-            0.4f);
+    public static final String NODE_ID_1 = "NODE_1";
+    public static final int CLUTER_ID_1 = 1;
+    public static final String NODE_TEXT_1 = "TEST_NODE_1";
+    public static final String NODE_POS = "NOUN";
+    public static final float SIMILARITY = 0.4f;
+    public static final int ABS_FREQ = 100;
+    public static final float REL_FREQ = 0.3f;
+    public static final Node NODE_1 = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, ABS_FREQ,
+            REL_FREQ);
+    public static final String NODE_ID_2 = "NODE_2";
+    public static final int CLUTER_ID_2 = 2;
+    public static final String NODE_TEXT_2 = "TEST_NODE_2";
+    public static final float SIMILARITY_2 = 0.4f;
+    public static final int ABS_FREQ_2 = 102;
+    public static final float REL_FREQ_2 = 0.43f;
+    public static final Node NODE_2 = Node.of(NODE_ID_2, CLUTER_ID_2, NODE_TEXT_2, NODE_POS, SIMILARITY_2, ABS_FREQ_2,
+            REL_FREQ_2);
 
     public static final String CONNECTION_ID = "EDGE_1";
     public static final float CONNECTION_SIMILARITY = 0.3f;
