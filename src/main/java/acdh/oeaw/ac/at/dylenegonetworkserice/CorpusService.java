@@ -1,6 +1,6 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import org.springframework.stereotype.Component;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

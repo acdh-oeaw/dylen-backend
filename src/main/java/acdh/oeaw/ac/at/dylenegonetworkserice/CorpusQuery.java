@@ -1,10 +1,10 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -62,7 +62,7 @@ public class CorpusQuery implements GraphQLQueryResolver {
                 ImmutableMap.of("id", "source-1",
                         "name", "FALTER",
                         "networks", networks));
-        return ImmutableList.of(Corpus.of(CORPUS_ID, CORPUS_NAME));
+        return ImmutableList.of(Corpus.of(CORPUS_ID, CORPUS_NAME, ImmutableList.of()));
 
     }
 }
