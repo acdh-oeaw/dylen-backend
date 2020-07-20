@@ -7,7 +7,7 @@ import java.util.Map;
 
 @Service
 public class SourceService {
-    enum SourceEnum {
+    public enum SourceEnum {
         STANDARD("1", "Standard"),
         FALTER("2", "Falter"),
         KRONE("3", "Krone"),

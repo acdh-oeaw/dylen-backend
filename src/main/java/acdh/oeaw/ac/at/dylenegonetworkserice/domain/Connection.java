@@ -11,8 +11,8 @@ import java.util.UUID;
 public class Connection {
     @NonNull
     private String id;
-    private String node1_id;
-    private String node2_id;
+    private String node1;
+    private String node2;
     private float similarity;
 
     @JsonCreator

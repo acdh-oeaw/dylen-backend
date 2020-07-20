@@ -18,7 +18,6 @@ public class EgoNetworkTest {
         var egoNetwork = EgoNetwork.of(EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID, SOURCE_ID_1, 20,
                 0.3f, 0.3f, NODES, CONNECTIONS);
 
-        assertThat(egoNetwork.getId()).isEqualTo(EGO_NETWORK_ID);
         assertThat(egoNetwork.getText()).isEqualTo(EGO_NETWORK_NAME);
         assertThat(egoNetwork.getYear()).isEqualTo(EGO_NETWORK_YEAR);
         assertThat(egoNetwork.getCorpusId()).isEqualTo(CORPUS_ID);
@@ -33,7 +32,10 @@ public class EgoNetworkTest {
     @Test
     public void shouldInstantiateEgoNetworkFromJson() throws IOException {
         var mapper = new ObjectMapper();
-        var jsonNode = mapper.readValue(ResourceUtils.getFile("classpath:samples/amc/2014_Asyl_6.json"),
+
+        var egoNetwork = mapper.readValue(ResourceUtils.getFile("classpath:samples/amc/2014_Asyl_6.json"),
                 EgoNetwork.class);
+
+        assertThat(egoNetwork).isNotNull();
     }
 }
