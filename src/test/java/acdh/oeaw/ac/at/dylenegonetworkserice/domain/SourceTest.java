@@ -23,7 +23,8 @@ public class SourceTest {
     @Test
     public void shouldInstantiateSourceWithNetwork() {
         var network = NETWORK;
-        var egoNetwork = EgoNetwork.of(EGO_NETWORK_ID, EGO_NETWORK_NAME, EGO_NETWORK_YEAR, "CORPUS_1", "SOURCE_1", 200, 0.5f, 0.4f, network);
+        var egoNetwork = EgoNetwork.of(EGO_NETWORK_ID, EGO_NETWORK_NAME, EGO_NETWORK_YEAR, "CORPUS_1",
+                "SOURCE_1", 200, 0.5f, 0.4f, NODES, CONNECTIONS);
 
         var source = Source.of(SOURCE_ID_1, SOURCE_NAME, ImmutableList.of(egoNetwork));
 

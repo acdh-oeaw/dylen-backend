@@ -6,36 +6,36 @@ type Query {
 type Corpus {
     id: ID
     name: String
-    #sources: [Source]
+    sources: [Source]
 }
 
 type Source {
     id: ID
     name: String
-    networks: [Network]
+    networks: [EgoNetwork]
 }
 
-type Network {
+type EgoNetwork {
     id: ID
     text: String
     year: Int
-    corpus: ID
-    source: ID
-    abs_freq: Int
-    rel_freq: Float
+    corpusId: ID
+    sourceId: ID
+    absFreq: Int
+    relFreq: Float
     threshold: Float
-    nodes: [Node]
-    connections: [Connection]
+    nodes:[Node]
+    connections:[Connection]
 }
 
 type Node {
     id: ID
-    cluster_id: Int
+    clusterId: Int
     text: String
     pos: String
     similarity: Float
-    abs_freq: Int
-    rel_freq: Float
+    absFreq: Int
+    relFreq: Float
 }
 
 type Connection {

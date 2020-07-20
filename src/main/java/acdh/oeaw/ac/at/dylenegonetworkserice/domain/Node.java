@@ -6,7 +6,7 @@ import lombok.*;
 @AllArgsConstructor(staticName = "of", access = AccessLevel.PUBLIC)
 public class Node {
     @NonNull private String id;
-    private int cluter_id;
+    private int clusterId;
     @NonNull private String text;
     @NonNull private String pos;
     private float similarity;

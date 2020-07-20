@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Connection;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Node;
+import com.google.common.collect.ImmutableList;
 import com.google.common.graph.ImmutableNetwork;
 import com.google.common.graph.NetworkBuilder;
 
@@ -33,12 +34,14 @@ public class TestFixture {
 
     public static final String CONNECTION_ID = "EDGE_1";
     public static final float CONNECTION_SIMILARITY = 0.3f;
-    public static final Connection CONNECTION = Connection.of(CONNECTION_ID, CONNECTION_SIMILARITY);
+    public static final Connection CONNECTION = Connection.of(CONNECTION_ID, NODE_1, NODE_2, CONNECTION_SIMILARITY);
 
     public static final String EGO_NETWORK_ID = "NETWORK_1";
     public static final String EGO_NETWORK_NAME = "NETWORK_TEST_1";
     public static final int EGO_NETWORK_YEAR = 2020;
 
+    public static final ImmutableList<Node> NODES = ImmutableList.of(NODE_1, NODE_2);
+    public static final ImmutableList<Connection> CONNECTIONS = ImmutableList.of(CONNECTION);
 
     public static final ImmutableNetwork<Node, Connection> NETWORK = NetworkBuilder.undirected()
             .allowsParallelEdges(true)

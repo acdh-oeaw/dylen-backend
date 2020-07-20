@@ -7,5 +7,7 @@ import lombok.*;
 public class Connection {
     @NonNull
     private String id;
+    private Node node1;
+    private Node node2;
     private float similarity;
 }

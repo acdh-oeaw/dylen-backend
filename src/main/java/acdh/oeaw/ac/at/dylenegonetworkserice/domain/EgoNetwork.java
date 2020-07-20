@@ -3,6 +3,8 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
 import com.google.common.graph.Network;
 import lombok.*;
 
+import java.util.List;
+
 @Data
 @AllArgsConstructor(staticName = "of", access = AccessLevel.PUBLIC)
 public class EgoNetwork {
@@ -14,5 +16,6 @@ public class EgoNetwork {
     private int absFreq;
     private float relFreq;
     private float threshold;
-    @NonNull private Network<Node, Connection> network;
+    @NonNull private List<Node> nodes;
+    @NonNull private List<Connection> connections;
 }
