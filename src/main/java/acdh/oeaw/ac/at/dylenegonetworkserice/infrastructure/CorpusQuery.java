@@ -2,19 +2,33 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ResourceUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
 @Component
+@Slf4j
 public class CorpusQuery implements GraphQLQueryResolver {
 
     public static final String CORPUS_ID = "corpus-1";
     public static final String CORPUS_NAME = "AMC";
+
+    public CorpusQuery() {
+        ObjectMapper mapper = new ObjectMapper();
+
+
+    }
 
     public List<Corpus> getAllAvailableCorpora(){
         var nodes = Arrays.asList(

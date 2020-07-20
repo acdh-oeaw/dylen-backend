@@ -1,8 +1,6 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
 
 import com.google.common.collect.ImmutableList;
-import com.google.common.graph.ImmutableNetwork;
-import com.google.common.graph.NetworkBuilder;
 import org.junit.Test;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
@@ -23,7 +21,7 @@ public class SourceTest {
     @Test
     public void shouldInstantiateSourceWithNetwork() {
         var network = NETWORK;
-        var egoNetwork = EgoNetwork.of(EGO_NETWORK_ID, EGO_NETWORK_NAME, EGO_NETWORK_YEAR, "CORPUS_1",
+        var egoNetwork = EgoNetwork.of(EGO_NETWORK_NAME, EGO_NETWORK_YEAR, "CORPUS_1",
                 "SOURCE_1", 200, 0.5f, 0.4f, NODES, CONNECTIONS);
 
         var source = Source.of(SOURCE_ID_1, SOURCE_NAME, ImmutableList.of(egoNetwork));

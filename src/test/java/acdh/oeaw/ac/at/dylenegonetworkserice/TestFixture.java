@@ -34,7 +34,7 @@ public class TestFixture {
 
     public static final String CONNECTION_ID = "EDGE_1";
     public static final float CONNECTION_SIMILARITY = 0.3f;
-    public static final Connection CONNECTION = Connection.of(CONNECTION_ID, NODE_1, NODE_2, CONNECTION_SIMILARITY);
+    public static final Connection CONNECTION = Connection.of(CONNECTION_ID, NODE_ID_1, NODE_ID_2, CONNECTION_SIMILARITY);
 
     public static final String EGO_NETWORK_ID = "NETWORK_1";
     public static final String EGO_NETWORK_NAME = "NETWORK_TEST_1";

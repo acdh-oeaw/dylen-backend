@@ -1,18 +1,21 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
+import org.springframework.util.ResourceUtils;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class EgoNetworkTest {
 
-
-
     @Test
     public void shouldInstantiateEgoNetwork() {
-        var egoNetwork = EgoNetwork.of(EGO_NETWORK_ID, EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID, SOURCE_ID_1, 20,
+        var egoNetwork = EgoNetwork.of(EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID, SOURCE_ID_1, 20,
                 0.3f, 0.3f, NODES, CONNECTIONS);
 
         assertThat(egoNetwork.getId()).isEqualTo(EGO_NETWORK_ID);
@@ -25,5 +28,12 @@ public class EgoNetworkTest {
         assertThat(egoNetwork.getThreshold()).isEqualTo(0.3f);
         assertThat(egoNetwork.getNodes()).containsExactly(NODE_1, NODE_2);
         assertThat(egoNetwork.getConnections()).containsExactly(CONNECTION);
+    }
+
+    @Test
+    public void shouldInstantiateEgoNetworkFromJson() throws IOException {
+        var mapper = new ObjectMapper();
+        var jsonNode = mapper.readValue(ResourceUtils.getFile("classpath:samples/amc/2014_Asyl_6.json"),
+                EgoNetwork.class);
     }
 }
