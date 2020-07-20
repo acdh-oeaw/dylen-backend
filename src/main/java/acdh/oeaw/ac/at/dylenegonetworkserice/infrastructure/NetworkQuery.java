@@ -18,8 +18,11 @@ import java.util.stream.Collectors;
 @Component
 public class NetworkQuery implements GraphQLQueryResolver {
 
-    @Autowired
-    NetworkService networkService;
+    final NetworkService networkService;
+
+    public NetworkQuery(NetworkService networkService) {
+        this.networkService = networkService;
+    }
 
     public EgoNetwork getNetworkById(String id){
         return networkService.getNetworkById(id);

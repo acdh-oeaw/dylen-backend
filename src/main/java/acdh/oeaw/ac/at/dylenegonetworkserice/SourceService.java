@@ -8,10 +8,10 @@ import java.util.Map;
 @Service
 public class SourceService {
     public enum SourceEnum {
-        STANDARD("1", "Standard"),
-        FALTER("2", "Falter"),
-        KRONE("3", "Krone"),
-        HEUTE("4", "Heute");
+        STANDARD("1", "STANDARD"),
+        FALTER("2", "FALTER"),
+        KRONE("3", "KRONE"),
+        HEUTE("4", "HEUTE");
 
         private final String id;
         private final String name;
