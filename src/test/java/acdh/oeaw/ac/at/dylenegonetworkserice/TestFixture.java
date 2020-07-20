@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Connection;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Node;
 import com.google.common.collect.ImmutableList;
 import com.google.common.graph.ImmutableNetwork;
@@ -43,10 +44,8 @@ public class TestFixture {
     public static final ImmutableList<Node> NODES = ImmutableList.of(NODE_1, NODE_2);
     public static final ImmutableList<Connection> CONNECTIONS = ImmutableList.of(CONNECTION);
 
-    public static final ImmutableNetwork<Node, Connection> NETWORK = NetworkBuilder.undirected()
-            .allowsParallelEdges(true)
-            .<Node, Connection>immutable()
-            .addEdge(NODE_1, NODE_2, CONNECTION)
-            .build();
+    public static final EgoNetwork NETWORK = EgoNetwork.of(EGO_NETWORK_ID,
+            EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID,
+            SourceService.SourceEnum.STANDARD.getName(), 201, 0.2f, 0.5f, NODES, CONNECTIONS);
 
 }

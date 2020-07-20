@@ -1,8 +1,9 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
-import com.graphql.spring.boot.test.GraphQLResponse;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import org.junit.Test;
@@ -14,7 +15,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
-import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
@@ -31,19 +31,32 @@ public class EgoNetworkServiceTest {
     @MockBean
     CorpusService corpusService;
 
+    @MockBean
+    NetworkService networkService;
+
     @Test
-    public void getAllAvailableCorpora() {
+    public void getAllAvailableCorpora() throws IOException {
         var corpus = ImmutableList.of(Corpus.of("corpus-1", "AMC", ImmutableList.of()));
         doReturn(corpus).when(corpusService).getAllCorpora();
 
-        GraphQLResponse response = null;
-        try {
-            response = graphQLTestTemplate.postForResource("all-available-corpora.graphql");
-        } catch (IOException ioe) {
-            log.debug(Arrays.toString(ioe.getStackTrace()));
-        }
+        var response = graphQLTestTemplate.postForResource("all-available-corpora.graphql");
 
         assertThat(response).isNotNull();
         assertThat(response.isOk()).isTrue();
+    }
+
+    @Test
+    public void getNetworkById() throws IOException {
+        var mapper = new ObjectMapper();
+        var id = "NETWORK_ID";
+        var network = EgoNetwork.of(id,"TEST", 2020, "AMC", SourceService.SourceEnum.STANDARD.getName(), 20,
+                0.5f, 0.6f, ImmutableList.of(), ImmutableList.of());
+        doReturn(network).when(networkService).getNetworkById(id);
+
+        var response = graphQLTestTemplate.postForResource("network-by-id.graphql");
+
+        assertThat(response).isNotNull();
+        assertThat(response.isOk()).isTrue();
+        assertThat(response.getRawResponse().getBody().contains("NETWORK_ID"));
     }
 }

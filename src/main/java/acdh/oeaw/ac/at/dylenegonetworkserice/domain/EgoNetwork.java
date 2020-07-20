@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-@AllArgsConstructor
+@AllArgsConstructor(staticName = "of", access = AccessLevel.PUBLIC)
 public class EgoNetwork {
     @NonNull private String id;
     @NonNull private String text;

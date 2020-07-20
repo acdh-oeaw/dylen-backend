@@ -1,6 +1,6 @@
 type Query {
     allAvailableCorpora: [Corpus]
-    #networkById(id: ID): Network
+    networkById(id: ID): EgoNetwork
 }
 
 type Corpus {
