@@ -12,3 +12,5 @@ docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar
 <code>docker pull registry.gitlab.com/acdh-oeaw/dylen/dylen-ego-network-service</code>
 
 <code>docker run -p 8080:8080 -t registry.gitlab.com/acdh-oeaw/dylen/dylen-ego-network-service</code>
+
+Endpoint is http://localhost:8080/graphqls
