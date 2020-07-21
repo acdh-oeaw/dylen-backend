@@ -1,9 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.common.collect.ImmutableMap;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -24,9 +22,9 @@ public class NetworkService {
 
         var network1 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Asyl_6.json");
         var network2 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Computer_6.json");
-        var network3 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Flüchtling_6.json");
+        var network3 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Fluechtling_6.json");
         var network4 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Abschiebung_6.json");
-        var network5 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Küstenwache_6.json");
+        var network5 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Kuestenwache_6.json");
         var network6 = readEgoNetworkFromJson(mapper, "samples/amc/2015_Klick_6.json");
         var network7 = readEgoNetworkFromJson(mapper, "samples/amc/2015_Regierung_6.json");
 
