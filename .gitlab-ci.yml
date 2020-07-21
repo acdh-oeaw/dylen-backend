@@ -4,9 +4,6 @@ stages:
   - build
   - test
 
-before_script:
-  - docker info
-
 build:
   stage: build
   script:
@@ -22,5 +19,7 @@ test:
     - ./gradlew check
 
 build_image:
+  image: docker:latest
   script:
+    - docker info
     - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar -t registry.gitlab.com/acdh-oeaw/dylen/dylen-ego-network-service .
