@@ -4,6 +4,9 @@ stages:
   - build
   - test
 
+before_script:
+  - docker info
+
 build:
   stage: build
   script:
@@ -11,10 +14,13 @@ build:
   artifacts:
     paths:
       - build/libs/*.jar
-    expire_in:
+    expire_in: 30 days
 
 test:
   stage: test
   script:
     - ./gradlew check
 
+build_image:
+  script:
+    - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar -t registry.gitlab.com/acdh-oeaw/dylen/dylen-ego-network-service .
