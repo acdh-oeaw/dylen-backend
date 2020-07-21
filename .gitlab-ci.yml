@@ -1,9 +1,8 @@
 include:
 - template: Auto-DevOps.gitlab-ci.yml
 
-image: adoptopenjdk/openjdk11:ubi
-
 build:
+  image: adoptopenjdk/openjdk11:ubi
   stage: build
   script:
     - ./gradlew build
@@ -12,12 +11,8 @@ build:
       - build/libs/*.jar
     expire_in: 30 days
 
-test:
-  stage: test
-  script:
-    - ./gradlew check
-
 build_image:
+  stage: build
   image: docker:latest
   services:
     - docker:dind
@@ -27,3 +22,10 @@ build_image:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
+
+test:
+  stage: test
+  script:
+    - ./gradlew check
+
+
