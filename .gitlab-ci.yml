@@ -22,5 +22,9 @@ build_image:
   image: docker:latest
   services:
     - docker:dind
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
   script:
-    - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar -t registry.gitlab.com/acdh-oeaw/dylen/dylen-ego-network-service .
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
