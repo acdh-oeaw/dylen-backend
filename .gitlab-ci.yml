@@ -1,8 +1,7 @@
-image: adoptopenjdk/openjdk11:ubi
+include:
+- template: Auto-DevOps.gitlab-ci.yml
 
-stages:
-  - build
-  - test
+image: adoptopenjdk/openjdk11:ubi
 
 build:
   stage: build
