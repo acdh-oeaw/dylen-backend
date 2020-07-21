@@ -31,8 +31,8 @@ build:
     expire_in: 30 days
 
 build_image:
-  stage: dockerimage
   image: docker:latest
+  stage: dockerimage
   services:
     - docker:dind
   variables:
