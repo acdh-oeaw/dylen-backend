@@ -4,22 +4,16 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 import acdh.oeaw.ac.at.dylenegonetworkserice.NetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.SourceService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.List;
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Component
 @Slf4j
@@ -43,7 +37,6 @@ public class CorpusQuery implements GraphQLQueryResolver {
         this.corpora = ImmutableList.of(Corpus.of(CORPUS_ID, CORPUS_NAME, ImmutableList.of(standard, krone, heute)));
         this.networkService = networkService;
     }
-
 
     public List<Corpus> getAllAvailableCorpora(){
         return this.corpora;

@@ -1,0 +1,20 @@
+image: adoptopenjdk/openjdk11:ubi
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - ./gradlew build
+  artifacts:
+    paths:
+      - build/libs/*.jar
+    expire_in:
+
+test:
+  stage: test
+  script:
+    - ./gradlew check
+
