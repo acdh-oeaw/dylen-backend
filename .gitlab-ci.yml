@@ -1,6 +1,25 @@
 include:
 - template: Auto-DevOps.gitlab-ci.yml
 
+image: adoptopenjdk/openjdk11:ubi
+
+stages:
+  - build
+  - dockerimage
+  - test
+  - deploy  # dummy stage to follow the template guidelines
+  - review
+  - dast
+  - staging
+  - canary
+  - production
+  - incremental rollout 10%
+  - incremental rollout 25%
+  - incremental rollout 50%
+  - incremental rollout 100%
+  - performance
+  - cleanup
+
 build:
   image: adoptopenjdk/openjdk11:ubi
   stage: build
@@ -12,7 +31,7 @@ build:
     expire_in: 30 days
 
 build_image:
-  stage: build
+  stage: dockerimage
   image: docker:latest
   services:
     - docker:dind
@@ -22,10 +41,3 @@ build_image:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar -t $IMAGE_TAG .
     - docker push $IMAGE_TAG
-
-test:
-  stage: test
-  script:
-    - ./gradlew check
-
-
