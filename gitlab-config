@@ -27,7 +27,7 @@ build:
   artifacts:
     paths:
       - build/libs/*.jar
-    expire_in: 30 days
+    expire_in: 7 days
 
 build_image:
   image: docker:latest
