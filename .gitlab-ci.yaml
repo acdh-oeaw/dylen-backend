@@ -5,6 +5,7 @@ image: adoptopenjdk/openjdk11:ubi
 
 stages:
   - build
+  - docker
   - test
   - deploy  # dummy stage to follow the template guidelines
   - review
@@ -31,6 +32,7 @@ build:
 
 build_image:
   image: docker:latest
+  stage: docker
   services:
     - docker:dind
   variables:
