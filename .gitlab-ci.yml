@@ -42,4 +42,4 @@ build_image:
   script:
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
     - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar .
-    - docker push
+    - docker push $CI_REGISTRY_IMAGE
