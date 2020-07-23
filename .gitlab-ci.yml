@@ -36,11 +36,11 @@ build_image:
   services:
     - docker:dind
   variables:
-    IMAGE_TAG: $CI_REGISTRY_IMAGE
+    IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     DOCKER_HOST: tcp://localhost:2375
     CI_DEBUG_TRACE: "true"
   script:
     - export
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar -t registry.gitlab.com/acdh-oeaw/dylen/dylen-ego-network-service .
-    - docker push registry.gitlab.com/acdh-oeaw/dylen/dylen-ego-network-service
+    - docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
