@@ -20,6 +20,9 @@ stages:
   - performance
   - cleanup
 
+variables:
+  CI_DEBUG_TRACE: "true"
+
 build:
   image: adoptopenjdk/openjdk11:ubi
   stage: build
