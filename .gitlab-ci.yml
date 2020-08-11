@@ -21,7 +21,7 @@ stages:
   - cleanup
 
 variables:
-  CI_DEBUG_TRACE: "true"
+  CI_DEBUG_TRACE: "false"
 
 build:
   image: adoptopenjdk/openjdk11:ubi
@@ -41,7 +41,7 @@ build_image:
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     DOCKER_HOST: tcp://localhost:2375
-    CI_DEBUG_TRACE: "true"
+    CI_DEBUG_TRACE: "false"
   script:
     - export CI_APPLICATION_REPOSITORY=${CI_APPLICATION_REPOSITORY:-$CI_REGISTRY_IMAGE/$CI_COMMIT_REF_SLUG}
       export CI_APPLICATION_TAG=${CI_APPLICATION_TAG:-$CI_COMMIT_SHA}
