@@ -2,7 +2,6 @@ package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
@@ -47,7 +46,6 @@ public class EgoNetworkServiceTest {
 
     @Test
     public void getNetworkById() throws IOException {
-        var mapper = new ObjectMapper();
         var id = "NETWORK_ID";
         var network = EgoNetwork.of(id,"TEST", 2020, "AMC", SourceService.SourceEnum.STANDARD.getName(), 20,
                 0.5f, 0.6f, ImmutableList.of(), ImmutableList.of());

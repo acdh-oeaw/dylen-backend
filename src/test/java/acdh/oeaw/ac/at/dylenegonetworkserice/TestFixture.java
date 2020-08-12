@@ -4,8 +4,6 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Connection;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Node;
 import com.google.common.collect.ImmutableList;
-import com.google.common.graph.ImmutableNetwork;
-import com.google.common.graph.NetworkBuilder;
 
 public class TestFixture {
     public static final String SOURCE_ID_1 = "Source-1";
