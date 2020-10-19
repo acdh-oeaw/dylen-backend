@@ -25,7 +25,7 @@ public class NetworkQuery implements GraphQLQueryResolver {
     }
 
     public EgoNetwork getNetworkById(String id){
-        return networkService.getNetworkById(id);
+        return networkService.getNetworkById(id).get();
     }
 
 }

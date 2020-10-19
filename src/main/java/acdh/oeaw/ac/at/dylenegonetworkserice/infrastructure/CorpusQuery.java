@@ -24,8 +24,7 @@ public class CorpusQuery implements GraphQLQueryResolver {
     public final List<Corpus> corpora;
     private final NetworkService networkService;
 
-    public CorpusQuery(NetworkService networkService) throws IOException {
-        var mapper = new ObjectMapper();
+    public CorpusQuery(NetworkService networkService) {
 
         var standard = Source.of(UUID.randomUUID().toString(), SourceService.SourceEnum.STANDARD.getName(),
                 networkService.getNetworkBySource(SourceService.SourceEnum.STANDARD.getName()));

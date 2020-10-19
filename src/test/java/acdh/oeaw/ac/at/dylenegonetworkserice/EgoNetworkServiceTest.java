@@ -14,6 +14,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
@@ -49,7 +50,7 @@ public class EgoNetworkServiceTest {
         var id = "NETWORK_ID";
         var network = EgoNetwork.of(id,"TEST", 2020, "AMC", SourceService.SourceEnum.STANDARD.getName(), 20,
                 0.5f, 0.6f, ImmutableList.of(), ImmutableList.of());
-        doReturn(network).when(networkService).getNetworkById(id);
+        doReturn(Optional.of(network)).when(networkService).getNetworkById(id);
 
         var response = graphQLTestTemplate.postForResource("network-by-id.graphql");
 

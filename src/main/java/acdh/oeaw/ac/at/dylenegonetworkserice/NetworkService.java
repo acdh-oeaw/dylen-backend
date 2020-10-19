@@ -1,7 +1,9 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -11,13 +13,18 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 public class NetworkService {
 
+    private final EgoNetworkRepository egoNetworkRepository;
+
     public Map<String, EgoNetwork> map;
-    public NetworkService() throws IOException {
+
+    @Autowired
+    public NetworkService(EgoNetworkRepository egoNetworkRepository) throws IOException {
         var mapper = new ObjectMapper();
 
         var network1 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Asyl_6.json");
@@ -37,14 +44,17 @@ public class NetworkService {
         map.put(network5.getId(), network5);
         map.put(network6.getId(), network6);
         map.put(network7.getId(), network7);
+
+        this.egoNetworkRepository = egoNetworkRepository;
     }
-    public EgoNetwork getNetworkById(String id) {
-        return map.get(id);
+    public Optional<EgoNetwork> getNetworkById(String id) {
+        return egoNetworkRepository.findById(id);
     }
 
     public List<EgoNetwork> getNetworkBySource(String source) {
         return map.values().stream()
-                .filter(network -> network.getSourceId().equals(source)).collect(Collectors.toList());
+                .filter(network -> network.getSourceId().equals(source))
+                .collect(Collectors.toList());
     }
 
     private EgoNetwork readEgoNetworkFromJson(ObjectMapper mapper, String resourcePath) throws IOException {
