@@ -1,9 +1,11 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.EgoNetworkEntity;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.graph.Network;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,11 +13,12 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor(staticName = "of", access = AccessLevel.PUBLIC)
 public class EgoNetwork {
+    @Id
     @NonNull private String id;
     @NonNull private String text;
     private int year;
-    @NonNull private String corpusId;
-    @NonNull private String sourceId;
+    @NonNull private String corpus;
+    @NonNull private String source;
     private int absFreq;
     private float relFreq;
     private float threshold;
@@ -41,4 +44,5 @@ public class EgoNetwork {
     public static EgoNetwork fromJson(String json) {
         return null;
     }
+
 }

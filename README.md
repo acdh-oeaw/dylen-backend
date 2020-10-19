@@ -14,3 +14,8 @@ docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar
 <code>docker run -p 5000:5000 -t registry.gitlab.com/acdh-oeaw/dylen/dylen-ego-network-service</code>
 
 Endpoint is http://localhost:5000/graphql
+
+
+# REFERENCES
+Read models in DDD: 
+http://gorodinski.com/blog/2012/04/25/read-models-as-a-tactical-pattern-in-domain-driven-design-ddd/
