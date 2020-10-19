@@ -19,9 +19,10 @@ bootJar {
 }
 
 dependencies {
+	annotationProcessor "org.projectlombok:lombok:1.18.12"
 	compileOnly 'org.projectlombok:lombok:1.18.12'
-	implementation 'com.graphql-java:graphql-spring-boot-starter:5.0.2' // NEW
-	implementation 'com.graphql-java:graphql-java-tools:5.2.4'
+	implementation 'com.graphql-java-kickstart:graphql-spring-boot-starter:8.0.0'
+	implementation 'com.graphql-java-kickstart:graphql-java-tools:6.2.0'
 	implementation 'com.google.guava:guava:29.0-jre' // NEW
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
@@ -30,14 +31,13 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	testImplementation('com.graphql-java:graphql-spring-boot-starter-test:5.0.2')
+	testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:8.0.0'
 	testImplementation 'org.mongodb:mongodb-driver-sync:4.1.0-beta2'
 	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
-	annotationProcessor "org.projectlombok:lombok:1.18.12"
-	testAnnotationProcessor "org.projectlombok:lombok:1.18.12"
 	testImplementation "org.testcontainers:testcontainers:1.14.3"
 	testImplementation "org.testcontainers:junit-jupiter:1.14.3"
 	testImplementation "org.testcontainers:mongodb:1.14.3"
+	testAnnotationProcessor "org.projectlombok:lombok:1.18.12"
 }
 
 test {

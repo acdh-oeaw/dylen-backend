@@ -1,10 +1,12 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -16,7 +18,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Service
+@Component
 public class NetworkService {
 
     private final EgoNetworkRepository egoNetworkRepository;
@@ -47,8 +49,10 @@ public class NetworkService {
 
         this.egoNetworkRepository = egoNetworkRepository;
     }
-    public Optional<EgoNetwork> getNetworkById(String id) {
-        return egoNetworkRepository.findById(id);
+    public EgoNetwork getNetworkById(String id) {
+        return egoNetworkRepository.findById(id).orElseThrow(()-> {
+            throw new EgoNetworkNotFoundException("No ego network found with the id", id);
+        });
     }
 
     public List<EgoNetwork> getNetworkBySource(String source) {

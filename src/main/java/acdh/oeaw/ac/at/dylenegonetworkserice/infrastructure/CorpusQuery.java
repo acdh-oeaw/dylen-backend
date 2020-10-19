@@ -5,9 +5,9 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.NetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.SourceService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
-import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
+import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 

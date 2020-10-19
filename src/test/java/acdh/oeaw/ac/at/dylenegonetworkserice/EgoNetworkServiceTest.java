@@ -50,7 +50,7 @@ public class EgoNetworkServiceTest {
         var id = "NETWORK_ID";
         var network = EgoNetwork.of(id,"TEST", 2020, "AMC", SourceService.SourceEnum.STANDARD.getName(), 20,
                 0.5f, 0.6f, ImmutableList.of(), ImmutableList.of());
-        doReturn(Optional.of(network)).when(networkService).getNetworkById(id);
+        doReturn(network).when(networkService).getNetworkById(id);
 
         var response = graphQLTestTemplate.postForResource("network-by-id.graphql");
 

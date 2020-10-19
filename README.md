@@ -16,6 +16,12 @@ docker build --build-arg JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar
 Endpoint is http://localhost:5000/graphql
 
 
+# https://github.com/graphql-java-kickstart/graphql-java-tools
+
 # REFERENCES
 Read models in DDD: 
 http://gorodinski.com/blog/2012/04/25/read-models-as-a-tactical-pattern-in-domain-driven-design-ddd/
+* Graphgl-spring-boot Minimal example
+** https://github.com/graphql-java-kickstart/graphql-spring-boot/tree/master/example
+* Exception Handling for GraphQL-java
+** https://www.youtube.com/watch?v=lxOXDI_dvt8&feature=emb_logo
