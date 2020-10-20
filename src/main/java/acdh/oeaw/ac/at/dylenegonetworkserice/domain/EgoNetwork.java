@@ -41,4 +41,5 @@ public class EgoNetwork {
     public static EgoNetwork fromJson(String json) {
         return null;
     }
+
 }

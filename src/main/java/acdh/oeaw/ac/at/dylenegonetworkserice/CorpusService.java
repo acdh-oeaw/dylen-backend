@@ -10,4 +10,7 @@ public class CorpusService {
     public List<Corpus> getAllCorpora() {
         return null;
     }
+
+    public CorpusService() {
+    }
 }

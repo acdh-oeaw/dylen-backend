@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.Optional;
 
-public interface EgoNetworkRepository extends MongoRepository<EgoNetwork, String> {
-    public Optional<EgoNetwork> findById(String id);
+//https://docs.spring.io/spring-data/mongodb/docs/current/reference/html/#reference
+public interface EgoNetworkRepository extends MongoRepository<EgoNetwork, String>{
+    public Optional<EgoNetwork> findById(String Id);
 }

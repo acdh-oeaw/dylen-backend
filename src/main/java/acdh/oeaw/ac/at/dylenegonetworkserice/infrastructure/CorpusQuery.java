@@ -1,17 +1,16 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.NetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.SourceService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,8 +22,9 @@ public class CorpusQuery implements GraphQLQueryResolver {
     public static final String CORPUS_NAME = "AMC";
     public final List<Corpus> corpora;
     private final NetworkService networkService;
+    private final CorpusService corpusService;
 
-    public CorpusQuery(NetworkService networkService) {
+    public CorpusQuery(NetworkService networkService, CorpusService corpusService) {
 
         var standard = Source.of(UUID.randomUUID().toString(), SourceService.SourceEnum.STANDARD.getName(),
                 networkService.getNetworkBySource(SourceService.SourceEnum.STANDARD.getName()));
@@ -35,10 +35,10 @@ public class CorpusQuery implements GraphQLQueryResolver {
 
         this.corpora = ImmutableList.of(Corpus.of(CORPUS_ID, CORPUS_NAME, ImmutableList.of(standard, krone, heute)));
         this.networkService = networkService;
+        this.corpusService = corpusService;
     }
 
     public List<Corpus> getAllAvailableCorpora(){
         return this.corpora;
-
     }
 }

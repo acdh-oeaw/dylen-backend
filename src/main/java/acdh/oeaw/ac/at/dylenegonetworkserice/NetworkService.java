@@ -18,14 +18,14 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-@Component
+@Service
 public class NetworkService {
-
-    private final EgoNetworkRepository egoNetworkRepository;
 
     public Map<String, EgoNetwork> map;
 
-    @Autowired
+    final
+    EgoNetworkRepository egoNetworkRepository;
+
     public NetworkService(EgoNetworkRepository egoNetworkRepository) throws IOException {
         var mapper = new ObjectMapper();
 
@@ -50,7 +50,8 @@ public class NetworkService {
         this.egoNetworkRepository = egoNetworkRepository;
     }
     public EgoNetwork getNetworkById(String id) {
-        return egoNetworkRepository.findById(id).orElseThrow(()-> {
+        return egoNetworkRepository.findById(id)
+                .orElseThrow(()-> {
             throw new EgoNetworkNotFoundException("No ego network found with the id", id);
         });
     }
@@ -61,18 +62,21 @@ public class NetworkService {
                 .collect(Collectors.toList());
     }
 
+    void putEgoNetwork(EgoNetwork network) {
+        map.put(network.getId(), network);
+    }
+
     private EgoNetwork readEgoNetworkFromJson(ObjectMapper mapper, String resourcePath) throws IOException {
         var resource = new ClassPathResource(resourcePath).getInputStream();
+
         EgoNetwork network1;
+
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(resource))) {
             var jsonStr = reader.lines()
                     .collect(Collectors.joining("\n"));
             network1 = mapper.readValue(jsonStr, EgoNetwork.class);
         }
-        return network1;
-    }
 
-    void putEgoNetwork(EgoNetwork network) {
-        map.put(network.getId(), network);
+        return network1;
     }
 }

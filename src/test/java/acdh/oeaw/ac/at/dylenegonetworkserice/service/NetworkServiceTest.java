@@ -1,19 +1,18 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice;
+package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
+import acdh.oeaw.ac.at.dylenegonetworkserice.NetworkService;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.testcontainers.shaded.com.google.common.collect.ImmutableList;
 
 import java.io.IOException;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.EGO_NETWORK_ID;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.NETWORK;
 import static org.assertj.core.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
@@ -25,9 +24,7 @@ public class NetworkServiceTest {
     @Test
     public void shouldGetNetworkById() throws IOException {
         var networkService = new NetworkService(egoNetworkRepository);
-        var network = EgoNetwork.of("1", 2020, "AMC", "DERSTANDARD", 100, 0.5f, 0.56f,
-                ImmutableList.of(), ImmutableList.of());
-        Mockito.when(egoNetworkRepository.findById(EGO_NETWORK_ID)).thenReturn(java.util.Optional.of(network));
+        Mockito.when(egoNetworkRepository.findById(EGO_NETWORK_ID)).thenReturn(java.util.Optional.of(NETWORK));
 
         var result = networkService.getNetworkById(EGO_NETWORK_ID);
 
