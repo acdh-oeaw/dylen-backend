@@ -27,16 +27,16 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-	implementation 'org.mongodb:mongodb-driver-sync:4.1.0-beta2'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
 	testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:8.0.0'
-	testImplementation 'org.mongodb:mongodb-driver-sync:4.1.0-beta2'
+	testImplementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
 	testImplementation "org.testcontainers:testcontainers:1.14.3"
 	testImplementation "org.testcontainers:junit-jupiter:1.14.3"
 	testImplementation "org.testcontainers:mongodb:1.14.3"
+	testImplementation 'org.projectlombok:lombok:1.18.12'
 	testAnnotationProcessor "org.projectlombok:lombok:1.18.12"
 }
 
