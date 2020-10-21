@@ -29,6 +29,7 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -70,11 +71,11 @@ public class EgoNetworkRepositoryIT {
 
     @Test
     public void shouldInsertEgoNetwork() throws IOException {
-        String jsonStr = new String(getClass().getClassLoader().getResourceAsStream("2014_Abschiebung_7.json").readAllBytes());
-        EgoNetwork egoNetwork = new ObjectMapper().readValue(jsonStr, EgoNetwork.class);
+        var jsonStr = new String(getClass().getClassLoader().getResourceAsStream("2014_Abschiebung_7.json").readAllBytes());
+        var egoNetwork = new ObjectMapper().readValue(jsonStr, EgoNetwork.class);
 
         repository.insert(egoNetwork);
-        EgoNetwork network = repository.findById(egoNetwork.getId()).get();
+        var network = repository.findById(egoNetwork.getId()).get();
 
         assertThat(network).isNotNull();
     }
@@ -87,20 +88,22 @@ public class EgoNetworkRepositoryIT {
         @BeforeEach
         void beforeEach() throws IOException {
             var resourceePatternResolver = new PathMatchingResourcePatternResolver();
-            var resources = resourceePatternResolver.getResources("classpath:AMC/**/*.json");
+            var resources = resourceePatternResolver.getResources("classpath:AMC/selected/*.json");
 
             var networks = Arrays.stream(resources).map(r -> extractEgoNetwork(r)).collect(Collectors.toUnmodifiableList());
 
-            repository.insert(networks);
+            var BATCH = 100;
+            IntStream.range(0, (networks.size()+BATCH-1)/BATCH)
+                    .mapToObj(i -> networks.subList(i*BATCH, Math.min(networks.size(), (i+1)*BATCH)))
+                    .forEach(batch -> repository.insert(batch));
         }
 
         @Test
-        @Disabled
         void shouldReturnAllAvailableNetworks() {
 
             var networks = repository.findAll();
 
-            assertThat(networks.size()).isEqualTo(5722);
+            assertThat(networks.size()).isEqualTo(8);
         }
 
     }
