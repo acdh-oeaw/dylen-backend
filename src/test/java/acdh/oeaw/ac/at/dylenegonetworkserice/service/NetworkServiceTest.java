@@ -3,6 +3,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.NetworkService;
+import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -11,8 +12,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.EGO_NETWORK_ID;
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.NETWORK;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
 import static org.assertj.core.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
@@ -39,5 +39,13 @@ public class NetworkServiceTest {
         Throwable thrown = catchThrowable(() -> { networkService.getNetworkById(EGO_NETWORK_ID); });
 
         assertThat(thrown).isInstanceOf(EgoNetworkNotFoundException.class);
+    }
+
+    @Test
+    public void shouldReturnNetworkByTargetWord() throws IOException {
+        var networkService = new NetworkService(egoNetworkRepository);
+        Mockito.when(egoNetworkRepository.findByTargetWord(EGO_NETWORK_NAME)).thenReturn(ImmutableList.of(NETWORK));
+
+        var result = networkService.getNetworkByTargetWord(EGO_NETWORK_NAME);
     }
 }

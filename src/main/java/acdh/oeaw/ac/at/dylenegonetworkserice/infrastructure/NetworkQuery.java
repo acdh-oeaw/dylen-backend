@@ -5,6 +5,8 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 
 @Component
 public class NetworkQuery implements GraphQLQueryResolver {
@@ -19,4 +21,7 @@ public class NetworkQuery implements GraphQLQueryResolver {
         return networkService.getNetworkById(id);
     }
 
+    public List<EgoNetwork> networkByTargetWord(String targetWord) {
+        return networkService.getNetworkByTargetWord(targetWord);
+    }
 }

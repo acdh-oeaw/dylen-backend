@@ -39,7 +39,8 @@ public class TestFixture {
     public static final EgoNetwork NETWORK = EgoNetwork.of(EGO_NETWORK_ID,
             EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID,
             SourceService.SourceEnum.STANDARD.getName(), 201, 0.2f, 0.5f, NODES, CONNECTIONS);
-    public static final Corpus CORPUS_1 = Corpus.of("1", "AMC", ImmutableList.of(Source.of("1", "Falter",
+    public static final String AMC_CORPUS = "AMC";
+    public static final Corpus CORPUS_1 = Corpus.of("1", AMC_CORPUS, ImmutableList.of(Source.of("1", "Falter",
             ImmutableList.of(TestFixture.NETWORK))));
 
 }

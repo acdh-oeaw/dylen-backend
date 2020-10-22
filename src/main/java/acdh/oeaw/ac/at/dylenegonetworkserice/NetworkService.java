@@ -4,9 +4,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -15,7 +13,6 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -58,7 +55,7 @@ public class NetworkService {
 
     public List<EgoNetwork> getNetworkBySource(String source) {
         return map.values().stream()
-                .filter(network -> network.getSourceId().equals(source))
+                .filter(network -> network.getSource().equals(source))
                 .collect(Collectors.toList());
     }
 
@@ -78,5 +75,9 @@ public class NetworkService {
         }
 
         return network1;
+    }
+
+    public List<EgoNetwork> getNetworkByTargetWord(String targetWord) {
+        return egoNetworkRepository.findByTargetWord(targetWord);
     }
 }

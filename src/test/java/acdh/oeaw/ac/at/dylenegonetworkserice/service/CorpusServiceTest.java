@@ -1,21 +1,31 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
+import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.CORPUS_1;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
-@RunWith(SpringRunner.class)
-class CorpusServiceTest {
+@ExtendWith(SpringExtension.class)
+public class CorpusServiceTest {
+
+    @Mock
+    EgoNetworkRepository egoNetworkRepository;
 
     @Test
-    void shouldRetrieveAllCorpora() {
-        var corpusService = new CorpusService();
-        var corpus_1 = CORPUS_1;
+    public void shouldRetrieveAllCorpora() {
+        var corpusService = new CorpusService(egoNetworkRepository);
+        Mockito.when(egoNetworkRepository.findEgoNetworksByCorpus(AMC_CORPUS)).thenReturn(ImmutableList.of(NETWORK));
         var corpora = corpusService.getAllCorpora();
 
-        //assertEquals();
+        assertThat(corpora).isNotEmpty();
     }
 }

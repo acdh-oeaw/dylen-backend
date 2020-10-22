@@ -15,12 +15,12 @@ import java.util.UUID;
 public class EgoNetwork {
     @Id
     @NonNull private String id;
-    @NonNull private String text;
+    @NonNull private String targetWord;
     private int year;
     @Indexed
-    @NonNull private String corpusId;
+    @NonNull private String corpus;
     @Indexed
-    @NonNull private String sourceId;
+    @NonNull private String source;
     private int absFreq;
     private float relFreq;
     private float threshold;
@@ -29,7 +29,7 @@ public class EgoNetwork {
 
 
     @JsonCreator
-    public static EgoNetwork of(@JsonProperty("text") String text,
+    public static EgoNetwork of(@JsonProperty("text") String targetWord,
                                 @JsonProperty("year") int year,
                                 @JsonProperty("corpus") String corpus,
                                 @JsonProperty("source") String source,
@@ -40,7 +40,7 @@ public class EgoNetwork {
                                 @JsonProperty("connections") List<Connection> connections
                                 ) {
         var id = UUID.randomUUID();
-        return new EgoNetwork(id.toString(), text, year, corpus, source, absFreq, relFreq, threshold, nodes, connections);
+        return new EgoNetwork(id.toString(), targetWord, year, corpus, source, absFreq, relFreq, threshold, nodes, connections);
     }
 
     public static EgoNetwork fromJson(String json) {

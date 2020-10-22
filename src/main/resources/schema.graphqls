@@ -1,6 +1,7 @@
 type Query {
     allAvailableCorpora: [Corpus]
     networkById(id: ID): EgoNetwork
+    networkByTargetWord(target_word: String): [EgoNetwork]
 }
 
 type Corpus {
@@ -17,10 +18,10 @@ type Source {
 
 type EgoNetwork {
     id: ID
-    text: String
+    targetWord: String
     year: Int
-    corpusId: ID
-    sourceId: ID
+    corpus: ID
+    source: ID
     absFreq: Int
     relFreq: Float
     threshold: Float
