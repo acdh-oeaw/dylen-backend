@@ -1,17 +1,26 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.AppConfig;
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
-import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
+import com.graphql.spring.boot.test.GraphQLTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cache.CacheManager;
+import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.concurrent.ConcurrentMapCacheManager;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -21,18 +30,28 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@ExtendWith(SpringExtension.class)
 @Testcontainers
-@DataMongoTest
+//@DataMongoTest
+@AutoConfigureDataMongo
+@SpringBootTest
+@GraphQLTest
 @Slf4j
 public class CorpusServiceIT {
+/*
+    @Autowired
+    CacheManager cacheManager;*/
+
     @Autowired
     EgoNetworkRepository repository;
+
+    @Autowired
+    CorpusService corpusService;
 
     @Container
     private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.5")
@@ -51,11 +70,18 @@ public class CorpusServiceIT {
     @BeforeEach
     public void prepareDatabase() throws IOException {
         var resourceePatternResolver = new PathMatchingResourcePatternResolver();
-        var resources = resourceePatternResolver.getResources("classpath:AMC/HEUTE/*.json");
+        var resources = resourceePatternResolver.getResources("classpath:AMC/selected/*.json");
+        var listToBeSplit = Arrays.asList(resources);
+        int chunkSize =150;
 
-        var networks = Arrays.stream(resources).map(TestUtil::extractEgoNetwork).collect(Collectors.toUnmodifiableList());
+        var resourcesList = Lists.partition(listToBeSplit, chunkSize);
 
-        var BATCH = 1;
+        var networks = resourcesList.stream()
+                .map(list -> list.stream().map(TestUtil::extractEgoNetwork).collect(Collectors.toUnmodifiableList()))
+                .flatMap(Collection::stream)
+                .collect(Collectors.toUnmodifiableList());
+
+        var BATCH = 100;
         IntStream.range(0, (networks.size()+BATCH-1)/BATCH)
                 .mapToObj(i -> networks.subList(i*BATCH, Math.min(networks.size(), (i+1)*BATCH)))
                 .forEach(batch -> repository.insert(batch));
@@ -63,8 +89,6 @@ public class CorpusServiceIT {
 
     @Test
     void shouldReturnAvailableCorpora() {
-        var corpusService = new CorpusService(repository);
-
         var result = corpusService.getAllCorpora();
 
         assertThat(result).isNotEmpty();

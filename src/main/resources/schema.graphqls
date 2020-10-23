@@ -2,6 +2,14 @@ type Query {
     allAvailableCorpora: [Corpus]
     networkById(id: ID): EgoNetwork
     networkByTargetWord(target_word: String): [EgoNetwork]
+    allAvailableTargetWords: [TargetWordDto]
+}
+
+type TargetWordDto {
+    id: ID
+    text: String
+    corpus: String
+    source: String
 }
 
 type Corpus {

@@ -1,7 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.NetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;

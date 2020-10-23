@@ -1,6 +1,6 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.NetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;

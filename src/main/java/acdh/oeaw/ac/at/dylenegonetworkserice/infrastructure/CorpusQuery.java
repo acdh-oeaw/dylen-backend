@@ -1,9 +1,9 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.NetworkService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.SourceService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
 import com.google.common.collect.ImmutableList;

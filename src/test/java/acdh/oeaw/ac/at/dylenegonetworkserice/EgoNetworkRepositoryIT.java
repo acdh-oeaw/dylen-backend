@@ -82,7 +82,7 @@ public class EgoNetworkRepositoryIT {
         void shouldFindEgoNetworkWithId() {
             var networks = repository.findByTargetWord("Abschiebung");
 
-            assertThat(networks.size()).isEqualTo(3);
+            assertThat(networks.size()).isEqualTo(4);
         }
 
         @Test
@@ -90,7 +90,7 @@ public class EgoNetworkRepositoryIT {
 
             var networks = repository.findAll();
 
-            assertThat(networks.size()).isEqualTo(8);
+            assertThat(networks.size()).isEqualTo(29);
         }
 
     }

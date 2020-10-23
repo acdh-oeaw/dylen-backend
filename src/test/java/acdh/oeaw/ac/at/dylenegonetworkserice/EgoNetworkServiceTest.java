@@ -2,6 +2,9 @@ package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
