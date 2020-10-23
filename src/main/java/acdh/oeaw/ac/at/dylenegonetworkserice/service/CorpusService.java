@@ -8,6 +8,7 @@ import com.google.common.collect.ImmutableList;
 import com.mongodb.annotations.Immutable;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -25,7 +26,7 @@ public class CorpusService {
         this.egoNetworkRepository = egoNetworkRepository;
     }
 
-    //@Cacheable("corpora")
+    @Cacheable(value = "corpora", cacheManager = "cacheMgr", key = "#root.method.name")
     public List<Corpus> getAllCorpora() {
         var amc = this.egoNetworkRepository.findEgoNetworksByCorpus("AMC");
         var parlat = this.egoNetworkRepository.findEgoNetworksByCorpus("Parlat");
