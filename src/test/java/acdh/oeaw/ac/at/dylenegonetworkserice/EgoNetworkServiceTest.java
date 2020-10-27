@@ -2,9 +2,12 @@ package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.TargetWordService;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
@@ -13,6 +16,8 @@ import org.junit.runner.RunWith;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -23,6 +28,7 @@ import static org.mockito.Mockito.doReturn;
 
 @RunWith(SpringRunner.class)
 @GraphQLTest
+//@SpringBootTest
 public class EgoNetworkServiceTest {
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
@@ -35,6 +41,10 @@ public class EgoNetworkServiceTest {
 
     @MockBean
     NetworkService networkService;
+
+    @MockBean
+    TargetWordService targetWordService;
+
 
     @Test
     public void getAllAvailableCorpora() throws IOException {

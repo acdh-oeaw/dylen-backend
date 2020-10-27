@@ -7,7 +7,7 @@
             name
             networks {
                 id
-                text
+                targetWord
                 year
             }
         }

@@ -8,6 +8,7 @@ type Query {
 type TargetWordDto {
     id: ID
     text: String
+    pos: String
     corpus: String
     source: String
 }

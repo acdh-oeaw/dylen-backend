@@ -1,10 +1,10 @@
 {
     networkById(id: "NETWORK_ID"){
         id
-        text
+        targetWord
         year
-        corpusId
-        sourceId
+        corpus
+        source
         absFreq
         relFreq
         threshold
