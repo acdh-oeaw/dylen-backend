@@ -5,6 +5,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.context.annotation.Profile;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
 
@@ -17,12 +18,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
+@Profile("dummy")
 public class NetworkServiceDummy implements EgoNetworkService {
 
     public Map<String, EgoNetwork> map;
-
-    final
-    EgoNetworkRepository egoNetworkRepository;
 
     public NetworkServiceDummy(EgoNetworkRepository egoNetworkRepository) throws IOException {
         var mapper = new ObjectMapper();
@@ -44,16 +43,15 @@ public class NetworkServiceDummy implements EgoNetworkService {
         map.put(network5.getId(), network5);
         map.put(network6.getId(), network6);
         map.put(network7.getId(), network7);
-
-        this.egoNetworkRepository = egoNetworkRepository;
     }
 
     @Override
     public EgoNetwork getNetworkById(String id) {
-        return egoNetworkRepository.findById(id)
-                .orElseThrow(()-> {
+        var network = map.get(id);
+        if(network==null) {
             throw new EgoNetworkNotFoundException("No ego network found with the id", id);
-        });
+        }
+        return network;
     }
     @Override
     public List<EgoNetwork> getNetworkBySource(String source) {
@@ -64,7 +62,7 @@ public class NetworkServiceDummy implements EgoNetworkService {
 
     @Override
     public List<EgoNetwork> getNetworkByTargetWord(String targetWord) {
-        return egoNetworkRepository.findByTargetWord(targetWord);
+        return null;
     }
 
     void putEgoNetwork(EgoNetwork network) {
