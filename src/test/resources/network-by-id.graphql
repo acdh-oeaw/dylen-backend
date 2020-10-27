@@ -1,7 +1,7 @@
 {
     networkById(id: "NETWORK_ID"){
         id
-        targetWord
+        text
         year
         corpus
         source

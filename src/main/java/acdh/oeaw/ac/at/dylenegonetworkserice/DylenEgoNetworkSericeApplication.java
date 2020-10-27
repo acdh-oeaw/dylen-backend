@@ -1,5 +1,6 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org
@@ -10,7 +11,10 @@ import org
 public class DylenEgoNetworkSericeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DylenEgoNetworkSericeApplication.class, args);
+		var context = SpringApplication.run(DylenEgoNetworkSericeApplication.class, args);
+
+		var corpusService = context.getBean(CorpusService.class);
+		corpusService.getAllCorpora();
 	}
 
 }

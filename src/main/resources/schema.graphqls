@@ -27,7 +27,7 @@ type Source {
 
 type EgoNetwork {
     id: ID
-    targetWord: String
+    text: String
     year: Int
     corpus: ID
     source: ID

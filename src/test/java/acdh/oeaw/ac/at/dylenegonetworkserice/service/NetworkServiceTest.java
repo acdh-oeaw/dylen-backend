@@ -45,7 +45,7 @@ public class NetworkServiceTest {
     @Test
     public void shouldReturnNetworkByTargetWord() throws IOException {
         var networkService = new NetworkServiceDummy(egoNetworkRepository);
-        Mockito.when(egoNetworkRepository.findByTargetWord(EGO_NETWORK_NAME)).thenReturn(ImmutableList.of(NETWORK));
+        Mockito.when(egoNetworkRepository.findByText(EGO_NETWORK_NAME)).thenReturn(ImmutableList.of(NETWORK));
 
         var result = networkService.getNetworkByTargetWord(EGO_NETWORK_NAME);
     }

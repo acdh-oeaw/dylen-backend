@@ -5,19 +5,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
-@AllArgsConstructor
 public class Node {
-    @Id
-    @NonNull private String id;
-    @Indexed
+    @NonNull
+    private String id;
+    @Field("cluster_id")
     private int clusterId;
-    @NonNull private String text;
-    @NonNull private String pos;
+    @NonNull
+    private String text;
+    private String pos;
     private float similarity;
+    @Field("abs_freq")
     private int absFreq;
+    @Field("rel_freq")
     private float relFreq;
+
+
+    private Node(String id, int clusterId, String text, String pos, float similarity, int absFreq, float relFreq) {
+        this.id = id;
+        this.clusterId = clusterId;
+        this.text = text;
+        this.pos = pos;
+        this.similarity = similarity;
+        this.absFreq = absFreq;
+        this.relFreq = relFreq;
+
+    }
+
 
     @JsonCreator
     public static Node of(@JsonProperty("id") String id,

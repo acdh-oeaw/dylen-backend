@@ -16,7 +16,7 @@ public class EgoNetworkTest {
         var egoNetwork = EgoNetwork.of(EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID, SOURCE_ID_1, 20,
                 0.3f, 0.3f, NODES, CONNECTIONS);
 
-        assertThat(egoNetwork.getTargetWord()).isEqualTo(EGO_NETWORK_NAME);
+        assertThat(egoNetwork.getText()).isEqualTo(EGO_NETWORK_NAME);
         assertThat(egoNetwork.getYear()).isEqualTo(EGO_NETWORK_YEAR);
         assertThat(egoNetwork.getCorpus()).isEqualTo(CORPUS_ID);
         assertThat(egoNetwork.getSource()).isEqualTo(SOURCE_ID_1);

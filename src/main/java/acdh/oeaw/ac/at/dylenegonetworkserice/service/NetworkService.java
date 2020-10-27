@@ -31,6 +31,6 @@ public class NetworkService implements EgoNetworkService {
 
     @Override
     public List<EgoNetwork> getNetworkByTargetWord(String targetWord) {
-        return egoNetworkRepository.findByTargetWord(targetWord);
+        return egoNetworkRepository.findByText(targetWord);
     }
 }
