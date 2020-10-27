@@ -1,6 +1,6 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
@@ -11,9 +11,9 @@ import java.util.List;
 @Component
 public class NetworkQuery implements GraphQLQueryResolver {
 
-    final NetworkService networkService;
+    final EgoNetworkService networkService;
 
-    public NetworkQuery(NetworkService networkService) {
+    public NetworkQuery(EgoNetworkService networkService) {
         this.networkService = networkService;
     }
 

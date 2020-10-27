@@ -1,8 +1,8 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
@@ -21,10 +21,10 @@ public class CorpusQuery implements GraphQLQueryResolver {
     public static final String CORPUS_ID = "corpus-1";
     public static final String CORPUS_NAME = "AMC";
     public final List<Corpus> corpora;
-    private final NetworkService networkService;
+    private final EgoNetworkService networkService;
     private final CorpusService corpusService;
 
-    public CorpusQuery(NetworkService networkService, CorpusService corpusService) {
+    public CorpusQuery(EgoNetworkService networkService, CorpusService corpusService) {
 
         var standard = Source.of(UUID.randomUUID().toString(), SourceService.SourceEnum.STANDARD.getName(),
                 networkService.getNetworkBySource(SourceService.SourceEnum.STANDARD.getName()));

@@ -2,10 +2,10 @@ package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.TargetWordService;
 import com.google.common.collect.ImmutableList;
@@ -40,7 +40,7 @@ public class EgoNetworkServiceTest {
     CorpusService corpusService;
 
     @MockBean
-    NetworkService networkService;
+    EgoNetworkService networkService;
 
     @MockBean
     TargetWordService targetWordService;

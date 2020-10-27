@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -16,14 +17,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 @Service
-public class NetworkService {
+public class NetworkServiceDummy implements EgoNetworkService {
 
     public Map<String, EgoNetwork> map;
 
     final
     EgoNetworkRepository egoNetworkRepository;
 
-    public NetworkService(EgoNetworkRepository egoNetworkRepository) throws IOException {
+    public NetworkServiceDummy(EgoNetworkRepository egoNetworkRepository) throws IOException {
         var mapper = new ObjectMapper();
 
         var network1 = readEgoNetworkFromJson(mapper, "samples/amc/2014_Asyl_6.json");
@@ -46,17 +47,24 @@ public class NetworkService {
 
         this.egoNetworkRepository = egoNetworkRepository;
     }
+
+    @Override
     public EgoNetwork getNetworkById(String id) {
         return egoNetworkRepository.findById(id)
                 .orElseThrow(()-> {
             throw new EgoNetworkNotFoundException("No ego network found with the id", id);
         });
     }
-
+    @Override
     public List<EgoNetwork> getNetworkBySource(String source) {
         return map.values().stream()
                 .filter(network -> network.getSource().equals(source))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EgoNetwork> getNetworkByTargetWord(String targetWord) {
+        return egoNetworkRepository.findByTargetWord(targetWord);
     }
 
     void putEgoNetwork(EgoNetwork network) {
@@ -75,9 +83,5 @@ public class NetworkService {
         }
 
         return network1;
-    }
-
-    public List<EgoNetwork> getNetworkByTargetWord(String targetWord) {
-        return egoNetworkRepository.findByTargetWord(targetWord);
     }
 }

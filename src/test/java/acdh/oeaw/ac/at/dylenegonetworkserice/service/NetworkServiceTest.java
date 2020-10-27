@@ -22,7 +22,7 @@ public class NetworkServiceTest {
 
     @Test
     public void shouldGetNetworkById() throws IOException {
-        var networkService = new NetworkService(egoNetworkRepository);
+        var networkService = new NetworkServiceDummy(egoNetworkRepository);
         Mockito.when(egoNetworkRepository.findById(EGO_NETWORK_ID)).thenReturn(java.util.Optional.of(NETWORK));
 
         var result = networkService.getNetworkById(EGO_NETWORK_ID);
@@ -32,7 +32,7 @@ public class NetworkServiceTest {
 
     @Test
     public void shouldThrowEgoNetWorkNotFoundException() throws IOException {
-        var networkService = new NetworkService(egoNetworkRepository);
+        var networkService = new NetworkServiceDummy(egoNetworkRepository);
         Mockito.when(egoNetworkRepository.findById("1")).thenReturn(java.util.Optional.empty());
 
         Throwable thrown = catchThrowable(() -> { networkService.getNetworkById(EGO_NETWORK_ID); });
@@ -42,7 +42,7 @@ public class NetworkServiceTest {
 
     @Test
     public void shouldReturnNetworkByTargetWord() throws IOException {
-        var networkService = new NetworkService(egoNetworkRepository);
+        var networkService = new NetworkServiceDummy(egoNetworkRepository);
         Mockito.when(egoNetworkRepository.findByTargetWord(EGO_NETWORK_NAME)).thenReturn(ImmutableList.of(NETWORK));
 
         var result = networkService.getNetworkByTargetWord(EGO_NETWORK_NAME);
