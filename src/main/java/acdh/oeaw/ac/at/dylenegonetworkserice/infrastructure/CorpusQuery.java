@@ -1,7 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.service.EgoNetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
