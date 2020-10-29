@@ -2,7 +2,6 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
-import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
@@ -52,7 +51,7 @@ public class EgoNetworkRepositoryIT {
     @Test
     public void shouldInsertEgoNetwork() throws IOException {
         var jsonStr = new String(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(
-                "2014_Abschiebung_7.json")).readAllBytes());
+                "AMC/2014_Abschiebung_7.json")).readAllBytes());
         var egoNetwork = new ObjectMapper().readValue(jsonStr, EgoNetwork.class);
 
         repository.insert(egoNetwork);
