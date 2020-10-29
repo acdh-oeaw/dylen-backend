@@ -26,8 +26,12 @@ variables:
 build:
   image: adoptopenjdk/openjdk11:ubi
   stage: build
+  services:
+    - docker:dind
   script:
     - ./gradlew build
+  variables:
+    DOCKER_HOST: tcp://localhost:2375
   artifacts:
     paths:
       - build/libs/*.jar

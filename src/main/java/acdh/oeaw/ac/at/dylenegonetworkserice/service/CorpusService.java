@@ -6,6 +6,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.google.common.collect.ImmutableList;
 import com.mongodb.annotations.Immutable;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.cache.annotation.EnableCaching;
@@ -18,6 +19,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @Service
+@Slf4j
 public class CorpusService {
 
     final EgoNetworkRepository egoNetworkRepository;
@@ -28,6 +30,7 @@ public class CorpusService {
 
     @Cacheable(value = "corpora", cacheManager = "cacheMgr", key = "#root.method.name")
     public List<Corpus> getAllCorpora() {
+        log.info("LOADING All Corpora...");
         var amc = this.egoNetworkRepository.findEgoNetworksByCorpus("AMC");
         var parlat = this.egoNetworkRepository.findEgoNetworksByCorpus("Parlat");
 
@@ -43,6 +46,7 @@ public class CorpusService {
                 })
                 .collect(Collectors.toUnmodifiableList());
         var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "AMC", amc_sources_list);
+        log.info("FINISHED LOADING All Corpora");
 
         return ImmutableList.of(amc_corpus);
     }
