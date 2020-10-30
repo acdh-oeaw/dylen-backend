@@ -61,7 +61,7 @@ test:
     DOCKER_HOST: tcp://localhost:2375
   services:
     - "postgres:${POSTGRES_VERSION}"
-    - docker:didn
+    - docker:dind
   stage: test
   image: gliderlabs/herokuish:latest
   needs: []
