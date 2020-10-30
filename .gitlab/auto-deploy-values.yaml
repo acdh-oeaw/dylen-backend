@@ -12,3 +12,5 @@ readinessProbe:
   timeoutSeconds: 3
   scheme: "HTTP"
   probeType: "httpGet"
+spring:
+  profile: prod
