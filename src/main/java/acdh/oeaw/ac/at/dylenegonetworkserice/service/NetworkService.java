@@ -3,6 +3,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
+import com.google.common.collect.ImmutableList;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +31,12 @@ public class NetworkService implements EgoNetworkService {
 
     @Override
     public List<EgoNetwork> getNetworkBySource(String source) {
-        return null;
+        var result = egoNetworkRepository.findBySource(source);
+
+        if (result.size()==0) {
+            return ImmutableList.of();
+        }
+        return result;
     }
 
     @Override

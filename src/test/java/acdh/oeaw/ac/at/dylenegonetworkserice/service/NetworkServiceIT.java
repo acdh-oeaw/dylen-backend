@@ -1,7 +1,9 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.Lists;
 import com.graphql.spring.boot.test.GraphQLTest;
 import lombok.extern.slf4j.Slf4j;
@@ -11,7 +13,6 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cache.CacheManager;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
@@ -23,6 +24,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -33,17 +35,15 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @GraphQLTest
 @Slf4j
-@ActiveProfiles("dummy")
-public class CorpusServiceIT {
+@ActiveProfiles("prod")
+public class NetworkServiceIT {
 
     @Autowired
-    CacheManager cacheManager;
+    EgoNetworkService networkService;
 
     @Autowired
     EgoNetworkRepository repository;
 
-    @Autowired
-    CorpusService corpusService;
 
     @Container
     private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.5")
@@ -55,34 +55,51 @@ public class CorpusServiceIT {
     }
 
     @BeforeAll
-    public static void setUp() {
+    public static void setUp() throws IOException {
         mongoDBContainer.start();
     }
 
-    @BeforeEach
-    public void prepareDatabase() throws IOException {
-        var resourceePatternResolver = new PathMatchingResourcePatternResolver();
-        var resources = resourceePatternResolver.getResources("classpath:AMC/selected/*.json");
-        var listToBeSplit = Arrays.asList(resources);
-        var chunkSize =150;
 
-        var resourcesList = Lists.partition(listToBeSplit, chunkSize);
+    @Test
+    void shouldReturnNetworkById() throws IOException {
+        var jsonStr = new String(Objects.requireNonNull(NetworkServiceIT.class.getClassLoader().getResourceAsStream(
+                "AMC/2014_Abschiebung_7.json")).readAllBytes());
 
-        var networks = resourcesList.stream()
-                .map(list -> list.stream().map(TestUtil::extractEgoNetwork).collect(Collectors.toUnmodifiableList()))
-                .flatMap(Collection::stream)
-                .collect(Collectors.toUnmodifiableList());
+        var egoNetwork = new ObjectMapper().readValue(jsonStr, EgoNetwork.class);
+        var network = repository.insert(egoNetwork);
 
-        var BATCH = 100;
-        IntStream.range(0, (networks.size()+BATCH-1)/BATCH)
-                .mapToObj(i -> networks.subList(i*BATCH, Math.min(networks.size(), (i+1)*BATCH)))
-                .forEach(batch -> repository.insert(batch));
+
+        var result = networkService.getNetworkById(network.getId());
+
+        assertThat(result).isNotNull();
+        assertThat(result.getId()).isEqualTo(network.getId());
     }
 
     @Test
-    void shouldReturnAvailableCorpora() {
-        var result = corpusService.getAllCorpora();
+    void shouldReturnNetworkBySource() throws IOException {
+        var jsonStr = new String(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(
+                "AMC/2014_Abschiebung_7.json")).readAllBytes());
+        var egoNetwork = new ObjectMapper().readValue(jsonStr, EgoNetwork.class);
+
+        var network = repository.insert(egoNetwork);
+
+        var result = networkService.getNetworkBySource("STANDARD");
 
         assertThat(result).isNotEmpty();
+        assertThat(result.size()).isEqualTo(1);
+        assertThat(result.get(0).getId()).isEqualTo(network.getId());
+    }
+
+    @Test
+    void shouldReturnEmptyListForSource() throws IOException {
+        var jsonStr = new String(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(
+                "AMC/2014_Abschiebung_7.json")).readAllBytes());
+        var egoNetwork = new ObjectMapper().readValue(jsonStr, EgoNetwork.class);
+
+        var network = repository.insert(egoNetwork);
+
+        var result = networkService.getNetworkBySource("HEUTE");
+
+        assertThat(result).isEmpty();
     }
 }
