@@ -3,10 +3,14 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
 
+@Service
+@Profile("prod")
 public class NetworkService implements EgoNetworkService {
     final
     EgoNetworkRepository egoNetworkRepository;

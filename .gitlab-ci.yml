@@ -59,6 +59,8 @@ test:
     POSTGRES_VERSION: 9.6.16
     POSTGRES_DB: test
     DOCKER_HOST: tcp://localhost:2375
+    DOCKER_DRIVER: overlay2
+
   services:
     - "postgres:${POSTGRES_VERSION}"
     - docker:dind
