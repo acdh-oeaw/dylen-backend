@@ -12,9 +12,6 @@ public class DylenEgoNetworkSericeApplication {
 
 	public static void main(String[] args) {
 		var context = SpringApplication.run(DylenEgoNetworkSericeApplication.class, args);
-
-		var corpusService = context.getBean(CorpusService.class);
-		corpusService.getAllCorpora();
 	}
 
 }
