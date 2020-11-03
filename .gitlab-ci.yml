@@ -38,7 +38,7 @@ build:
     expire_in: 7 days
 
 build_image:
-  image: docker:latest
+  image: docker/compose:latest
   stage: package
   services:
     - name: docker:dind
