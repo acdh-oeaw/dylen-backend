@@ -1,15 +1,15 @@
 livenessProbe:
   path: "/actuator/health/liveness"
   port: 5000
-  initialDelaySeconds: 15
-  timeoutSeconds: 15
+  initialDelaySeconds: 300
+  timeoutSeconds: 30
   scheme: "HTTP"
   probeType: "httpGet"
 readinessProbe:
   path: "/actuator/health/readiness"
   port: 5000
-  initialDelaySeconds: 5
-  timeoutSeconds: 3
+  initialDelaySeconds: 300
+  timeoutSeconds: 30
   scheme: "HTTP"
   probeType: "httpGet"
 spring:
