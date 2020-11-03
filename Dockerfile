@@ -2,6 +2,8 @@ FROM gradle:jdk11
 COPY . /home/gradle/project
 WORKDIR /home/gradle/project
 ARG JAR_FILE=build/libs/dylen-ego-network-service-0.1.0.jar
+ENV HTTP_PROXY=http://fifi:8080
+ENV HTTPS_PROXY=http://fifi:8080
 COPY ${JAR_FILE} app.jar
 #EXPOSE 5000 8080 80 443 22
 ENTRYPOINT ["java","-jar","-Dspring.profiles.active=prod", "app.jar"]
