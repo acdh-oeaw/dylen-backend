@@ -84,23 +84,6 @@ spec:
         ports:
         - name: "{{ .Values.service.name }}"
           containerPort: {{ .Values.service.internalPort }}
-        startupProbe:
-          httpGet:
-            path: {{.Values.startupProbe.path}}
-            scheme: {{ .Values.startupProbe.scheme }}
-            port: {{ .Values.service.internalPort }}
-          failureThreshold: {{ .Values.startupProbe.failureThreshold }}
-          periodSeconds: {{ .Values.startupProbe.periodSeconds }}
-  {{- else if eq .Values.startupProbe.probeType "tcpSocket" }}
-          tcpSocket:
-            port: {{ .Values.service.internalPort }}
-{{- else if eq .Values.startupProbe.probeType "exec" }}
-          exec:
-            command:
-{{ toYaml .Values.startupProbe.command | indent 14 }}
-{{- end }}
-          initialDelaySeconds: {{ .Values.startupProbe.initialDelaySeconds }}
-          timeoutSeconds: {{ .Values.startupProbe.timeoutSeconds }}
         livenessProbe:
 {{- if eq .Values.livenessProbe.probeType "httpGet" }}
           httpGet:
