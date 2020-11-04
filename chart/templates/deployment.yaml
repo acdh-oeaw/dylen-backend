@@ -100,6 +100,7 @@ spec:
 {{- end }}
           initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
           timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+          failureThreshold: {{ .Values.livenessProbe.failureThreshold }}
         readinessProbe:
 {{- if eq .Values.readinessProbe.probeType "httpGet" }}
           httpGet:
@@ -116,6 +117,7 @@ spec:
 {{- end }}
           initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
           timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+          failureThreshold: {{ .Values.readinessProbe.failureThreshold }}
         resources:
 {{ toYaml .Values.resources | indent 12 }}
 {{- end -}}
