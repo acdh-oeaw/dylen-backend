@@ -3,11 +3,13 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Field;
 
 @Data
 public class Node {
     @NonNull
+    @Field("id")
     private String id;
     @Field("cluster_id")
     private int clusterId;

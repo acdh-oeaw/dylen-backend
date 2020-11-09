@@ -46,7 +46,7 @@ public class NetworkServiceIT {
 
 
     @Container
-    private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.5")
+    private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.0")
             .withExposedPorts(30300);
 
     @DynamicPropertySource
