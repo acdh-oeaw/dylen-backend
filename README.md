@@ -21,22 +21,3 @@ Endpoint is http://localhost:5000/graphql
 # REFERENCES
 Read models in DDD: 
 http://gorodinski.com/blog/2012/04/25/read-models-as-a-tactical-pattern-in-domain-driven-design-ddd/
-* Graphgl-spring-boot Minimal example
-** https://github.com/graphql-java-kickstart/graphql-spring-boot/tree/master/example
-* Exception Handling for GraphQL-java
-** https://www.youtube.com/watch?v=lxOXDI_dvt8&feature=emb_logo
-* MongoDB
-** @EnableMongoRepositories
-   To use MongoDB repositories, we have to indicate it to Spring. We can do this with @EnableMongoRepositories.
-   
-   Note, that we have to use this annotation with @Configuration:
-   
-   @Configuration
-   @EnableMongoRepositories
-   class MongoConfig {}
-   Spring will look for repositories in the sub packages of this @Configuration class. We can alter this behavior with the basePackages argument:
-   
-   @Configuration
-   @EnableMongoRepositories(basePackages = "com.baeldung.repository")
-   class MongoConfig {}
-   Also note, that Spring Boot does this automatically if it finds Spring Data MongoDB on the classpath.

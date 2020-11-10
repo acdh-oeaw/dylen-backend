@@ -3,12 +3,17 @@
         id
         name
         sources {
-            id
             name
-            networks {
-                id
+            targetWords {
                 text
-                year
+                pos
+                networks {
+                    id
+                    year
+                    absFreq
+                    relFreq
+                    threshold
+                }
             }
         }
     }

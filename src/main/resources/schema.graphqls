@@ -20,6 +20,7 @@ type Corpus {
 
 type Source {
     name: String
+    targetWords: [TargetWord]
     networks: [EgoNetwork]
 }
 
