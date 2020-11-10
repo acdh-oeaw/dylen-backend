@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Profile("prod")
@@ -47,7 +48,17 @@ public class NetworkService implements EgoNetworkService {
 
     @Override
     public List<TargetWord> getTargetWordsOfCorpusAndSource(String corpus, String source) {
-        return null;
+        var networks = egoNetworkRepository.findByCorpusAndSource(corpus, source);
+
+        var targetWords = networks.stream()
+                .collect(Collectors.groupingBy(EgoNetwork::getText))
+                .entrySet()
+                .stream()
+                .map(entry -> {
+                    return TargetWord.of(entry.getKey(), null, entry.getValue());
+                })
+                .collect(Collectors.toUnmodifiableList());
+        return targetWords;
     }
 
     @Override

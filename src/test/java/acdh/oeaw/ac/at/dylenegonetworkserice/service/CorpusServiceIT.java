@@ -33,7 +33,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 @GraphQLTest
 @Slf4j
-@ActiveProfiles("dummy")
+@ActiveProfiles("prod")
 public class CorpusServiceIT {
 
     @Autowired

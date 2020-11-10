@@ -1,0 +1,26 @@
+{
+    networkById(id: "NETWORK_ID"){
+        id
+        text
+        year
+        corpus
+        source
+        absFreq
+        relFreq
+        threshold
+        nodes {
+            id
+            clusterId
+            text
+            pos
+            similarity
+            absFreq
+            relFreq
+        }
+        connections {
+            node1
+            node2
+            similarity
+        }
+    }
+}

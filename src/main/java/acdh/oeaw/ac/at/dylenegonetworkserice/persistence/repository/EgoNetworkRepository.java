@@ -14,4 +14,5 @@ public interface EgoNetworkRepository extends MongoRepository<EgoNetwork, String
     public List<EgoNetwork> findAllByText(String text);
     public List<EgoNetwork> findByTextStartsWith(String chunk);
     public List<EgoNetwork> findBySource(String source);
+    public List<EgoNetwork> findByCorpusAndSource(String corpus, String source);
 }

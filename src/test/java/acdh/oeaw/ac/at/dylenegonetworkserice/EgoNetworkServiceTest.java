@@ -62,4 +62,5 @@ public class EgoNetworkServiceTest {
         assertThat(response.isOk()).isTrue();
         assertThat(response.getRawResponse().getBody().contains("NETWORK_ID"));
     }
+
 }
