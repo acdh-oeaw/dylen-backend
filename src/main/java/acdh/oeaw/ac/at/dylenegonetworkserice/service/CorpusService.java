@@ -19,6 +19,8 @@ import java.util.stream.Stream;
 @Slf4j
 public class CorpusService {
 
+    public static final String AMC = "AMC";
+    public static final String PARLAT = "Parlat";
     final EgoNetworkRepository egoNetworkRepository;
 
     public CorpusService(EgoNetworkRepository egoNetworkRepository) {
@@ -28,8 +30,8 @@ public class CorpusService {
     @Cacheable(value = "corpora", cacheManager = "cacheMgr", key = "#root.method.name")
     public List<Corpus> getAllCorpora() {
         log.info("LOADING All Corpora...");
-        var amc = this.egoNetworkRepository.findEgoNetworksByCorpus("AMC");
-        var parlat = this.egoNetworkRepository.findEgoNetworksByCorpus("Parlat");
+        var amc = this.egoNetworkRepository.findEgoNetworksByCorpus(AMC);
+        var parlat = this.egoNetworkRepository.findEgoNetworksByCorpus(PARLAT);
 
         var result  = Stream.of(amc,parlat)
                 .flatMap(Collection::stream)
@@ -39,7 +41,7 @@ public class CorpusService {
                 .collect(Collectors.groupingBy(EgoNetwork::getSource));
         var amc_sources_list = amc_sources.entrySet().stream()
                 .map(entry -> {
-                    return Source.of(UUID.randomUUID().toString(), entry.getKey(), entry.getValue());
+                    return Source.of(entry.getKey(), entry.getValue());
                 })
                 .collect(Collectors.toUnmodifiableList());
         var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "AMC", amc_sources_list);

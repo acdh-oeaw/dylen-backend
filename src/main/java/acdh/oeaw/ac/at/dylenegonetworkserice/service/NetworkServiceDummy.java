@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -61,6 +62,16 @@ public class NetworkServiceDummy implements EgoNetworkService {
 
     @Override
     public List<EgoNetwork> getNetworkByTargetWord(String targetWord) {
+        return null;
+    }
+
+    @Override
+    public List<TargetWord> getTargetWordsOfCorpusAndSource(String corpus, String source) {
+        return null;
+    }
+
+    @Override
+    public List<TargetWord> getAllAvailableTargetWords() {
         return null;
     }
 

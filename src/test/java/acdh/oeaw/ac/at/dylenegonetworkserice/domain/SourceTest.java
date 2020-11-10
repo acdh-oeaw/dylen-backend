@@ -8,26 +8,25 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class SourceTest {
 
-
     @Test
     public void shouldInstantiateSource() {
-        var source = Source.of(SOURCE_ID_1, SOURCE_NAME, ImmutableList.of());
+        var source = Source.of(SOURCE_NAME, ImmutableList.of());
 
-        assertThat(source.getId()).isEqualTo(SOURCE_ID_1);
         assertThat(source.getName()).isEqualTo(SOURCE_NAME);
         assertThat(source.getNetworks()).isEmpty();
     }
 
     @Test
-    public void shouldInstantiateSourceWithNetwork() {
+    public void shouldInstantiateSourceWithList() {
         var network = NETWORK;
-        var egoNetwork = EgoNetwork.of(EGO_NETWORK_NAME, EGO_NETWORK_YEAR, "CORPUS_1",
-                "SOURCE_1", 200, 0.5f, 0.4f, NODES, CONNECTIONS);
+        var egoNetwork = EgoNetwork.of(EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_NAME,
+                SOURCE_NAME, 200, 0.5f, 0.4f, NODES, CONNECTIONS);
+        var targetWord = TargetWord.of(EGO_NETWORK_NAME, null, ImmutableList.of(egoNetwork));
 
-        var source = Source.of(SOURCE_ID_1, SOURCE_NAME, ImmutableList.of(egoNetwork));
+        var source = Source.of(SOURCE_NAME, ImmutableList.of(egoNetwork));
 
-        assertThat(source.getId()).isEqualTo(SOURCE_ID_1);
         assertThat(source.getName()).isEqualTo(SOURCE_NAME);
+        assertThat(source.getTargetWords()).contains(targetWord);
         assertThat(source.getNetworks()).contains(egoNetwork);
     }
 }

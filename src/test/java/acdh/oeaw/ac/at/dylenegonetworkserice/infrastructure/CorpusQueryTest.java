@@ -20,6 +20,7 @@ class CorpusQueryTest {
     @Mock
     EgoNetworkService networkService;
 
+
     @Test
     void shouldReturnAllAvailableCorpora() {
         var corpusQuery = new CorpusQuery(networkService, corpusService);

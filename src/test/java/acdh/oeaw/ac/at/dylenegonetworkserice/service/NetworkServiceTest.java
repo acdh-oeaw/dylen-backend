@@ -49,4 +49,10 @@ public class NetworkServiceTest {
 
         var result = networkService.getNetworkByTargetWord(EGO_NETWORK_NAME);
     }
+
+    @Test
+    public void shouldRetrieveTargetWordsOfCorpusAndSource() throws IOException {
+        var networkService = new NetworkServiceDummy(egoNetworkRepository);
+
+    }
 }

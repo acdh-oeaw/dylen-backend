@@ -5,7 +5,6 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.TargetWordService;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
@@ -37,9 +36,6 @@ public class EgoNetworkServiceTest {
 
     @MockBean
     EgoNetworkService networkService;
-
-    @MockBean
-    TargetWordService targetWordService;
 
 
     @Test

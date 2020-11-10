@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,28 +16,21 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor(staticName = "of", access = AccessLevel.PUBLIC)
 public class TargetWord {
-    @Id
-    @NonNull
+    @Field("id")
     private String id;
     @NonNull private String text;
-    @Indexed
-    @NonNull private String corpus;
-    @Indexed
-    @NonNull private String source;
+    private String pos;
     @NonNull private List<EgoNetwork> networks;
 
     @JsonCreator
     public static TargetWord of(@JsonProperty("text") String targetWord,
-                                @JsonProperty("corpus") String corpus,
-                                @JsonProperty("source") String source,
+                                @JsonProperty("pos") String pos,
                                 @JsonProperty("networks") List<EgoNetwork> networks
     ) {
-        var id = UUID.randomUUID();
-        return new TargetWord(id.toString(), targetWord, corpus, source, networks);
+        return new TargetWord(null, targetWord, pos,  networks);
     }
 
     public static TargetWord fromJson(String json) {
         return null;
     }
-
 }

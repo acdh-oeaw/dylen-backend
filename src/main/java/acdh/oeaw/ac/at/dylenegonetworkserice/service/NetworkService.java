@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.EgoNetworkNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
 import com.google.common.collect.ImmutableList;
@@ -43,4 +44,15 @@ public class NetworkService implements EgoNetworkService {
     public List<EgoNetwork> getNetworkByTargetWord(String targetWord) {
         return egoNetworkRepository.findByText(targetWord);
     }
+
+    @Override
+    public List<TargetWord> getTargetWordsOfCorpusAndSource(String corpus, String source) {
+        return null;
+    }
+
+    @Override
+    public List<TargetWord> getAllAvailableTargetWords() {
+        return null;
+    }
+
 }

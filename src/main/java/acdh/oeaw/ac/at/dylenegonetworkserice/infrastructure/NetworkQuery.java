@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import com.google.common.collect.ImmutableList;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
 
@@ -21,7 +22,7 @@ public class NetworkQuery implements GraphQLQueryResolver {
         return networkService.getNetworkById(id);
     }
 
-    public List<EgoNetwork> networkByTargetWord(String targetWord) {
+    public List<EgoNetwork> getNetworksByTargetWord(String targetWord) {
         return networkService.getNetworkByTargetWord(targetWord);
     }
 }

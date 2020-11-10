@@ -12,7 +12,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.UUID;
 
 @Component
 @Slf4j
@@ -25,12 +24,11 @@ public class CorpusQuery implements GraphQLQueryResolver {
     private final CorpusService corpusService;
 
     public CorpusQuery(EgoNetworkService networkService, CorpusService corpusService) {
-
-        var standard = Source.of(UUID.randomUUID().toString(), SourceService.SourceEnum.STANDARD.getName(),
+        var standard = Source.of(SourceService.SourceEnum.STANDARD.getName(),
                 networkService.getNetworkBySource(SourceService.SourceEnum.STANDARD.getName()));
-        var krone = Source.of(UUID.randomUUID().toString(), SourceService.SourceEnum.KRONE.getName(),
+        var krone = Source.of(SourceService.SourceEnum.KRONE.getName(),
                 networkService.getNetworkBySource(SourceService.SourceEnum.KRONE.getName()));
-        var heute = Source.of(UUID.randomUUID().toString(), SourceService.SourceEnum.HEUTE.getName(),
+        var heute = Source.of(SourceService.SourceEnum.HEUTE.getName(),
                 networkService.getNetworkBySource(SourceService.SourceEnum.HEUTE.getName()));
 
         this.corpora = ImmutableList.of(Corpus.of(CORPUS_ID, CORPUS_NAME, ImmutableList.of(standard, krone, heute)));

@@ -6,8 +6,6 @@ import com.google.common.collect.ImmutableList;
 
 public class TestFixture {
     public static final String SOURCE_ID_1 = "Source-1";
-    public static final String SOURCE_NAME = "Source-name";
-
 
     public static final String CORPUS_ID = "TEST_ID";
     public static final String CORPUS_NAME = "TEST_NAME";
@@ -41,7 +39,11 @@ public class TestFixture {
             EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID,
             SourceService.SourceEnum.STANDARD.getName(), 201, 0.2f, 0.5f, NODES, CONNECTIONS);
     public static final String AMC_CORPUS = "AMC";
-    public static final Corpus CORPUS_1 = Corpus.of("1", AMC_CORPUS, ImmutableList.of(Source.of("1", "Falter",
+    public static final String SOURCE_NAME = "Falter";
+    public static final String TARGETWORD_TEXT = "ASYL";
+    public static final TargetWord TARGET_WORD = TargetWord.of(TARGETWORD_TEXT, AMC_CORPUS, SOURCE_NAME, ImmutableList.of(NETWORK));
+    public static final Corpus CORPUS_1 = Corpus.of("1", AMC_CORPUS, ImmutableList.of(Source.of(TestFixture.SOURCE_NAME,
             ImmutableList.of(TestFixture.NETWORK))));
+
 
 }

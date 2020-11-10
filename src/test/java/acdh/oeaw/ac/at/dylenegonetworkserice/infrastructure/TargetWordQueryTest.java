@@ -1,8 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
-import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordDto;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.TargetWordService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,14 +15,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 class TargetWordQueryTest {
     @Mock
-    TargetWordService targetWordService;
+    EgoNetworkService targetWordService;
 
     @Disabled
     @Test
     void shouldReturnAllTargetWords() {
         var targetWordQuery = new TargetWordQuery(targetWordService);
 
-        List<TargetWordDto> result = targetWordQuery.getAllAvailableTargetWords();
+        List<TargetWord> result = targetWordQuery.getAllAvailableTargetWords();
 
         assertThat(result).isNotEmpty();
     }
