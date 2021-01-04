@@ -27,7 +27,7 @@ build:
   image: adoptopenjdk/openjdk11:ubi
   stage: build
   services:
-    - docker:dind
+    - docker:19.03.12-dind
   script:
     - ./gradlew build --stacktrace --info
   variables:
@@ -64,7 +64,7 @@ test:
 
   services:
     - "postgres:${POSTGRES_VERSION}"
-    - docker:dind
+    - docker:19.03.12-dind
   stage: test
   image: gliderlabs/herokuish:latest
   needs: []
