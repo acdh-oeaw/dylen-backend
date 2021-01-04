@@ -39,14 +39,12 @@ public class CorpusService {
 
         var amc_sources = amc.stream()
                 .collect(Collectors.groupingBy(EgoNetwork::getSource));
-
         var amc_sources_list = amc_sources.entrySet().stream()
                 .map(entry -> {
                     return Source.of(entry.getKey(), entry.getValue());
                 })
                 .collect(Collectors.toUnmodifiableList());
         var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "AMC", amc_sources_list);
-
         log.info("FINISHED LOADING All Corpora");
 
         return ImmutableList.of(amc_corpus);
