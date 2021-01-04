@@ -29,7 +29,7 @@ build:
   services:
     - docker:dind
   script:
-    - ./gradlew build
+    - ./gradlew build --stacktrace
   variables:
     DOCKER_HOST: tcp://localhost:2375
   artifacts:
