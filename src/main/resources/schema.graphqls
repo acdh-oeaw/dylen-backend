@@ -1,7 +1,6 @@
 type Query {
     allAvailableCorpora: [Corpus]
-    networkById(id: ID): EgoNetwork
-    networksByTargetWord(target_word: String): [EgoNetwork]
+    getNetwork(target_word: String, year: Int): EgoNetwork
     allAvailableTargetWords: [TargetWord]
 }
 
@@ -21,7 +20,6 @@ type Corpus {
 type Source {
     name: String
     targetWords: [TargetWord]
-    networks: [EgoNetwork]
 }
 
 type EgoNetwork {
@@ -43,8 +41,14 @@ type Node {
     text: String
     pos: String
     similarity: Float
-    absFreq: Int
-    relFreq: Float
+    metrics: NodeMetric
+}
+
+type NodeMetric {
+    degreeCentrality: Float
+    closenessCentrality: Float
+    betweennessCentrality: Float
+    eigenvectorCentrality: Float
 }
 
 type Connection {

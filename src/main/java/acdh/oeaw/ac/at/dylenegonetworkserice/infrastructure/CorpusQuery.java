@@ -24,7 +24,7 @@ public class CorpusQuery implements GraphQLQueryResolver {
     private final CorpusService corpusService;
 
     public CorpusQuery(EgoNetworkService networkService, CorpusService corpusService) {
-        var standard = Source.of(SourceService.SourceEnum.STANDARD.getName(),
+       /* var standard = Source.of(SourceService.SourceEnum.STANDARD.getName(),
                 networkService.getNetworkBySource(SourceService.SourceEnum.STANDARD.getName()));
         var krone = Source.of(SourceService.SourceEnum.KRONE.getName(),
                 networkService.getNetworkBySource(SourceService.SourceEnum.KRONE.getName()));
@@ -33,6 +33,10 @@ public class CorpusQuery implements GraphQLQueryResolver {
 
         this.corpora = ImmutableList.of(Corpus.of(CORPUS_ID, CORPUS_NAME, ImmutableList.of(standard, krone, heute)));
         this.networkService = networkService;
+        this.corpusService = corpusService;*/
+
+        this.corpora = null;
+        this.networkService = null;
         this.corpusService = corpusService;
     }
 

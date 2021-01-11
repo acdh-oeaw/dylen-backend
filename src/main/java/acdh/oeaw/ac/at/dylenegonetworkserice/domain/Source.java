@@ -11,23 +11,14 @@ public class Source {
     @Indexed
     @NonNull private String name;
     @NonNull private List<TargetWord> targetWords;
-    @NonNull private List<EgoNetwork> networks;
 
-
-    public static Source of(String name, List<EgoNetwork> networks) {
-        var targetwordsMap = networks.stream()
-                .collect(Collectors.groupingBy(EgoNetwork::getText));
-
-        var targetWords = targetwordsMap.entrySet().stream()
-                .map(entry -> {
-                    return TargetWord.of(entry.getKey(), null, entry.getValue());
-                })
+    public static Source of(String name, List<TargetWord> targetWords) {
+        var targetwordsOfSource = targetWords.stream()
+                .filter(targetWord -> targetWord.getSource().equals(name))
                 .collect(Collectors.toUnmodifiableList());
-        return new Source(name, targetWords, networks);
+
+        return new Source(name, targetwordsOfSource);
     }
 
-    private List<TargetWord> convertToTargetWords() {
-        return null;
-    }
 }
 

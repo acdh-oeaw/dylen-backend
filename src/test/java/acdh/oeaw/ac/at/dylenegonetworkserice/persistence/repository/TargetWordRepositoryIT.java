@@ -1,7 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -27,11 +28,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @Testcontainers
 @DataMongoTest
+@DirtiesContext(classMode =DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @Slf4j
-public class EgoNetworkRepositoryIT {
-
+class TargetWordRepositoryIT {
     @Autowired
-    EgoNetworkRepository repository;
+    TargetWordRepository repository;
 
     @Container
     private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.5")
@@ -43,54 +44,58 @@ public class EgoNetworkRepositoryIT {
         System.out.println(mongoDBContainer.getReplicaSetUrl());
     }
 
+    @BeforeEach
+    public void reset() {
+        repository.deleteAll();
+    }
+
     @DynamicPropertySource
     static void mongoDbProperties(DynamicPropertyRegistry registry) {
         registry.add("spring.data.mongodb.uri", mongoDBContainer::getReplicaSetUrl);
     }
 
     @Test
-    public void shouldInsertEgoNetwork() throws IOException {
+    public void shouldInsertTargetWord() throws IOException {
         var jsonStr = new String(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(
-                "AMC/2014_Abschiebung_7.json")).readAllBytes());
-        var egoNetwork = new ObjectMapper().readValue(jsonStr, EgoNetwork.class);
+                "AMC/APA_Balkanroute-n.json")).readAllBytes());
+        var targetWord = new ObjectMapper().readValue(jsonStr, TargetWord.class);
 
-        repository.insert(egoNetwork);
-        var network = repository.findById(egoNetwork.getId()).get();
+        var inserted = repository.insert(targetWord);
+        var result = repository.findById(inserted.getId()).get();
 
-        assertThat(network).isNotNull();
+        assertThat(result).isNotNull();
     }
-
 
     @Nested
     @DisplayName("Tests using lots of json ego networks")
-    class A {
+    class TargetWordDataTest {
 
         @BeforeEach
         void beforeEach() throws IOException {
             var resourceePatternResolver = new PathMatchingResourcePatternResolver();
             var resources = resourceePatternResolver.getResources("classpath:AMC/selected/*.json");
 
-            var networks = Arrays.stream(resources).map(TestUtil::extractEgoNetwork).collect(Collectors.toUnmodifiableList());
+            var targetWords = Arrays.stream(resources).map(TestUtil::extractTargetWord).collect(Collectors.toUnmodifiableList());
 
             var BATCH = 100;
-            IntStream.range(0, (networks.size()+BATCH-1)/BATCH)
-                    .mapToObj(i -> networks.subList(i*BATCH, Math.min(networks.size(), (i+1)*BATCH)))
+            IntStream.range(0, (targetWords.size()+BATCH-1)/BATCH)
+                    .mapToObj(i -> targetWords.subList(i*BATCH, Math.min(targetWords.size(), (i+1)*BATCH)))
                     .forEach(batch -> repository.insert(batch));
         }
 
         @Test
-        void shouldFindEgoNetworkWithId() {
-            var networks = repository.findByText("Abschiebung");
+        void shouldFindTargetWordWithId() {
+            var targetWords = repository.findByText("links");
 
-            assertThat(networks.size()).isEqualTo(4);
+            assertThat(targetWords.size()).isEqualTo(2);
         }
 
         @Test
-        void shouldReturnAllAvailableNetworks() {
+        void shouldReturnAllAvailableTargetWords() {
 
-            var networks = repository.findAll();
+            var targetWords = repository.findAll();
 
-            assertThat(networks.size()).isEqualTo(29);
+            assertThat(targetWords.size()).isEqualTo(11);
         }
 
     }

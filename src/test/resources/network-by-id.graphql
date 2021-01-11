@@ -14,8 +14,6 @@
             text
             pos
             similarity
-            absFreq
-            relFreq
         }
         connections {
             node1

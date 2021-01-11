@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import com.google.common.collect.Lists;
 import com.graphql.spring.boot.test.GraphQLTest;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +41,7 @@ public class CorpusCacheIT {
     CacheManager cacheManager;
 
     @Autowired
-    EgoNetworkRepository repository;
+    TargetWordRepository repository;
 
     @Autowired
     CorpusService corpusService;
@@ -69,7 +70,7 @@ public class CorpusCacheIT {
         var resourcesList = Lists.partition(listToBeSplit, chunkSize);
 
         var networks = resourcesList.stream()
-                .map(list -> list.stream().map(TestUtil::extractEgoNetwork).collect(Collectors.toUnmodifiableList()))
+                .map(list -> list.stream().map(TestUtil::extractTargetWord).collect(Collectors.toUnmodifiableList()))
                 .flatMap(Collection::stream)
                 .collect(Collectors.toUnmodifiableList());
 

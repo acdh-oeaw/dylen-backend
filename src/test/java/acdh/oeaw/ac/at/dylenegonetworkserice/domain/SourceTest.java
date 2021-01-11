@@ -13,20 +13,16 @@ public class SourceTest {
         var source = Source.of(SOURCE_NAME, ImmutableList.of());
 
         assertThat(source.getName()).isEqualTo(SOURCE_NAME);
-        assertThat(source.getNetworks()).isEmpty();
+        assertThat(source.getTargetWords()).isEmpty();
     }
 
     @Test
     public void shouldInstantiateSourceWithList() {
-        var network = NETWORK;
-        var egoNetwork = EgoNetwork.of(EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_NAME,
-                SOURCE_NAME, 200, 0.5f, 0.4f, NODES, CONNECTIONS);
-        var targetWord = TargetWord.of(EGO_NETWORK_NAME, null, ImmutableList.of(egoNetwork));
 
-        var source = Source.of(SOURCE_NAME, ImmutableList.of(egoNetwork));
+        var source = Source.of(SOURCE_NAME, ImmutableList.of(TARGET_WORD));
 
         assertThat(source.getName()).isEqualTo(SOURCE_NAME);
-        assertThat(source.getTargetWords()).contains(targetWord);
-        assertThat(source.getNetworks()).contains(egoNetwork);
+        assertThat(source.getTargetWords()).contains(TARGET_WORD);
+        assertThat(source.getTargetWords()).allMatch(targetWord -> targetWord.getSource().equals(SOURCE_NAME));
     }
 }

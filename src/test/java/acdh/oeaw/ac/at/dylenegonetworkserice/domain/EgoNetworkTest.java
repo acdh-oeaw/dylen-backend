@@ -26,14 +26,4 @@ public class EgoNetworkTest {
         assertThat(egoNetwork.getNodes()).containsExactly(NODE_1, NODE_2);
         assertThat(egoNetwork.getConnections()).containsExactly(CONNECTION);
     }
-
-    @Test
-    public void shouldInstantiateEgoNetworkFromJson() throws IOException {
-        var mapper = new ObjectMapper();
-
-        var egoNetwork = mapper.readValue(ResourceUtils.getFile("classpath:samples/amc/2014_Asyl_6.json"),
-                EgoNetwork.class);
-
-        assertThat(egoNetwork).isNotNull();
-    }
 }

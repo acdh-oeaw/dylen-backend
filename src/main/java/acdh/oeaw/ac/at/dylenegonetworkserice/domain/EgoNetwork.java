@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 import org.springframework.util.StringUtils;
 
@@ -13,7 +12,6 @@ import java.util.List;
 import java.util.UUID;
 
 @Data
-@Document(collection="egoNetwork")
 public class EgoNetwork {
     @Id
     @NonNull private String id;

@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.EgoNetworkRepository;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import com.google.common.collect.Lists;
 import com.graphql.spring.boot.test.GraphQLTest;
 import lombok.extern.slf4j.Slf4j;
@@ -40,7 +41,7 @@ public class CorpusServiceIT {
     CacheManager cacheManager;
 
     @Autowired
-    EgoNetworkRepository repository;
+    TargetWordRepository repository;
 
     @Autowired
     CorpusService corpusService;
@@ -68,14 +69,14 @@ public class CorpusServiceIT {
 
         var resourcesList = Lists.partition(listToBeSplit, chunkSize);
 
-        var networks = resourcesList.stream()
-                .map(list -> list.stream().map(TestUtil::extractEgoNetwork).collect(Collectors.toUnmodifiableList()))
+        var targetWords = resourcesList.stream()
+                .map(list -> list.stream().map(TestUtil::extractTargetWord).collect(Collectors.toUnmodifiableList()))
                 .flatMap(Collection::stream)
                 .collect(Collectors.toUnmodifiableList());
 
         var BATCH = 100;
-        IntStream.range(0, (networks.size()+BATCH-1)/BATCH)
-                .mapToObj(i -> networks.subList(i*BATCH, Math.min(networks.size(), (i+1)*BATCH)))
+        IntStream.range(0, (targetWords.size()+BATCH-1)/BATCH)
+                .mapToObj(i -> targetWords.subList(i*BATCH, Math.min(targetWords.size(), (i+1)*BATCH)))
                 .forEach(batch -> repository.insert(batch));
     }
 

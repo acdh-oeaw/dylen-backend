@@ -16,21 +16,15 @@ public class Node {
     private String text;
     private String pos;
     private float similarity;
-    @Field("abs_freq")
-    private int absFreq;
-    @Field("rel_freq")
-    private float relFreq;
+    private NodeMetric metrics;
 
-
-    private Node(String id, int clusterId, String text, String pos, float similarity, int absFreq, float relFreq) {
+    private Node(String id, int clusterId, String text, String pos, float similarity, NodeMetric metrics) {
         this.id = id;
         this.clusterId = clusterId;
         this.text = text;
         this.pos = pos;
         this.similarity = similarity;
-        this.absFreq = absFreq;
-        this.relFreq = relFreq;
-
+        this.metrics = metrics;
     }
 
 
@@ -40,8 +34,7 @@ public class Node {
                           @JsonProperty("text") String text,
                           @JsonProperty("pos") String pos,
                           @JsonProperty("similarity") float similarity,
-                          @JsonProperty("abs_freq") int absFreq,
-                          @JsonProperty("rel_freq") float relFreq) {
-        return new Node(id, clusterId, text, pos, similarity, absFreq, relFreq);
+                          @JsonProperty("metrics") NodeMetric metrics) {
+        return new Node(id, clusterId, text, pos, similarity, metrics);
     }
 }

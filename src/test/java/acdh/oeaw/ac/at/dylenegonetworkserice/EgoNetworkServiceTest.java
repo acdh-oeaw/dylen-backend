@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
@@ -18,49 +19,35 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.SOURCE_NAME;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.TARGET_WORD_WITH_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
 
 @RunWith(SpringRunner.class)
 @GraphQLTest
-//@SpringBootTest
 public class EgoNetworkServiceTest {
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
-
+    @MockBean
+    CorpusService corpusService;
+    @MockBean
+    EgoNetworkService networkService;
     @Autowired
     private GraphQLTestTemplate graphQLTestTemplate;
 
-    @MockBean
-    CorpusService corpusService;
-
-    @MockBean
-    EgoNetworkService networkService;
-
-
     @Test
     public void getAllAvailableCorpora() throws IOException {
-        var corpus = ImmutableList.of(Corpus.of("corpus-1", "AMC", ImmutableList.of()));
+        var source = Source.of(SOURCE_NAME, ImmutableList.of(TARGET_WORD_WITH_ID));
+        var corpus = ImmutableList.of(Corpus.of("corpus-1", "AMC", ImmutableList.of(source)));
         doReturn(corpus).when(corpusService).getAllCorpora();
 
         var response = graphQLTestTemplate.postForResource("all-available-corpora.graphql");
 
-        assertThat(response).isNotNull();
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(response.readTree().get("data").get("allAvailableCorpora")).isNotNull();
         assertThat(response.isOk()).isTrue();
     }
 
-    @Test
-    public void getNetworkById() throws IOException {
-        var id = "NETWORK_ID";
-        var network = EgoNetwork.of(id,"TEST", 2020, "AMC", SourceService.SourceEnum.STANDARD.getName(), 20,
-                0.5f, 0.6f, ImmutableList.of(), ImmutableList.of());
-        doReturn(network).when(networkService).getNetworkById(id);
-
-        var response = graphQLTestTemplate.postForResource("network-by-id.graphql");
-
-        assertThat(response).isNotNull();
-        assertThat(response.isOk()).isTrue();
-        assertThat(response.getRawResponse().getBody().contains("NETWORK_ID"));
-    }
 
 }
