@@ -1,42 +1,20 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
-
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
-import com.google.common.collect.ImmutableList;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
-
 import java.util.List;
 
 @Component
 @Slf4j
 public class CorpusQuery implements GraphQLQueryResolver {
-
-    public static final String CORPUS_ID = "corpus-1";
-    public static final String CORPUS_NAME = "AMC";
-    public final List<Corpus> corpora;
-    private final EgoNetworkService networkService;
     private final CorpusService corpusService;
 
-    public CorpusQuery(EgoNetworkService networkService, CorpusService corpusService) {
-       /* var standard = Source.of(SourceService.SourceEnum.STANDARD.getName(),
-                networkService.getNetworkBySource(SourceService.SourceEnum.STANDARD.getName()));
-        var krone = Source.of(SourceService.SourceEnum.KRONE.getName(),
-                networkService.getNetworkBySource(SourceService.SourceEnum.KRONE.getName()));
-        var heute = Source.of(SourceService.SourceEnum.HEUTE.getName(),
-                networkService.getNetworkBySource(SourceService.SourceEnum.HEUTE.getName()));
+    public CorpusQuery(CorpusService corpusService) {
 
-        this.corpora = ImmutableList.of(Corpus.of(CORPUS_ID, CORPUS_NAME, ImmutableList.of(standard, krone, heute)));
-        this.networkService = networkService;
-        this.corpusService = corpusService;*/
-
-        this.corpora = null;
-        this.networkService = null;
         this.corpusService = corpusService;
     }
 

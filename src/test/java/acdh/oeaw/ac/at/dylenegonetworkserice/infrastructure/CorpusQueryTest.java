@@ -17,13 +17,9 @@ class CorpusQueryTest {
     @Mock
     CorpusService corpusService;
 
-    @Mock
-    EgoNetworkService networkService;
-
-
     @Test
     void shouldReturnAllAvailableCorpora() {
-        var corpusQuery = new CorpusQuery(networkService, corpusService);
+        var corpusQuery = new CorpusQuery(corpusService);
 
         when(corpusService.getAllCorpora()).thenReturn(ImmutableList.of(CORPUS_1));
         var corpora = corpusQuery.getAllAvailableCorpora();

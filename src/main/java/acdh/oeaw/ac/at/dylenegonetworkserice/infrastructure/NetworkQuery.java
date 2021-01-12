@@ -4,16 +4,13 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.util.StreamUtils.toSingleton;
 
 
 @Component
 public class NetworkQuery implements GraphQLQueryResolver {
 
-    final EgoNetworkService networkService;
+    private final EgoNetworkService networkService;
 
     public NetworkQuery(EgoNetworkService networkService) {
         this.networkService = networkService;
@@ -24,18 +21,7 @@ public class NetworkQuery implements GraphQLQueryResolver {
         var network = targetWord.getNetworks().stream()
                 .filter(egoNetwork -> egoNetwork.getYear()==year)
                 .collect(toSingleton());
-        return network;
-    }
 
-    private static <T> Collector<T, ?, T> toSingleton() {
-        return Collectors.collectingAndThen(
-                Collectors.toList(),
-                list -> {
-                    if(list.size() != 1) {
-                        throw new IllegalStateException();
-                    }
-                    return list.get(0);
-                }
-        );
+        return network;
     }
 }

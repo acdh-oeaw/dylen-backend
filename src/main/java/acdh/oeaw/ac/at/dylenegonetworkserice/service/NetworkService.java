@@ -4,7 +4,6 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
-import com.google.common.collect.ImmutableList;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
@@ -45,10 +44,4 @@ public class NetworkService implements EgoNetworkService {
 
         return filtered;
     }
-
-    @Override
-    public List<TargetWord> getAllAvailableTargetWords() {
-        return null;
-    }
-
 }

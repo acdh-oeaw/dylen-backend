@@ -34,7 +34,7 @@ class NetworkQueryIT {
     private NetworkService networkService;
 
     @Test
-    public void shouldQueryNetworkByTargetword() throws IOException {
+    void shouldQueryNetworkByTargetword() throws IOException {
         var query = new NetworkQuery(networkService);
         when(targetWordRepository.findById(TestFixture.TARGETWORD_ID)).thenReturn(Optional.of(TestFixture.TARGET_WORD_WITH_ID));
 

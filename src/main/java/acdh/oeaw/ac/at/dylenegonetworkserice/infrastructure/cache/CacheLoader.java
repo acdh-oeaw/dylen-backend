@@ -10,8 +10,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
 
-    @Autowired
+    final
     CorpusService corpusService;
+
+    public CacheLoader(CorpusService corpusService) {
+        this.corpusService = corpusService;
+    }
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {

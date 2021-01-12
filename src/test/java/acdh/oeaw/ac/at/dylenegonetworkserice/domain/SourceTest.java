@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class SourceTest {
 
     @Test
-    public void shouldInstantiateSource() {
+    void shouldInstantiateSource() {
         var source = Source.of(SOURCE_NAME, ImmutableList.of());
 
         assertThat(source.getName()).isEqualTo(SOURCE_NAME);
@@ -17,7 +17,7 @@ public class SourceTest {
     }
 
     @Test
-    public void shouldInstantiateSourceWithList() {
+     void shouldInstantiateSourceWithList() {
 
         var source = Source.of(SOURCE_NAME, ImmutableList.of(TARGET_WORD));
 

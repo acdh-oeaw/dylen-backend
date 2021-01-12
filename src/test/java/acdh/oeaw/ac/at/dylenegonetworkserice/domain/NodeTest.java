@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NodeTest {
 
     @Test
-    public void shouldInstantiateNode() {
+    void shouldInstantiateNode() {
         var node = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, NODE_METRICS);
 
         assertThat(node.getId()).isEqualTo(NODE_ID_1);

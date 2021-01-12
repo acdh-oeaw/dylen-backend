@@ -7,13 +7,11 @@ import java.util.List;
 import java.util.Optional;
 
 public interface TargetWordRepository extends MongoRepository<TargetWord, String> {
-    public Optional<TargetWord> findById(String Id);
+    Optional<TargetWord> findById(String Id);
 
-    public List<TargetWord> findByText(String text);
+    List<TargetWord> findByText(String text);
 
-    public List<TargetWord> findByCorpusAndSource(String corpus, String source);
+    List<TargetWord> findByCorpusAndSource(String corpus, String source);
 
-    public List<TargetWord> findBySource(String source);
-
-    public List<TargetWord>findByCorpus(String corpus);
+    List<TargetWord>findByCorpus(String corpus);
 }

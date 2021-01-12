@@ -55,7 +55,7 @@ class TargetWordRepositoryIT {
     }
 
     @Test
-    public void shouldInsertTargetWord() throws IOException {
+    void shouldInsertTargetWord() throws IOException {
         var jsonStr = new String(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(
                 "AMC/APA_Balkanroute-n.json")).readAllBytes());
         var targetWord = new ObjectMapper().readValue(jsonStr, TargetWord.class);
