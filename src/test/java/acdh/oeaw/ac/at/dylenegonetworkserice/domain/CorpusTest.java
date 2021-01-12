@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class CorpusTest {
 
     @Test
-    void shouldInstantiateCorpus() {
+    public void shouldInstantiateCorpus() {
 
         var corpus = Corpus.of(CORPUS_ID, CORPUS_NAME, ImmutableList.of());
 

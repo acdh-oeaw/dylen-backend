@@ -14,3 +14,4 @@ public class TargetWordQuery implements GraphQLQueryResolver {
     public TargetWordQuery(EgoNetworkService networkService) {
         this.networkService = networkService;
     }
+}

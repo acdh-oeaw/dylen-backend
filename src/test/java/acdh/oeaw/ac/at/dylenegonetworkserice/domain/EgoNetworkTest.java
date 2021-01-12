@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class EgoNetworkTest {
 
     @Test
-    void shouldInstantiateEgoNetwork() {
+    public void shouldInstantiateEgoNetwork() {
         var egoNetwork = EgoNetwork.of(EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID, SOURCE_ID_1, 20,
                 0.3f, 0.3f, NODES, CONNECTIONS);
 
