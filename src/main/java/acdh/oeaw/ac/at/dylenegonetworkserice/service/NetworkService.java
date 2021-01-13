@@ -4,10 +4,12 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
@@ -39,9 +41,14 @@ public class NetworkService implements EgoNetworkService {
     public List<TargetWord> getTargetWordsOfCorpusAndSource(String corpus, String source) {
         var targetWords = targetWordRepository.findByCorpusAndSource(corpus, source);
         var filtered = targetWords.stream()
-                .filter(targetWord -> targetWord.getCorpus().equals(corpus) && targetWord.getSource().equals(source))
+                .filter(checkCorpusAndSource(corpus, source))
                 .collect(Collectors.toUnmodifiableList());
 
         return filtered;
+    }
+
+    @NotNull
+    private Predicate<TargetWord> checkCorpusAndSource(String corpus, String source) {
+        return targetWord -> targetWord.getCorpus().equals(corpus) && targetWord.getSource().equals(source);
     }
 }

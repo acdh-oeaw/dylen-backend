@@ -30,6 +30,7 @@ public class CorpusService {
     @Cacheable(value = "corpora", cacheManager = "cacheMgr", key = "#root.method.name")
     public List<Corpus> getAllCorpora() {
         log.info("LOADING All Corpora...");
+        
         var amc = this.targetWordRepository.findByCorpus(AMC);
         var parlat = this.targetWordRepository.findByCorpus(PARLAT);
 
@@ -37,13 +38,13 @@ public class CorpusService {
                 .flatMap(Collection::stream)
                 .collect(Collectors.toUnmodifiableList());
 
-        var amc_sources = amc.stream()
+        var sourceToTargetWordMap = amc.stream()
                 .collect(Collectors.groupingBy(TargetWord::getSource));
-        var amc_sources_list = amc_sources.entrySet().stream()
+        var sources = sourceToTargetWordMap.entrySet().stream()
                 .map(entry -> Source.of(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toUnmodifiableList());
 
-        var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "AMC", amc_sources_list);
+        var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "AMC", sources);
 
         log.info("FINISHED LOADING All Corpora");
 

@@ -10,9 +10,6 @@
                 networks {
                     id
                     year
-                    absFreq
-                    relFreq
-                    threshold
                 }
             }
         }

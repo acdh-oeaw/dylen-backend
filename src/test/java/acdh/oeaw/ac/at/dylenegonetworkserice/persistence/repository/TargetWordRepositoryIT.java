@@ -3,12 +3,15 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mongodb.client.result.InsertOneResult;
 import lombok.extern.slf4j.Slf4j;
+import org.bson.Document;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -17,11 +20,19 @@ import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -33,6 +44,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 class TargetWordRepositoryIT {
     @Autowired
     TargetWordRepository repository;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     @Container
     private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.5")
@@ -58,10 +72,10 @@ class TargetWordRepositoryIT {
     void shouldInsertTargetWord() throws IOException {
         var jsonStr = new String(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(
                 "AMC/APA_Balkanroute-n.json")).readAllBytes());
-        var targetWord = new ObjectMapper().readValue(jsonStr, TargetWord.class);
+        var doc = Document.parse(jsonStr);
+        var inserted = mongoTemplate.getCollection("targetwords").insertOne(doc);
 
-        var inserted = repository.insert(targetWord);
-        var result = repository.findById(inserted.getId()).get();
+        var result = repository.findById(inserted.getInsertedId().asObjectId().getValue().toHexString()).get();
 
         assertThat(result).isNotNull();
     }
@@ -74,20 +88,19 @@ class TargetWordRepositoryIT {
         void beforeEach() throws IOException {
             var resourceePatternResolver = new PathMatchingResourcePatternResolver();
             var resources = resourceePatternResolver.getResources("classpath:AMC/selected/*.json");
-
-            var targetWords = Arrays.stream(resources).map(TestUtil::extractTargetWord).collect(Collectors.toUnmodifiableList());
+            var targetWords = Arrays.stream(resources).map(TestUtil::extractJsonStrings).collect(Collectors.toUnmodifiableList());
 
             var BATCH = 100;
             IntStream.range(0, (targetWords.size()+BATCH-1)/BATCH)
                     .mapToObj(i -> targetWords.subList(i*BATCH, Math.min(targetWords.size(), (i+1)*BATCH)))
-                    .forEach(batch -> repository.insert(batch));
+                    .forEach(batch -> mongoTemplate.getCollection("targetwords").insertMany(batch));
         }
 
         @Test
         void shouldFindTargetWordWithId() {
-            var targetWords = repository.findByText("links");
+            var targetWords = repository.findByText("Haider");
 
-            assertThat(targetWords.size()).isEqualTo(2);
+            assertThat(targetWords.size()).isEqualTo(1);
         }
 
         @Test

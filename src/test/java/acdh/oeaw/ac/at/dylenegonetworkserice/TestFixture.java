@@ -35,8 +35,7 @@ public class TestFixture {
     public static final ImmutableList<Node> NODES = ImmutableList.of(NODE_1, NODE_2);
     public static final ImmutableList<Connection> CONNECTIONS = ImmutableList.of(CONNECTION);
     public static final EgoNetwork NETWORK = EgoNetwork.of(EGO_NETWORK_ID,
-            EGO_NETWORK_NAME, EGO_NETWORK_YEAR, CORPUS_ID,
-            SourceService.SourceEnum.STANDARD.getName(), 201, 0.2f, 0.5f, NODES, CONNECTIONS);
+             EGO_NETWORK_YEAR, NODES, CONNECTIONS);
     public static final String AMC_CORPUS = "AMC";
     public static final String SOURCE_NAME = "Falter";
     public static final String TARGETWORD_TEXT = "ASYL";

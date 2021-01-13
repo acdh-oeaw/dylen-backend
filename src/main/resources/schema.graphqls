@@ -23,13 +23,7 @@ type Source {
 
 type EgoNetwork {
     id: ID
-    text: String
     year: Int
-    corpus: ID
-    source: ID
-    absFreq: Int
-    relFreq: Float
-    threshold: Float
     nodes:[Node]
     connections:[Connection]
 }

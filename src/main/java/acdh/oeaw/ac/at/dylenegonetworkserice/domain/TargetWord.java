@@ -12,12 +12,11 @@ import java.util.List;
 
 @Data
 @NoArgsConstructor
-@Document(collection = "egoNetwork_new")
+@Document(collection = "targetwords")
 public class TargetWord {
     @Id
     private String id;
     @NonNull
-    @Field("targetWord")
     private String text;
     private String pos;
     @Indexed
