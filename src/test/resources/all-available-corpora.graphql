@@ -5,6 +5,7 @@
         sources {
             name
             targetWords {
+                id
                 text
                 pos
                 networks {

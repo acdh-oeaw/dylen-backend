@@ -1,13 +1,7 @@
 {
-    networkById(id: "NETWORK_ID"){
+    getNetwork(targetword_id: "NETWORK_ID", year:2020){
         id
-        text
         year
-        corpus
-        source
-        absFreq
-        relFreq
-        threshold
         nodes {
             id
             clusterId
