@@ -4,8 +4,6 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.*;
 import com.google.common.collect.ImmutableList;
 
 public class TestFixture {
-    public static final String SOURCE_ID_1 = "Source-1";
-
     public static final String CORPUS_ID = "TEST_ID";
     public static final String CORPUS_NAME = "TEST_NAME";
     public static final String NODE_ID_1 = "NODE_1";
@@ -14,15 +12,11 @@ public class TestFixture {
     public static final String NODE_POS = "NOUN";
     public static final float SIMILARITY = 0.4f;
     public static final NodeMetric NODE_METRICS = NodeMetric.of(0.21, 0.51, 0.001, 0.077);
-    public static final int ABS_FREQ = 100;
-    public static final float REL_FREQ = 0.3f;
     public static final Node NODE_1 = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, NODE_METRICS);
     public static final String NODE_ID_2 = "NODE_2";
     public static final int CLUTER_ID_2 = 2;
     public static final String NODE_TEXT_2 = "TEST_NODE_2";
     public static final float SIMILARITY_2 = 0.4f;
-    public static final int ABS_FREQ_2 = 102;
-    public static final float REL_FREQ_2 = 0.43f;
     public static final Node NODE_2 = Node.of(NODE_ID_2, CLUTER_ID_2, NODE_TEXT_2, NODE_POS, SIMILARITY_2, NODE_METRICS);
     public static final String CONNECTION_ID = "EDGE_1";
     public static final float CONNECTION_SIMILARITY = 0.3f;
