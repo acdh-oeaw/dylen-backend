@@ -5,7 +5,6 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 @Service
-public class NetworkService implements EgoNetworkService {
+public class NetworkService implements EgoNetworkServiceInterface {
     final
     TargetWordRepository targetWordRepository;
 

@@ -31,7 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NetworkServiceIT {
 
     @Autowired
-    EgoNetworkService networkService;
+    EgoNetworkServiceInterface networkService;
 
     @Autowired
     TargetWordRepository repository;

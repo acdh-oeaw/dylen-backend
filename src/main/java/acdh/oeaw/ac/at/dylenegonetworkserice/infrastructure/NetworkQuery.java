@@ -1,6 +1,6 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
@@ -10,9 +10,9 @@ import static acdh.oeaw.ac.at.dylenegonetworkserice.util.StreamUtils.toSingleton
 @Component
 public class NetworkQuery implements GraphQLQueryResolver {
 
-    private final EgoNetworkService networkService;
+    private final EgoNetworkServiceInterface networkService;
 
-    public NetworkQuery(EgoNetworkService networkService) {
+    public NetworkQuery(EgoNetworkServiceInterface networkService) {
         this.networkService = networkService;
     }
 

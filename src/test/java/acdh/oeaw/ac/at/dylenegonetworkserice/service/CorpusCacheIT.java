@@ -43,7 +43,7 @@ public class CorpusCacheIT {
     TargetWordRepository repository;
 
     @Autowired
-    CorpusService corpusService;
+    CorpusServiceInterface corpusService;
 
     @Container
     private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.5")

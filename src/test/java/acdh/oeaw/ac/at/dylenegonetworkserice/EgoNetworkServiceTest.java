@@ -1,11 +1,10 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.SourceService;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
@@ -30,9 +29,9 @@ public class EgoNetworkServiceTest {
 
     Logger log = LoggerFactory.getLogger(this.getClass().getName());
     @MockBean
-    CorpusService corpusService;
+    CorpusServiceInterface corpusService;
     @MockBean
-    EgoNetworkService networkService;
+    EgoNetworkServiceInterface networkService;
     @Autowired
     private GraphQLTestTemplate graphQLTestTemplate;
 

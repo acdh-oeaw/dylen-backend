@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -14,7 +15,7 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CorpusQueryTest {
     @Mock
-    CorpusService corpusService;
+    CorpusServiceInterface corpusService;
 
     @Test
     void shouldReturnAllAvailableCorpora() {

@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 @Service
 @Slf4j
-public class CorpusService {
+public class CorpusService implements CorpusServiceInterface{
 
     private static final String AMC = "AMC";
     private static final String PARLAT = "Parlat";

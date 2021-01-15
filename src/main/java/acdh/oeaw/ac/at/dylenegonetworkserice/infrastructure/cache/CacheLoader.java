@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.cache;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
@@ -11,9 +12,9 @@ import org.springframework.stereotype.Service;
 public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
 
     final
-    CorpusService corpusService;
+    CorpusServiceInterface corpusService;
 
-    public CacheLoader(CorpusService corpusService) {
+    public CacheLoader(CorpusServiceInterface corpusService) {
         this.corpusService = corpusService;
     }
 

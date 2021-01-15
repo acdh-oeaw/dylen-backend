@@ -5,7 +5,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 
 import java.util.List;
 
-public interface EgoNetworkService {
+public interface EgoNetworkServiceInterface {
     List<TargetWord> getTargetWordsOfCorpusAndSource(String corpus, String source);
     TargetWord getTargetWordById(String id);
     List<EgoNetwork> getNetworkByTargetWord(String targetWord);
