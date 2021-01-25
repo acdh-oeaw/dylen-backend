@@ -41,7 +41,7 @@ build_image:
   image: docker/compose:latest
   stage: package
   services:
-    - name: docker:dind
+    - name: docker:19.03.12-dind
       command: ["--mtu=1450"]
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
