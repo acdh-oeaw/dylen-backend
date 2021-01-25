@@ -44,7 +44,7 @@ public class CorpusService implements CorpusServiceInterface{
                 .map(entry -> Source.of(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toUnmodifiableList());
 
-        var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "data/AMC", sources);
+        var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "AMC", sources);
 
         log.info("FINISHED LOADING All Corpora");
 
