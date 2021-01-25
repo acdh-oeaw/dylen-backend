@@ -19,7 +19,7 @@ import java.util.stream.Stream;
 @Slf4j
 public class CorpusService implements CorpusServiceInterface{
 
-    private static final String AMC = "AMC";
+    private static final String AMC = "data/AMC";
     private static final String PARLAT = "Parlat";
     final TargetWordRepository targetWordRepository;
 
@@ -44,7 +44,7 @@ public class CorpusService implements CorpusServiceInterface{
                 .map(entry -> Source.of(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toUnmodifiableList());
 
-        var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "AMC", sources);
+        var amc_corpus = Corpus.of(UUID.randomUUID().toString(), "data/AMC", sources);
 
         log.info("FINISHED LOADING All Corpora");
 
