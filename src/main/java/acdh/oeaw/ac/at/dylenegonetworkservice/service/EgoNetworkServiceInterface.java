@@ -1,7 +1,7 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.service;
+package acdh.oeaw.ac.at.dylenegonetworkservice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.TargetWord;
 
 import java.util.List;
 

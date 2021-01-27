@@ -1,7 +1,7 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.service;
+package acdh.oeaw.ac.at.dylenegonetworkservice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
-import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
+import acdh.oeaw.ac.at.dylenegonetworkservice.TestUtil;
+import acdh.oeaw.ac.at.dylenegonetworkservice.persistence.repository.TargetWordRepository;
 import com.google.common.collect.Lists;
 import com.graphql.spring.boot.test.GraphQLTest;
 import lombok.extern.slf4j.Slf4j;

@@ -1,12 +1,10 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice;
+package acdh.oeaw.ac.at.dylenegonetworkservice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.TargetWord;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.bson.Document;
 
 import java.io.IOException;
-import java.util.List;
 
 public class TestUtil {
     public static TargetWord extractTargetWord(org.springframework.core.io.Resource r) {

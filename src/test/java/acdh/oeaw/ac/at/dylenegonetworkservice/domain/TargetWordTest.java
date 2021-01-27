@@ -1,6 +1,6 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkservice.domain;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
+import acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -9,7 +9,7 @@ import org.testcontainers.shaded.com.google.common.collect.ImmutableList;
 
 import java.io.IOException;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
+import static acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture.*;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 class TargetWordTest {

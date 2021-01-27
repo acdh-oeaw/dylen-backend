@@ -1,6 +1,6 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.service;
+package acdh.oeaw.ac.at.dylenegonetworkservice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.Corpus;
 
 import java.util.List;
 

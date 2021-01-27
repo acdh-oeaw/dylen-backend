@@ -1,10 +1,9 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkservice.domain;
 
 
 import org.junit.Test;
-import org.springframework.data.geo.Metric;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
+import static acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class NodeTest {

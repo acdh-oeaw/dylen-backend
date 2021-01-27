@@ -1,8 +1,8 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
+package acdh.oeaw.ac.at.dylenegonetworkservice.infrastructure;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
-import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
+import acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture;
+import acdh.oeaw.ac.at.dylenegonetworkservice.persistence.repository.TargetWordRepository;
+import acdh.oeaw.ac.at.dylenegonetworkservice.service.NetworkService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

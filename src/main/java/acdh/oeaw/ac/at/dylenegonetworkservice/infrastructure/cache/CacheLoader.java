@@ -1,8 +1,6 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.cache;
+package acdh.oeaw.ac.at.dylenegonetworkservice.infrastructure.cache;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
-import org.springframework.beans.factory.annotation.Autowired;
+import acdh.oeaw.ac.at.dylenegonetworkservice.service.CorpusServiceInterface;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Service;

@@ -1,12 +1,8 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkservice.domain;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Test;
-import org.springframework.util.ResourceUtils;
 
-import java.io.IOException;
-
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
+import static acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class EgoNetworkTest {

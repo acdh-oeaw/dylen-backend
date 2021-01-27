@@ -1,13 +1,4 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice;
-
-import com.mongodb.MongoClientSettings;
-import com.mongodb.ServerAddress;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration;
-import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
-
-import static java.util.Collections.singletonList;
+package acdh.oeaw.ac.at.dylenegonetworkservice;
 
 //@EnableMongoRepositories(basePackages= "acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository")
 class TestConfiguration /*extends AbstractMongoClientConfiguration */{

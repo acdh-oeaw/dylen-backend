@@ -1,4 +1,4 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.exceptions;
+package acdh.oeaw.ac.at.dylenegonetworkservice.exceptions;
 
 import graphql.ErrorClassification;
 import graphql.GraphQLError;

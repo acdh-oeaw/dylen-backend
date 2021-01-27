@@ -1,9 +1,6 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository;
+package acdh.oeaw.ac.at.dylenegonetworkservice.persistence.repository;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mongodb.client.result.InsertOneResult;
+import acdh.oeaw.ac.at.dylenegonetworkservice.TestUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.Document;
 import org.junit.jupiter.api.*;
@@ -20,19 +17,11 @@ import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

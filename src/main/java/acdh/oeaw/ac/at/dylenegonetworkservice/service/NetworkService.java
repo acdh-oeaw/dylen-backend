@@ -1,9 +1,9 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.service;
+package acdh.oeaw.ac.at.dylenegonetworkservice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
-import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
-import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkservice.exceptions.TargetWordNotFoundException;
+import acdh.oeaw.ac.at.dylenegonetworkservice.persistence.repository.TargetWordRepository;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.stereotype.Service;
 

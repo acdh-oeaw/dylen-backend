@@ -1,7 +1,7 @@
 # Read Me First
 The following was discovered as part of building this project:
 
-* The original package name 'acdh.oeaw.ac.at.dylen-ego-network-serice' is invalid and this project uses 'acdh.oeaw.ac.at.dylenegonetworkserice' instead.
+* The original package name 'acdh.oeaw.ac.at.dylen-ego-network-serice' is invalid and this project uses 'acdh.oeaw.ac.at.dylenegonetworkservice' instead.
 
 # Getting Started
 

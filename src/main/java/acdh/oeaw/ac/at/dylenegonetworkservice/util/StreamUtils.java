@@ -1,4 +1,4 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.util;
+package acdh.oeaw.ac.at.dylenegonetworkservice.util;
 
 import java.util.stream.Collector;
 import java.util.stream.Collectors;

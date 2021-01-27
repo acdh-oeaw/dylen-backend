@@ -1,6 +1,6 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice;
+package acdh.oeaw.ac.at.dylenegonetworkservice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.*;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.*;
 import com.google.common.collect.ImmutableList;
 
 public class TestFixture {

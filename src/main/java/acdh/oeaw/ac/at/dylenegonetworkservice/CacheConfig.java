@@ -1,4 +1,4 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice;
+package acdh.oeaw.ac.at.dylenegonetworkservice;
 
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.EnableCaching;

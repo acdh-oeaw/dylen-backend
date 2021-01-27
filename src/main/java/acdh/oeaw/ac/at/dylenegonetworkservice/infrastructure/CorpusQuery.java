@@ -1,8 +1,7 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
+package acdh.oeaw.ac.at.dylenegonetworkservice.infrastructure;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.Corpus;
+import acdh.oeaw.ac.at.dylenegonetworkservice.service.CorpusServiceInterface;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

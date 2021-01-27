@@ -1,9 +1,9 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.service;
+package acdh.oeaw.ac.at.dylenegonetworkservice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
-import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.Corpus;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.Source;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkservice.persistence.repository.TargetWordRepository;
 import com.google.common.collect.ImmutableList;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cache.annotation.Cacheable;

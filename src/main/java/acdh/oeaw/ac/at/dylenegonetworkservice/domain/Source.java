@@ -1,4 +1,4 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkservice.domain;
 
 import lombok.*;
 import org.springframework.data.mongodb.core.index.Indexed;

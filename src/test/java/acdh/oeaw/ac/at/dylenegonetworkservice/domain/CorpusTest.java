@@ -1,10 +1,10 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkservice.domain;
 
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.CORPUS_ID;
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.CORPUS_NAME;
+import static acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture.CORPUS_ID;
+import static acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture.CORPUS_NAME;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CorpusTest {

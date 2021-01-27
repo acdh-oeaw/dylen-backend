@@ -1,10 +1,10 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
+package acdh.oeaw.ac.at.dylenegonetworkservice.infrastructure;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkservice.service.EgoNetworkServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
-import static acdh.oeaw.ac.at.dylenegonetworkserice.util.StreamUtils.toSingleton;
+import static acdh.oeaw.ac.at.dylenegonetworkservice.util.StreamUtils.toSingleton;
 
 
 @Component

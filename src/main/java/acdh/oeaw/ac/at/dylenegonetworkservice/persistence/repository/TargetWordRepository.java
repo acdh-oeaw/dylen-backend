@@ -1,6 +1,6 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository;
+package acdh.oeaw.ac.at.dylenegonetworkservice.persistence.repository;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.TargetWord;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;

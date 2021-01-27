@@ -1,10 +1,9 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice;
+package acdh.oeaw.ac.at.dylenegonetworkservice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.Corpus;
+import acdh.oeaw.ac.at.dylenegonetworkservice.domain.Source;
+import acdh.oeaw.ac.at.dylenegonetworkservice.service.CorpusServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkservice.service.EgoNetworkServiceInterface;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
@@ -18,8 +17,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.SOURCE_NAME;
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.TARGET_WORD_WITH_ID;
+import static acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture.SOURCE_NAME;
+import static acdh.oeaw.ac.at.dylenegonetworkservice.TestFixture.TARGET_WORD_WITH_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
 
