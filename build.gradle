@@ -33,6 +33,7 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	testImplementation 'com.tngtech.archunit:archunit:0.15.0'
 	testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:8.0.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
