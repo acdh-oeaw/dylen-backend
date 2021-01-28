@@ -102,7 +102,7 @@ deploy-master:
     - auto-deploy delete rollout
     - auto-deploy persist_environment_url
   environment:
-    name: dylen-ego
+    name: pre-prod
     url: https://dylen-ego-network-service-dev.acdh-dev.oeaw.ac.at
     kubernetes:
       namespace: dylen-ego
@@ -112,7 +112,7 @@ deploy-master:
   rules:
     - if: '$CI_COMMIT_REF_NAME == "master"'
 
-# deploy master
+# deploy prod
 deploy-prod:
   image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v1.0.7"
   stage: deploy
