@@ -115,6 +115,7 @@ deploy-master:
     when: always
   rules:
     - if: '$CI_COMMIT_REF_NAME == "master"'
+    - if: '$CI_PIPELINE_SOURCE != "merge_request_event"'
 
 # deploy prod
 deploy-prod:
