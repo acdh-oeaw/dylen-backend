@@ -25,7 +25,7 @@ type EgoNetwork {
     id: ID
     year: Int
     nodes:[Node]
-    connections:[Connection]
+    edges:[Edge]
 }
 
 type Node {
@@ -42,9 +42,13 @@ type NodeMetric {
     closenessCentrality: Float
     betweennessCentrality: Float
     eigenvectorCentrality: Float
+    pagerank: Float
+    loadCentrality: Float
+    harmonicCentrality: Float
+    clusteringCoefficient: Float
 }
 
-type Connection {
+type Edge {
     id: ID
     node1: ID
     node2: ID

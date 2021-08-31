@@ -43,7 +43,7 @@ class TargetWordTest {
     void fromJson() throws IOException {
         var mapper = new ObjectMapper();
 
-        var targetWord = mapper.readValue(ResourceUtils.getFile("classpath:AMC/APA_Balkanroute-n.json"),
+        var targetWord = mapper.readValue(ResourceUtils.getFile("classpath:AMC/Balkanroute-n.json"),
                 TargetWord.class);
 
         Assertions.assertThat(targetWord).isNotNull();

@@ -15,35 +15,40 @@ public class EgoNetwork {
     @NonNull private String id;
     private int year;
     @NonNull private List<Node> nodes;
-    @NonNull private List<Connection> connections;
+    @NonNull private List<Edge> edges;
+    @NonNull NetworkMetric metrics;
 
 
     private EgoNetwork(String id,
                        int year,
                        List<Node> nodes,
-                       List<Connection> connections) {
+                       List<Edge> edges,
+                       NetworkMetric metrics) {
         this.id = id;
         this.year = year;
         this.nodes = nodes;
-        this.connections = connections;
+        this.edges = edges;
+        this.metrics = metrics;
     }
 
     public static EgoNetwork of(
                                 @JsonProperty("year") int year,
                                 @JsonProperty("nodes") List<Node> nodes,
-                                @JsonProperty("connections") List<Connection> connections
+                                @JsonProperty("edges") List<Edge> edges,
+                                @JsonProperty("metrics") NetworkMetric metrics
     ) {
-        return new EgoNetwork(null, year, nodes, connections);
+        return new EgoNetwork(null, year, nodes, edges, metrics);
     }
 
     @JsonCreator
     public static EgoNetwork of(@JsonProperty("_id") String id,
                                 @JsonProperty("year") int year,
                                 @JsonProperty("nodes") List<Node> nodes,
-                                @JsonProperty("connections") List<Connection> connections
+                                @JsonProperty("edges") List<Edge> edges,
+                                @JsonProperty("metrics") NetworkMetric metrics
                                 ) {
         var idNotNull = StringUtils.isEmpty(id)?UUID.randomUUID().toString():id;
-        return new EgoNetwork(idNotNull, year, nodes, connections);
+        return new EgoNetwork(idNotNull, year, nodes, edges, metrics);
     }
 
     public static EgoNetwork fromJson(String json) {

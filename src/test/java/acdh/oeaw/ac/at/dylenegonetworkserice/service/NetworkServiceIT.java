@@ -55,7 +55,7 @@ public class NetworkServiceIT {
     @Test
     void shouldReturnTargetWordById() throws IOException {
         var jsonStr = new String(Objects.requireNonNull(NetworkServiceIT.class.getClassLoader().getResourceAsStream(
-                "AMC/APA_Balkanroute-n.json")).readAllBytes());
+                "AMC/Balkanroute-n.json")).readAllBytes());
         var targetWord = new ObjectMapper().readValue(jsonStr, TargetWord.class);
         var inserted = repository.insert(targetWord);
 

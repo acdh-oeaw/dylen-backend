@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Data
 @AllArgsConstructor(staticName = "of", access = AccessLevel.PUBLIC)
-public class Connection {
+public class Edge {
     @Id
     private String id;
     @Indexed
@@ -20,9 +20,9 @@ public class Connection {
     private float similarity;
 
     @JsonCreator
-    public static Connection of (@JsonProperty("node1") String node1,
-                                 @JsonProperty("node2") String node2,
-                                 @JsonProperty("similarity") float similarity) {
-        return new Connection(UUID.randomUUID().toString(), node1, node2, similarity);
+    public static Edge of (@JsonProperty("node1") String node1,
+                           @JsonProperty("node2") String node2,
+                           @JsonProperty("similarity") float similarity) {
+        return new Edge(UUID.randomUUID().toString(), node1, node2, similarity);
     }
 }
