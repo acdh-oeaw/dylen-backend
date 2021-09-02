@@ -13,9 +13,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class NetworkService implements EgoNetworkServiceInterface {
-    final
-    TargetWordRepository targetWordRepository;
 
+    final TargetWordRepository targetWordRepository;
 
     public NetworkService(TargetWordRepository targetWordRepository) {
         this.targetWordRepository = targetWordRepository;

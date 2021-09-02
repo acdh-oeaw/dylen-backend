@@ -5,6 +5,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
@@ -34,6 +35,8 @@ public class EgoNetworkServiceTest {
     EgoNetworkServiceInterface networkService;
     @Autowired
     private GraphQLTestTemplate graphQLTestTemplate;
+    @MockBean
+    QueryServiceInterface queryService;
 
     @Test
     public void getAllAvailableCorpora() throws IOException {
@@ -48,5 +51,16 @@ public class EgoNetworkServiceTest {
         assertThat(response.isOk()).isTrue();
     }
 
+    @Test
+    public void getSourcesByCorpus() throws IOException {
+        var corpus = "AMC";
+        var sources = ImmutableList.of("KLEINE", "STANDARD");
+        doReturn(sources).when(queryService).getSourcesByCorpus(corpus);
 
+        var response = graphQLTestTemplate.postForResource("sources-by-corpus.graphql");
+
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(response.readTree().get("data").get("getSourcesByCorpus").size()).isEqualTo(2);
+        assertThat(response.isOk()).isTrue();
+    }
 }

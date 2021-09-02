@@ -1,6 +1,7 @@
 type Query {
     allAvailableCorpora: [Corpus]
     getNetwork(targetword_id: String, year: Int): EgoNetwork
+    getSourcesByCorpus(corpus: String): [String]
 }
 
 type TargetWord {

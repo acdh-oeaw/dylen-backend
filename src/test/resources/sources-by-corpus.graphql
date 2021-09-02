@@ -1,0 +1,3 @@
+{
+    getSourcesByCorpus(corpus: "AMC")
+}
