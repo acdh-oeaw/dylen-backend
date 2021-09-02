@@ -20,6 +20,6 @@ public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        corpusService.getAllCorpora();
+
     }
 }
