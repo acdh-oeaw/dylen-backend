@@ -1,18 +1,3 @@
 {
-    allAvailableCorpora {
-        id
-        name
-        sources {
-            name
-            targetWords {
-                id
-                text
-                pos
-                networks {
-                    id
-                    year
-                }
-            }
-        }
-    }
+    allAvailableCorpora
 }

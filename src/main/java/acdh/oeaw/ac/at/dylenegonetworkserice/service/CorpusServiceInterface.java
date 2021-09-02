@@ -5,5 +5,5 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import java.util.List;
 
 public interface CorpusServiceInterface {
-    List<Corpus> getAllCorpora();
+    List<String> getAllCorpora();
 }

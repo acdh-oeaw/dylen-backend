@@ -28,27 +28,8 @@ public class CorpusService implements CorpusServiceInterface{
     }
 
     @Cacheable(value = "corpora", cacheManager = "cacheMgr", key = "#root.method.name")
-    public List<Corpus> getAllCorpora() {
-        log.info("LOADING All Corpora...");
-        
-        var amc = this.targetWordRepository.findByCorpus(AMC);
-        var parlat = this.targetWordRepository.findByCorpus(PARLAT);
-
-        var result  = Stream.of(amc,parlat)
-                .flatMap(Collection::stream)
-                .collect(Collectors.toUnmodifiableList());
-
-        var sourceToTargetWordMap = amc.stream()
-                .collect(Collectors.groupingBy(TargetWord::getSource));
-        var sources = sourceToTargetWordMap.entrySet().stream()
-                .map(entry -> Source.of(entry.getKey(), entry.getValue()))
-                .collect(Collectors.toUnmodifiableList());
-
-        var amc_corpus = Corpus.of(UUID.randomUUID().toString(), AMC, sources);
-
-        log.info("FINISHED LOADING All Corpora");
-
-        return ImmutableList.of(amc_corpus);
+    public List<String> getAllCorpora() {
+        return targetWordRepository.findAvailableCorpora();
     }
 
 }

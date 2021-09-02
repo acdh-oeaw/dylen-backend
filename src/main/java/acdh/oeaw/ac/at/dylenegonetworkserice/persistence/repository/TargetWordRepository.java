@@ -18,4 +18,7 @@ public interface TargetWordRepository extends MongoRepository<TargetWord, String
 
     @Aggregation(pipeline = { "{$match: {corpus:?0 }}", "{$group: {_id:\"$source\"}}" })
     List<String> findSourceByCorpus(String corpus);
+
+    @Aggregation(pipeline = { "{$match: {}}", "{$group: {_id:\"$corpus\"}}" })
+    List<String> findAvailableCorpora();
 }

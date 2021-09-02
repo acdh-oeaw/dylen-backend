@@ -18,7 +18,7 @@ public class CorpusQuery implements GraphQLQueryResolver {
         this.corpusService = corpusService;
     }
 
-    public List<Corpus> getAllAvailableCorpora(){
+    public List<String> getAllAvailableCorpora(){
         return corpusService.getAllCorpora();
     }
 }

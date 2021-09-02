@@ -1,5 +1,6 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import org.junit.jupiter.api.Test;
@@ -21,9 +22,9 @@ class CorpusQueryTest {
     void shouldReturnAllAvailableCorpora() {
         var corpusQuery = new CorpusQuery(corpusService);
 
-        when(corpusService.getAllCorpora()).thenReturn(ImmutableList.of(CORPUS_1));
+        when(corpusService.getAllCorpora()).thenReturn(ImmutableList.of(TestFixture.AMC_CORPUS));
         var corpora = corpusQuery.getAllAvailableCorpora();
 
-        assertThat(corpora.size()).isGreaterThan(0);
+        assertThat(corpora.size()).isEqualTo(1);
     }
 }
