@@ -32,14 +32,14 @@ public class NodeMetric {
     }
 
     @JsonCreator
-    public static NodeMetric of(@JsonProperty("degree_centrality") double degreeCentrality,
-                                @JsonProperty("closeness_centrality") double closenessCentrality,
-                                @JsonProperty("betweenness_centrality") double betweennessCentrality,
-                                @JsonProperty("eigenvector_centrality") double eigenvectorCentrality,
+    public static NodeMetric of(@JsonProperty("degreeCentrality") double degreeCentrality,
+                                @JsonProperty("closenessCentrality") double closenessCentrality,
+                                @JsonProperty("betweennessCentrality") double betweennessCentrality,
+                                @JsonProperty("eigenvectorCentrality") double eigenvectorCentrality,
                                 @JsonProperty("pagerank") double pagerank,
-                                @JsonProperty("load_centrality") double loadCentrality,
-                                @JsonProperty("harmonic_centrality") double harmonicCentrality,
-                                @JsonProperty("clustering_coefficient") double clusteringCoefficient
+                                @JsonProperty("loadCentrality") double loadCentrality,
+                                @JsonProperty("harmonicCentrality") double harmonicCentrality,
+                                @JsonProperty("clusteringCoefficient") double clusteringCoefficient
     ) {
         return new NodeMetric(degreeCentrality, closenessCentrality, betweennessCentrality, eigenvectorCentrality,
                 pagerank, loadCentrality, harmonicCentrality, clusteringCoefficient);
