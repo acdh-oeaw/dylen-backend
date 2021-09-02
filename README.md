@@ -21,3 +21,4 @@ Endpoint is http://localhost:5000/graphql
 # REFERENCES
 Read models in DDD: 
 http://gorodinski.com/blog/2012/04/25/read-models-as-a-tactical-pattern-in-domain-driven-design-ddd/
+{$match: {corpus:"AMC"}}, {$group: {_id:"$source"}}

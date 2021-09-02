@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 import java.util.List;
@@ -14,4 +15,7 @@ public interface TargetWordRepository extends MongoRepository<TargetWord, String
     List<TargetWord> findByCorpusAndSource(String corpus, String source);
 
     List<TargetWord>findByCorpus(String corpus);
+
+    @Aggregation(pipeline = { "{$match: {corpus:?0 }}", "{$group: {_id:\"$source\"}}" })
+    List<String> findSourceByCorpus(String corpus);
 }

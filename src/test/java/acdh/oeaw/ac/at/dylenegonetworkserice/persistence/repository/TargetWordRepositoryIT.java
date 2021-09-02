@@ -111,5 +111,12 @@ class TargetWordRepositoryIT {
             assertThat(targetWords.size()).isEqualTo(7);
         }
 
+        @Test
+        void shouldReturnSourcesByCorpus() {
+            var sources = repository.findSourceByCorpus("AMC");
+
+            assertThat(sources).isNotEmpty();
+            assertThat(sources.get(0)).isEqualTo("KLEINE");
+        }
     }
 }
