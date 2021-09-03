@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
@@ -41,12 +43,13 @@ public class NetworkServiceTest {
 
     @Test
     public void shouldRetrieveTargetWordsOfCorpusAndSource() throws IOException {
-        var targetWords = ImmutableList.of(TARGET_WORD_WITH_ID);
-        Mockito.when(targetWordRepository.findByCorpusAndSource(CORPUS_NAME, SOURCE_NAME)).thenReturn(targetWords);
+        var targetWords = new SliceImpl(ImmutableList.of(TARGET_WORD_WITH_ID));
+        var pageRequest = PageRequest.of(0,5);
+        Mockito.when(targetWordRepository.findByCorpusAndSource(CORPUS_NAME, SOURCE_NAME, pageRequest)).thenReturn(targetWords);
         var networkService = new NetworkService(targetWordRepository);
 
-        var result = networkService.getTargetWordsOfCorpusAndSource(CORPUS_NAME, SOURCE_NAME);
+        var result = networkService.getTargetWordsOfCorpusAndSource(CORPUS_NAME, SOURCE_NAME, pageRequest);
 
-        assertThat(result).contains(TARGET_WORD_WITH_ID);
+        assertThat(result.getTargetWords()).contains(TARGET_WORD_WITH_ID);
     }
 }

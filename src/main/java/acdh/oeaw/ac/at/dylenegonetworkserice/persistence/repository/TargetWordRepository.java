@@ -1,8 +1,11 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.mongodb.repository.Aggregation;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -12,7 +15,7 @@ public interface TargetWordRepository extends MongoRepository<TargetWord, String
 
     List<TargetWord> findByText(String text);
 
-    List<TargetWord> findByCorpusAndSource(String corpus, String source);
+    Slice<TargetWord> findByCorpusAndSource(String corpus, String source, Pageable pageable);
 
     List<TargetWord>findByCorpus(String corpus);
 
