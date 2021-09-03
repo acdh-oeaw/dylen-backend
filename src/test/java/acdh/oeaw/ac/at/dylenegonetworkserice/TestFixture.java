@@ -11,7 +11,7 @@ public class TestFixture {
     public static final String NODE_TEXT_1 = "TEST_NODE_1";
     public static final String NODE_POS = "NOUN";
     public static final float SIMILARITY = 0.4f;
-    public static final NodeMetric NODE_METRICS = NodeMetric.of(0.21, 0.51, 0.001, 0.077);
+    public static final NodeMetric NODE_METRICS = NodeMetric.of(0.21, 0.51, 0.001, 0.077, 0.012, 0.043, 0.444, 0.435);
     public static final Node NODE_1 = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, NODE_METRICS);
     public static final String NODE_ID_2 = "NODE_2";
     public static final int CLUTER_ID_2 = 2;
@@ -20,15 +20,16 @@ public class TestFixture {
     public static final Node NODE_2 = Node.of(NODE_ID_2, CLUTER_ID_2, NODE_TEXT_2, NODE_POS, SIMILARITY_2, NODE_METRICS);
     public static final String CONNECTION_ID = "EDGE_1";
     public static final float CONNECTION_SIMILARITY = 0.3f;
-    public static final Connection CONNECTION = Connection.of(CONNECTION_ID, NODE_ID_1, NODE_ID_2,
+    public static final Edge EDGE = Edge.of(CONNECTION_ID, NODE_ID_1, NODE_ID_2,
             CONNECTION_SIMILARITY);
     public static final String EGO_NETWORK_ID = "NETWORK_1";
     public static final String EGO_NETWORK_NAME = "NETWORK_TEST_1";
     public static final int EGO_NETWORK_YEAR = 2020;
     public static final ImmutableList<Node> NODES = ImmutableList.of(NODE_1, NODE_2);
-    public static final ImmutableList<Connection> CONNECTIONS = ImmutableList.of(CONNECTION);
+    public static final ImmutableList<Edge> EDGES = ImmutableList.of(EDGE);
+    public static final NetworkMetric NETWORK_METRIC= NetworkMetric.of(0.123, 0.435);
     public static final EgoNetwork NETWORK = EgoNetwork.of(EGO_NETWORK_ID,
-             EGO_NETWORK_YEAR, NODES, CONNECTIONS);
+             EGO_NETWORK_YEAR, NODES, EDGES, NETWORK_METRIC);
     public static final String AMC_CORPUS = "AMC";
     public static final String SOURCE_NAME = "Falter";
     public static final String TARGETWORD_TEXT = "ASYL";

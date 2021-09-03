@@ -1,6 +1,14 @@
 type Query {
-    allAvailableCorpora: [Corpus]
+    allAvailableCorpora: [String]
     getNetwork(targetword_id: String, year: Int): EgoNetwork
+    getSourcesByCorpus(corpus: String): [String]
+    getNetworksByCorpusAndSource(corpus:String, source: String, page: Int, size: Int): TargetWordsSliceDto
+}
+
+type TargetWordsSliceDto {
+    sliceNumber: Int
+    hasNext: Boolean
+    targetWords: [TargetWord]
 }
 
 type TargetWord {
@@ -25,7 +33,7 @@ type EgoNetwork {
     id: ID
     year: Int
     nodes:[Node]
-    connections:[Connection]
+    edges:[Edge]
 }
 
 type Node {
@@ -42,9 +50,13 @@ type NodeMetric {
     closenessCentrality: Float
     betweennessCentrality: Float
     eigenvectorCentrality: Float
+    pagerank: Float
+    loadCentrality: Float
+    harmonicCentrality: Float
+    clusteringCoefficient: Float
 }
 
-type Connection {
+type Edge {
     id: ID
     node1: ID
     node2: ID

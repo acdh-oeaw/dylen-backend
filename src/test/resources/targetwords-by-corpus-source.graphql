@@ -1,0 +1,11 @@
+{
+    getNetworksByCorpusAndSource(corpus: "AMC", source: "KLEINE", page: 0, size: 5) {
+        sliceNumber
+        hasNext
+        targetWords {
+            id
+            text
+            pos
+        }
+    }
+}

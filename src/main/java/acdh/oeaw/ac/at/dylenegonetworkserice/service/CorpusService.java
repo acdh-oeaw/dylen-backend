@@ -19,8 +19,6 @@ import java.util.stream.Stream;
 @Slf4j
 public class CorpusService implements CorpusServiceInterface{
 
-    private static final String AMC = "AMC";
-    private static final String PARLAT = "Parlat";
     final TargetWordRepository targetWordRepository;
 
     public CorpusService(TargetWordRepository targetWordRepository) {
@@ -28,27 +26,8 @@ public class CorpusService implements CorpusServiceInterface{
     }
 
     @Cacheable(value = "corpora", cacheManager = "cacheMgr", key = "#root.method.name")
-    public List<Corpus> getAllCorpora() {
-        log.info("LOADING All Corpora...");
-        
-        var amc = this.targetWordRepository.findByCorpus(AMC);
-        var parlat = this.targetWordRepository.findByCorpus(PARLAT);
-
-        var result  = Stream.of(amc,parlat)
-                .flatMap(Collection::stream)
-                .collect(Collectors.toUnmodifiableList());
-
-        var sourceToTargetWordMap = amc.stream()
-                .collect(Collectors.groupingBy(TargetWord::getSource));
-        var sources = sourceToTargetWordMap.entrySet().stream()
-                .map(entry -> Source.of(entry.getKey(), entry.getValue()))
-                .collect(Collectors.toUnmodifiableList());
-
-        var amc_corpus = Corpus.of(UUID.randomUUID().toString(), AMC, sources);
-
-        log.info("FINISHED LOADING All Corpora");
-
-        return ImmutableList.of(amc_corpus);
+    public List<String> getAllCorpora() {
+        return targetWordRepository.findAvailableCorpora();
     }
 
 }
