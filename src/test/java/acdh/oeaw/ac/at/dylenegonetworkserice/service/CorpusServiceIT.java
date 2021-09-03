@@ -42,9 +42,6 @@ public class CorpusServiceIT {
     @Autowired
     TargetWordRepository repository;
 
-    @Autowired
-    CorpusServiceInterface corpusService;
-
     @Container
     private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.5")
             .withExposedPorts(30300);
@@ -81,6 +78,7 @@ public class CorpusServiceIT {
 
     @Test
     void shouldReturnAvailableCorpora() {
+        CorpusServiceInterface corpusService = new CorpusService(repository);
         var result = corpusService.getAllCorpora();
 
         assertThat(result).isNotEmpty();

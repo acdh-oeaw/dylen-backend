@@ -40,8 +40,7 @@ public class EgoNetworkServiceTest {
 
     @Test
     public void getAllAvailableCorpora() throws IOException {
-        var source = Source.of(SOURCE_NAME, ImmutableList.of(TARGET_WORD_WITH_ID));
-        var corpus = ImmutableList.of(Corpus.of("corpus-1", "AMC", ImmutableList.of(source)));
+        var corpus = ImmutableList.of("AMC");
         doReturn(corpus).when(corpusService).getAllCorpora();
 
         var response = graphQLTestTemplate.postForResource("all-available-corpora.graphql");

@@ -19,8 +19,6 @@ import java.util.stream.Stream;
 @Slf4j
 public class CorpusService implements CorpusServiceInterface{
 
-    private static final String AMC = "AMC";
-    private static final String PARLAT = "Parlat";
     final TargetWordRepository targetWordRepository;
 
     public CorpusService(TargetWordRepository targetWordRepository) {

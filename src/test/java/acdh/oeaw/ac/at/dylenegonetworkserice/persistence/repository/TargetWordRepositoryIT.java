@@ -118,5 +118,13 @@ class TargetWordRepositoryIT {
             assertThat(sources).isNotEmpty();
             assertThat(sources.get(0)).isEqualTo("KLEINE");
         }
+
+        @Test
+        void shouldReturnAvailableCorpora() {
+            var corpora = repository.findAvailableCorpora();
+
+            assertThat(corpora).isNotEmpty();
+            assertThat(corpora.get(0)).isEqualTo("AMC");
+        }
     }
 }
