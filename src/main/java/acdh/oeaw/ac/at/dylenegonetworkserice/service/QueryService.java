@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,7 @@ public class QueryService implements QueryServiceInterface {
     }
 
     @Override
+    @Cacheable(value = "sources", cacheManager = "cacheMgr", key = "#root.method.name")
     public List<String> getSourcesByCorpus(String corpus) {
         return targetWordRepository.findSourceByCorpus(corpus);
     }
