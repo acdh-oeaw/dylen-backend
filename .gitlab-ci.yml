@@ -41,8 +41,8 @@ build_image:
   image: docker/compose:latest
   stage: package
   services:
-    - name: docker:19.03.12-dind
-      command: ["--mtu=1450"]
+    - name: docker:20-dind
+      command: ["--tls=false"]
   variables:
     IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
     DOCKER_HOST: tcp://localhost:2375
