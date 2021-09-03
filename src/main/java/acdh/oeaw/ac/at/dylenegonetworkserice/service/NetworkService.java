@@ -3,8 +3,10 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
+import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +15,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class NetworkService implements EgoNetworkServiceInterface {
-    final
-    TargetWordRepository targetWordRepository;
 
+    final TargetWordRepository targetWordRepository;
 
     public NetworkService(TargetWordRepository targetWordRepository) {
         this.targetWordRepository = targetWordRepository;
@@ -36,13 +37,9 @@ public class NetworkService implements EgoNetworkServiceInterface {
     }
 
     @Override
-    public List<TargetWord> getTargetWordsOfCorpusAndSource(String corpus, String source) {
-        var targetWords = targetWordRepository.findByCorpusAndSource(corpus, source);
-        var filtered = targetWords.stream()
-                .filter(checkCorpusAndSource(corpus, source))
-                .collect(Collectors.toUnmodifiableList());
-
-        return filtered;
+    public TargetWordsSliceDto getTargetWordsOfCorpusAndSource(String corpus, String source, Pageable pageRequest) {
+        var targetWords = targetWordRepository.findByCorpusAndSource(corpus, source, pageRequest);
+        return TargetWordsSliceDto.fromSlice(targetWords);
     }
 
     @NotNull

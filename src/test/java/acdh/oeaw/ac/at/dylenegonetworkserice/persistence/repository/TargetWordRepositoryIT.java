@@ -71,11 +71,11 @@ class TargetWordRepositoryIT {
     @Test
     void shouldInsertTargetWord() throws IOException {
         var jsonStr = new String(Objects.requireNonNull(getClass().getClassLoader().getResourceAsStream(
-                "AMC/APA_Balkanroute-n.json")).readAllBytes());
-        var doc = Document.parse(jsonStr);
-        var inserted = mongoTemplate.getCollection("targetwords").insertOne(doc);
+                "AMC/Balkanroute-n.json")).readAllBytes());
+        var targetWord = new ObjectMapper().readValue(jsonStr, TargetWord.class);
+        var inserted =  repository.insert(targetWord);
 
-        var result = repository.findById(inserted.getInsertedId().asObjectId().getValue().toHexString()).get();
+        var result = repository.findById(inserted.getId());
 
         assertThat(result).isNotNull();
     }
@@ -88,17 +88,17 @@ class TargetWordRepositoryIT {
         void beforeEach() throws IOException {
             var resourceePatternResolver = new PathMatchingResourcePatternResolver();
             var resources = resourceePatternResolver.getResources("classpath:AMC/selected/*.json");
-            var targetWords = Arrays.stream(resources).map(TestUtil::extractJsonStrings).collect(Collectors.toUnmodifiableList());
+            var targetWords = Arrays.stream(resources).map(TestUtil::extractTargetWord).collect(Collectors.toUnmodifiableList());
 
             var BATCH = 100;
             IntStream.range(0, (targetWords.size()+BATCH-1)/BATCH)
                     .mapToObj(i -> targetWords.subList(i*BATCH, Math.min(targetWords.size(), (i+1)*BATCH)))
-                    .forEach(batch -> mongoTemplate.getCollection("targetwords").insertMany(batch));
+                    .forEach(batch -> repository.insert(targetWords));
         }
 
         @Test
         void shouldFindTargetWordWithId() {
-            var targetWords = repository.findByText("Haider");
+            var targetWords = repository.findByText("Abbaueinheit");
 
             assertThat(targetWords.size()).isEqualTo(1);
         }
@@ -108,8 +108,23 @@ class TargetWordRepositoryIT {
 
             var targetWords = repository.findAll();
 
-            assertThat(targetWords.size()).isEqualTo(11);
+            assertThat(targetWords.size()).isEqualTo(7);
         }
 
+        @Test
+        void shouldReturnSourcesByCorpus() {
+            var sources = repository.findSourceByCorpus("AMC");
+
+            assertThat(sources).isNotEmpty();
+            assertThat(sources.get(0)).isEqualTo("KLEINE");
+        }
+
+        @Test
+        void shouldReturnAvailableCorpora() {
+            var corpora = repository.findAvailableCorpora();
+
+            assertThat(corpora).isNotEmpty();
+            assertThat(corpora.get(0)).isEqualTo("AMC");
+        }
     }
 }

@@ -9,7 +9,7 @@
             pos
             similarity
         }
-        connections {
+        edges {
             node1
             node2
             similarity
