@@ -1,6 +1,5 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org

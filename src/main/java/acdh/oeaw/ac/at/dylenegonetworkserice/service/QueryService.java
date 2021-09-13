@@ -19,7 +19,7 @@ public class QueryService implements QueryServiceInterface {
     }
 
     @Override
-    @Cacheable(value = "sources", cacheManager = "cacheMgr", key = "#root.method.name")
+    @Cacheable(value = "sources", cacheManager = "cacheMgr")
     public List<String> getSourcesByCorpus(String corpus) {
         return targetWordRepository.findSourceByCorpus(corpus);
     }
