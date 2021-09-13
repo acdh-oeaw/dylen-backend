@@ -18,5 +18,28 @@
             <offheap unit="MB">80</offheap>
         </resources>
     </cache>
+    <cache alias="sources">
+        <key-type>java.lang.Long</key-type>
+        <value-type>java.util.List</value-type>
+        <expiry>
+            <ttl unit="hours">24</ttl>
+        </expiry>
 
+        <resources>
+            <heap unit="entries">2</heap>
+            <offheap unit="MB">80</offheap>
+        </resources>
+    </cache>
+    <cache alias="targetwords">
+        <key-type>java.lang.Long</key-type>
+        <value-type>java.util.List</value-type>
+        <expiry>
+            <ttl unit="hours">24</ttl>
+        </expiry>
+
+        <resources>
+            <heap unit="entries">2</heap>
+            <offheap unit="MB">80</offheap>
+        </resources>
+    </cache>
 </config>
