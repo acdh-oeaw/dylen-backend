@@ -5,7 +5,6 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.util.StreamUtils.toSingleton;

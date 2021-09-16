@@ -3,6 +3,7 @@ type Query {
     getNetwork(targetword_id: String, year: Int): EgoNetwork
     getSourcesByCorpus(corpus: String): [String]
     getNetworksByCorpusAndSource(corpus:String, source: String, page: Int, size: Int): TargetWordsSliceDto
+    getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String): [TargetWord]
 }
 
 type TargetWordsSliceDto {

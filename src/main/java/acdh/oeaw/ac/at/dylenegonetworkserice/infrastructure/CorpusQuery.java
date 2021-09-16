@@ -1,7 +1,5 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;

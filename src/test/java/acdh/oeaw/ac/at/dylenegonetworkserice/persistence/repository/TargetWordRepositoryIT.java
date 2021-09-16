@@ -108,7 +108,7 @@ class TargetWordRepositoryIT {
 
             var targetWords = repository.findAll();
 
-            assertThat(targetWords.size()).isEqualTo(7);
+            assertThat(targetWords.size()).isEqualTo(6);
         }
 
         @Test
