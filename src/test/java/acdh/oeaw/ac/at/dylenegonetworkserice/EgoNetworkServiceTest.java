@@ -77,4 +77,18 @@ public class EgoNetworkServiceTest {
         assertThat(response.readTree().get("errors")).isNull();
         assertThat(response.readTree().get("data").get("getNetworksByCorpusAndSource").get("targetWords").size()).isEqualTo(1);
     }
+
+    @Test
+    public void getAutocompleteSuggestions() throws IOException {
+        var corpus = "AMC";
+        var source = "KLEINE";
+        var searchTerm = "AP";
+        doReturn(ImmutableList.of(TARGET_WORD_WITH_ID)).when(queryService).getAutocompleteSuggestion(corpus, source, searchTerm, 0, 10);
+
+        var response = graphQLTestTemplate.postForResource("autocomplete.graphql");
+
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(response.readTree().get("data").get("getAutocompleteSuggestions").size()).isEqualTo(1);
+
+    }
 }

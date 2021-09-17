@@ -1,13 +1,21 @@
 include:
 - template: Auto-DevOps.gitlab-ci.yml
 
+workflow:
+  rules:
+    - if: $CI_MERGE_REQUEST_IID
+    - if: $CI_COMMIT_TAG
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+    - if: $CI_COMMIT_BRANCH == "prod"
+
+
 image: adoptopenjdk/openjdk11:ubi
 
 stages:
   - build
   - package
   - test
-  - deploy  # dummy stage to follow the template guidelines
+  - deploy
   - review
   - dast
   - staging
@@ -36,6 +44,9 @@ build:
     paths:
       - build/libs/*.jar
     expire_in: 7 days
+  rules:
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+    - if: '$CI_COMMIT_TAG || $CI_COMMIT_BRANCH'
 
 build_image:
   image: docker/compose:latest
@@ -82,3 +93,60 @@ test:
     - if: '$TEST_DISABLED'
       when: never
     - if: '$CI_COMMIT_TAG || $CI_COMMIT_BRANCH'
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event"'
+
+# deploy master
+deploy-master:
+  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v1.0.7"
+  stage: deploy
+  variables:
+    POSTGRES_ENABLED: "false"
+    ROLLOUT_RESOURCE_TYPE: deployment
+  script:
+    - auto-deploy check_kube_domain
+    - auto-deploy download_chart
+    - auto-deploy ensure_namespace
+    - auto-deploy initialize_tiller
+    - auto-deploy create_secret
+    - auto-deploy deploy
+    - auto-deploy delete canary
+    - auto-deploy delete rollout
+    - auto-deploy persist_environment_url
+  environment:
+    name: pre-prod
+    url: https://dylen-ego-network-service-dev.acdh-dev.oeaw.ac.at
+    kubernetes:
+      namespace: dylen-ego
+  artifacts:
+    paths: [environment_url.txt, tiller.log]
+    when: always
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "master" && $CI_PIPELINE_SOURCE != "merge_request_event"'
+
+# deploy prod
+deploy-prod:
+  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v1.0.7"
+  stage: deploy
+  variables:
+    POSTGRES_ENABLED: "false"
+    ROLLOUT_RESOURCE_TYPE: deployment
+  script:
+    - auto-deploy check_kube_domain
+    - auto-deploy download_chart
+    - auto-deploy ensure_namespace
+    - auto-deploy initialize_tiller
+    - auto-deploy create_secret
+    - auto-deploy deploy
+    - auto-deploy delete canary
+    - auto-deploy delete rollout
+    - auto-deploy persist_environment_url
+  environment:
+    name: dylen-ego-prod
+    url: https://dylen-ego-network-service.acdh-dev.oeaw.ac.at
+    kubernetes:
+      namespace: dylen-ego-prod
+  artifacts:
+    paths: [environment_url.txt, tiller.log]
+    when: always
+  rules:
+    - if: '$CI_COMMIT_REF_NAME == "prod"'

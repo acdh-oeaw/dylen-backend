@@ -1,15 +1,14 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.cache;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-
 
 @Service
 public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
@@ -18,14 +17,24 @@ public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
 
     final QueryServiceInterface queryService;
 
-    public CacheLoader(CorpusServiceInterface corpusService, QueryServiceInterface queryService) {
+    final EgoNetworkServiceInterface networkService;
+
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+
+    public CacheLoader(CorpusServiceInterface corpusService, QueryServiceInterface queryService, EgoNetworkServiceInterface networkService) {
         this.corpusService = corpusService;
         this.queryService = queryService;
+        this.networkService = networkService;
     }
 
     @Override
     public void onApplicationEvent(ApplicationReadyEvent event) {
-        List<String> corpora = corpusService.getAllCorpora();
-        corpora.forEach(queryService::getSourcesByCorpus);
+        logger.info("Loading cache");
+        var corpora = corpusService.getAllCorpora();
+        logger.info("Corpora loaded...");
+        corpora.forEach((corpus) -> queryService.getSourcesByCorpus(corpus)
+                .forEach((source) -> networkService.getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0, 20))));
+        logger.info("Sources and Targetwords loaded..");
     }
 }
