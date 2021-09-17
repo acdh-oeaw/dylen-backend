@@ -7,6 +7,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSlice
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,6 +40,7 @@ public class NetworkService implements EgoNetworkServiceInterface {
     @Override
     public TargetWordsSliceDto getTargetWordsOfCorpusAndSource(String corpus, String source, Pageable pageRequest) {
         var targetWords = targetWordRepository.findByCorpusAndSource(corpus, source, pageRequest);
+        targetWords.forEach(TargetWord::sortByYear);
         return TargetWordsSliceDto.fromSlice(targetWords);
     }
 
