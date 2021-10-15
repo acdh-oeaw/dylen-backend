@@ -28,16 +28,22 @@ public class TestFixture {
     public static final ImmutableList<Node> NODES = ImmutableList.of(NODE_1, NODE_2);
     public static final ImmutableList<Edge> EDGES = ImmutableList.of(EDGE);
     public static final NetworkMetric NETWORK_METRIC= NetworkMetric.of(0.123, 0.435);
-    public static final EgoNetwork NETWORK = EgoNetwork.of(EGO_NETWORK_ID,
-             EGO_NETWORK_YEAR, NODES, EDGES, NETWORK_METRIC);
     public static final String AMC_CORPUS = "AMC";
     public static final String SOURCE_NAME = "Falter";
     public static final String TARGETWORD_TEXT = "ASYL";
     public static final String TARGETWORD_ID = "TARGET_ID";
+
+    public static final TimeSeriesMetric freqDiffNorm = TimeSeriesMetric.of(ImmutableList.of(0.1,0.2), ImmutableList.of(0.3,0.4), ImmutableList.of(0.5,0.6));
+    public static final TimeSeriesMetric jaccardSimilarity = TimeSeriesMetric.of(ImmutableList.of(0.1,0.2), ImmutableList.of(0.3,0.4), ImmutableList.of(0.5,0.6));
+    public static final TimeSeriesMetric frobeniusSimilarity = TimeSeriesMetric.of(ImmutableList.of(0.1,0.2), ImmutableList.of(0.3,0.4), ImmutableList.of(0.5,0.6));
+    public static final TimeSeriesMetric rankdcgSimilarity = TimeSeriesMetric.of(ImmutableList.of(0.1,0.2), ImmutableList.of(0.3,0.4), ImmutableList.of(0.5,0.6));
+    public static final TimeSeriesMetric localNeighbourhoodSimilarity = TimeSeriesMetric.of(ImmutableList.of(0.1,0.2), ImmutableList.of(0.3,0.4), ImmutableList.of(0.5,0.6));
+
+    public static final TimeSeries TIME_SERIES = TimeSeries.of(freqDiffNorm, jaccardSimilarity, frobeniusSimilarity, rankdcgSimilarity, localNeighbourhoodSimilarity);
+    public static final EgoNetwork NETWORK = EgoNetwork.of(EGO_NETWORK_ID,
+            EGO_NETWORK_YEAR, NODES, EDGES, NETWORK_METRIC, TIME_SERIES);
     public static final TargetWord TARGET_WORD_WITH_ID = TargetWord.of(TARGETWORD_ID, TARGETWORD_TEXT, "NOUN", CORPUS_NAME, SOURCE_NAME, ImmutableList.of(NETWORK));
     public static final TargetWord TARGET_WORD = TargetWord.of(TARGETWORD_TEXT, "NOUN", AMC_CORPUS, SOURCE_NAME, ImmutableList.of(NETWORK));
     public static final Corpus CORPUS_1 = Corpus.of("1", AMC_CORPUS, ImmutableList.of(Source.of(TestFixture.SOURCE_NAME,
             ImmutableList.of(TestFixture.TARGET_WORD))));
-
-
 }
