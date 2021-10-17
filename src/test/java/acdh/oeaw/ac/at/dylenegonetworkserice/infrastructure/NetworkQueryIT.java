@@ -51,5 +51,6 @@ class NetworkQueryIT {
         verify(targetWordRepository, times(1)).findByCorpusAndSource(TestFixture.AMC_CORPUS, "KLEINE", pageRequest);
         assertThat(networks).isNotNull();
         assertThat(networks.getTargetWords()).isEqualTo(ImmutableList.of(TestFixture.TARGET_WORD_WITH_ID));
+        assertThat(networks.getTargetWords().get(0).getTimeSeries().getFreqDiffNorm().getFirstYear().get(0)).isEqualTo(TestFixture.freqDiffNorm.getFirstYear().get(0));
     }
 }

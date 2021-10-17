@@ -11,13 +11,15 @@ public class TestFixture {
     public static final String NODE_TEXT_1 = "TEST_NODE_1";
     public static final String NODE_POS = "NOUN";
     public static final float SIMILARITY = 0.4f;
+    public static final int ABSOLUTE_FREQUENCY = 10;
+    public static double NORMALISED_FREQUENCY = 0.002;
     public static final NodeMetric NODE_METRICS = NodeMetric.of(0.21, 0.51, 0.001, 0.077, 0.012, 0.043, 0.444, 0.435);
-    public static final Node NODE_1 = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, NODE_METRICS);
+    public static final Node NODE_1 = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, NODE_METRICS, ABSOLUTE_FREQUENCY, NORMALISED_FREQUENCY);
     public static final String NODE_ID_2 = "NODE_2";
     public static final int CLUTER_ID_2 = 2;
     public static final String NODE_TEXT_2 = "TEST_NODE_2";
     public static final float SIMILARITY_2 = 0.4f;
-    public static final Node NODE_2 = Node.of(NODE_ID_2, CLUTER_ID_2, NODE_TEXT_2, NODE_POS, SIMILARITY_2, NODE_METRICS);
+    public static final Node NODE_2 = Node.of(NODE_ID_2, CLUTER_ID_2, NODE_TEXT_2, NODE_POS, SIMILARITY_2, NODE_METRICS, ABSOLUTE_FREQUENCY, NORMALISED_FREQUENCY);
     public static final String CONNECTION_ID = "EDGE_1";
     public static final float CONNECTION_SIMILARITY = 0.3f;
     public static final Edge EDGE = Edge.of(CONNECTION_ID, NODE_ID_1, NODE_ID_2,
@@ -41,9 +43,9 @@ public class TestFixture {
 
     public static final TimeSeries TIME_SERIES = TimeSeries.of(freqDiffNorm, jaccardSimilarity, frobeniusSimilarity, rankdcgSimilarity, localNeighbourhoodSimilarity);
     public static final EgoNetwork NETWORK = EgoNetwork.of(EGO_NETWORK_ID,
-            EGO_NETWORK_YEAR, NODES, EDGES, NETWORK_METRIC, TIME_SERIES);
-    public static final TargetWord TARGET_WORD_WITH_ID = TargetWord.of(TARGETWORD_ID, TARGETWORD_TEXT, "NOUN", CORPUS_NAME, SOURCE_NAME, ImmutableList.of(NETWORK));
-    public static final TargetWord TARGET_WORD = TargetWord.of(TARGETWORD_TEXT, "NOUN", AMC_CORPUS, SOURCE_NAME, ImmutableList.of(NETWORK));
+            EGO_NETWORK_YEAR, NODES, EDGES, NETWORK_METRIC, ABSOLUTE_FREQUENCY, NORMALISED_FREQUENCY);
+    public static final TargetWord TARGET_WORD_WITH_ID = TargetWord.of(TARGETWORD_ID, TARGETWORD_TEXT, "NOUN", CORPUS_NAME, SOURCE_NAME, ImmutableList.of(NETWORK), TIME_SERIES);
+    public static final TargetWord TARGET_WORD = TargetWord.of(TARGETWORD_TEXT, "NOUN", AMC_CORPUS, SOURCE_NAME, ImmutableList.of(NETWORK), TIME_SERIES);
     public static final Corpus CORPUS_1 = Corpus.of("1", AMC_CORPUS, ImmutableList.of(Source.of(TestFixture.SOURCE_NAME,
             ImmutableList.of(TestFixture.TARGET_WORD))));
 }

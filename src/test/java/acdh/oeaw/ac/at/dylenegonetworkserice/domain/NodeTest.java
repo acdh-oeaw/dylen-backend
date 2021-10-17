@@ -11,7 +11,7 @@ public class NodeTest {
 
     @Test
     public void shouldInstantiateNode() {
-        var node = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, NODE_METRICS);
+        var node = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, NODE_METRICS, ABSOLUTE_FREQUENCY, NORMALISED_FREQUENCY);
 
         assertThat(node.getId()).isEqualTo(NODE_ID_1);
         assertThat(node.getClusterId()).isEqualTo(CLUTER_ID_1);
@@ -19,5 +19,7 @@ public class NodeTest {
         assertThat(node.getPos()).isEqualTo(NODE_POS);
         assertThat(node.getSimilarity()).isEqualTo(SIMILARITY);
         assertThat(node.getMetrics()).isEqualTo(NODE_METRICS);
+        assertThat(node.getAbsoluteFrequency()).isEqualTo(ABSOLUTE_FREQUENCY);
+        assertThat(node.getNormalisedFrequency()).isEqualTo(NORMALISED_FREQUENCY);
     }
 }

@@ -26,7 +26,9 @@
             "loadCentrality": 0.07053140096618357,
             "harmonicCentrality": 23.33333333333331,
             "clusteringCoefficient": 0.12803948443520577
-          }
+          },
+          "absoluteFrequency": 20,
+          "normalisedFrequency": 3.1417899217034536e-06
         },
         {
           "id": "1",
@@ -43,7 +45,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 15.416666666666668,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 42,
+          "normalisedFrequency": 6.597758835577252e-06
         },
         {
           "id": "2",
@@ -60,7 +64,9 @@
             "loadCentrality": 0.13043478260869565,
             "harmonicCentrality": 28.666666666666657,
             "clusteringCoefficient": 0.15557489800749982
-          }
+          },
+          "absoluteFrequency": 9,
+          "normalisedFrequency": 1.413805464766554e-06
         },
         {
           "id": "3",
@@ -77,7 +83,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 19.583333333333332,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 15,
+          "normalisedFrequency": 2.35634244127759e-06
         },
         {
           "id": "4",
@@ -94,7 +102,9 @@
             "loadCentrality": 0.022222222222222223,
             "harmonicCentrality": 21.249999999999986,
             "clusteringCoefficient": 0.2070528095103978
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.1992529451924172e-06
         },
         {
           "id": "5",
@@ -111,7 +121,9 @@
             "loadCentrality": 0.12560386473429952,
             "harmonicCentrality": 27.499999999999993,
             "clusteringCoefficient": 0.1437373089905455
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 2.0421634491072445e-06
         },
         {
           "id": "6",
@@ -128,7 +140,9 @@
             "loadCentrality": 0.006763285024154589,
             "harmonicCentrality": 22.36666666666665,
             "clusteringCoefficient": 0.4608790561476495
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.1992529451924172e-06
         },
         {
           "id": "7",
@@ -145,7 +159,9 @@
             "loadCentrality": 0.0927536231884058,
             "harmonicCentrality": 27.24999999999999,
             "clusteringCoefficient": 0.20372763547475736
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7279844569368993e-06
         },
         {
           "id": "8",
@@ -162,7 +178,9 @@
             "loadCentrality": 0.013526570048309178,
             "harmonicCentrality": 19.999999999999996,
             "clusteringCoefficient": 0.17993152344893937
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.885073953022072e-06
         },
         {
           "id": "9",
@@ -179,7 +197,9 @@
             "loadCentrality": 0.11207729468599034,
             "harmonicCentrality": 27.83333333333332,
             "clusteringCoefficient": 0.13581337986529768
-          }
+          },
+          "absoluteFrequency": 22,
+          "normalisedFrequency": 3.4559689138737986e-06
         },
         {
           "id": "10",
@@ -196,7 +216,9 @@
             "loadCentrality": 0.06570048309178744,
             "harmonicCentrality": 27.249999999999986,
             "clusteringCoefficient": 0.25708628996256944
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7279844569368993e-06
         },
         {
           "id": "11",
@@ -213,7 +235,9 @@
             "loadCentrality": 0.08019323671497584,
             "harmonicCentrality": 25.166666666666654,
             "clusteringCoefficient": 0.11634036630103264
-          }
+          },
+          "absoluteFrequency": 15,
+          "normalisedFrequency": 2.35634244127759e-06
         },
         {
           "id": "12",
@@ -230,7 +254,9 @@
             "loadCentrality": 0.013526570048309178,
             "harmonicCentrality": 22.86666666666665,
             "clusteringCoefficient": 0.36410162786475736
-          }
+          },
+          "absoluteFrequency": 9,
+          "normalisedFrequency": 1.413805464766554e-06
         },
         {
           "id": "13",
@@ -247,7 +273,9 @@
             "loadCentrality": 0.020289855072463767,
             "harmonicCentrality": 19.416666666666668,
             "clusteringCoefficient": 0.2320078786031746
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7279844569368993e-06
         },
         {
           "id": "14",
@@ -264,7 +292,9 @@
             "loadCentrality": 0.07053140096618357,
             "harmonicCentrality": 22.749999999999982,
             "clusteringCoefficient": 0.11741548931245901
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.885073953022072e-06
         },
         {
           "id": "15",
@@ -281,7 +311,9 @@
             "loadCentrality": 0.10048309178743961,
             "harmonicCentrality": 29.416666666666654,
             "clusteringCoefficient": 0.21614884965008116
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7279844569368993e-06
         },
         {
           "id": "16",
@@ -298,7 +330,9 @@
             "loadCentrality": 0.08309178743961353,
             "harmonicCentrality": 25.58333333333332,
             "clusteringCoefficient": 0.1738521198779262
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.6705214334479354e-06
         },
         {
           "id": "17",
@@ -315,7 +349,9 @@
             "loadCentrality": 0.004830917874396135,
             "harmonicCentrality": 21.66666666666665,
             "clusteringCoefficient": 0.2241038662122418
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.1992529451924172e-06
         },
         {
           "id": "18",
@@ -332,7 +368,9 @@
             "loadCentrality": 0.001932367149758454,
             "harmonicCentrality": 20.166666666666664,
             "clusteringCoefficient": 0.19684493461228272
-          }
+          },
+          "absoluteFrequency": 9,
+          "normalisedFrequency": 1.413805464766554e-06
         },
         {
           "id": "19",
@@ -349,7 +387,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 16.283333333333335,
             "clusteringCoefficient": 0.6960236358095238
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7279844569368993e-06
         },
         {
           "id": "20",
@@ -366,7 +406,9 @@
             "loadCentrality": 0.022222222222222223,
             "harmonicCentrality": 23.083333333333318,
             "clusteringCoefficient": 0.26682593041622577
-          }
+          },
+          "absoluteFrequency": 9,
+          "normalisedFrequency": 1.413805464766554e-06
         },
         {
           "id": "21",
@@ -383,7 +425,9 @@
             "loadCentrality": 0.004830917874396135,
             "harmonicCentrality": 21.66666666666665,
             "clusteringCoefficient": 0.22643174735675226
-          }
+          },
+          "absoluteFrequency": 24,
+          "normalisedFrequency": 3.770147906044144e-06
         },
         {
           "id": "22",
@@ -400,7 +444,9 @@
             "loadCentrality": 0.14202898550724638,
             "harmonicCentrality": 27.499999999999993,
             "clusteringCoefficient": 0.12428836538740178
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5708949608517268e-06
         },
         {
           "id": "23",
@@ -417,7 +463,9 @@
             "loadCentrality": 0.006763285024154589,
             "harmonicCentrality": 21.44999999999999,
             "clusteringCoefficient": 0.38489471985825485
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 2.0421634491072445e-06
         },
         {
           "id": "24",
@@ -434,7 +482,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 20.83333333333332,
             "clusteringCoefficient": 0.36251240108678306
-          }
+          },
+          "absoluteFrequency": 19,
+          "normalisedFrequency": 2.984700425618281e-06
         },
         {
           "id": "25",
@@ -451,7 +501,9 @@
             "loadCentrality": 0.02608695652173913,
             "harmonicCentrality": 23.83333333333331,
             "clusteringCoefficient": 0.1809665119153175
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.885073953022072e-06
         },
         {
           "id": "26",
@@ -468,7 +520,9 @@
             "loadCentrality": 0.06183574879227053,
             "harmonicCentrality": 22.166666666666654,
             "clusteringCoefficient": 0.1341937777584856
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7279844569368993e-06
         },
         {
           "id": "27",
@@ -485,7 +539,9 @@
             "loadCentrality": 0.000966183574879227,
             "harmonicCentrality": 20.616666666666664,
             "clusteringCoefficient": 0.5262365685803824
-          }
+          },
+          "absoluteFrequency": 15,
+          "normalisedFrequency": 2.35634244127759e-06
         },
         {
           "id": "28",
@@ -502,7 +558,9 @@
             "loadCentrality": 0.011594202898550725,
             "harmonicCentrality": 21.41666666666665,
             "clusteringCoefficient": 0.2653806861833518
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.6705214334479354e-06
         },
         {
           "id": "29",
@@ -519,7 +577,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 14.76666666666666,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 35,
+          "normalisedFrequency": 5.498132362981043e-06
         },
         {
           "id": "30",
@@ -536,7 +596,9 @@
             "loadCentrality": 0.021256038647342993,
             "harmonicCentrality": 27.166666666666654,
             "clusteringCoefficient": 0.2582608622980586
-          }
+          },
+          "absoluteFrequency": 23,
+          "normalisedFrequency": 3.6130584099589713e-06
         },
         {
           "id": "31",
@@ -553,7 +615,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 16.86666666666667,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5708949608517268e-06
         },
         {
           "id": "32",
@@ -570,7 +634,9 @@
             "loadCentrality": 0.005797101449275362,
             "harmonicCentrality": 21.08333333333332,
             "clusteringCoefficient": 0.37837973763197225
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.5134319373627627e-06
         },
         {
           "id": "33",
@@ -587,7 +653,9 @@
             "loadCentrality": 0.018357487922705314,
             "harmonicCentrality": 22.249999999999982,
             "clusteringCoefficient": 0.3894464934237029
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.827610929533108e-06
         },
         {
           "id": "34",
@@ -604,7 +672,9 @@
             "loadCentrality": 0.007729468599033816,
             "harmonicCentrality": 17.91666666666668,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 2.0421634491072445e-06
         },
         {
           "id": "35",
@@ -621,7 +691,9 @@
             "loadCentrality": 0.005797101449275362,
             "harmonicCentrality": 22.249999999999982,
             "clusteringCoefficient": 0.29522443263666065
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5708949608517268e-06
         },
         {
           "id": "36",
@@ -638,7 +710,9 @@
             "loadCentrality": 0.03864734299516908,
             "harmonicCentrality": 23.083333333333314,
             "clusteringCoefficient": 0.26440142999168753
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5708949608517268e-06
         },
         {
           "id": "37",
@@ -655,7 +729,9 @@
             "loadCentrality": 0.04541062801932367,
             "harmonicCentrality": 22.916666666666643,
             "clusteringCoefficient": 0.13188322720302342
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.885073953022072e-06
         },
         {
           "id": "38",
@@ -672,7 +748,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 19.08333333333334,
             "clusteringCoefficient": 0.1870581133175235
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.885073953022072e-06
         },
         {
           "id": "39",
@@ -689,7 +767,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 17.18333333333334,
             "clusteringCoefficient": 0.5666919835691056
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.1992529451924172e-06
         },
         {
           "id": "40",
@@ -706,7 +786,9 @@
             "loadCentrality": 0.018357487922705314,
             "harmonicCentrality": 22.083333333333314,
             "clusteringCoefficient": 0.28309141339097865
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.885073953022072e-06
         },
         {
           "id": "41",
@@ -723,7 +805,9 @@
             "loadCentrality": 0.022222222222222223,
             "harmonicCentrality": 20.61666666666666,
             "clusteringCoefficient": 0.3542655761638226
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7279844569368993e-06
         },
         {
           "id": "42",
@@ -740,7 +824,9 @@
             "loadCentrality": 0.00966183574879227,
             "harmonicCentrality": 22.58333333333331,
             "clusteringCoefficient": 0.2133380734335974
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 2.0421634491072445e-06
         },
         {
           "id": "43",
@@ -757,7 +843,9 @@
             "loadCentrality": 0.01642512077294686,
             "harmonicCentrality": 22.533333333333317,
             "clusteringCoefficient": 0.38886714069306366
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.6705214334479354e-06
         },
         {
           "id": "44",
@@ -774,7 +862,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 19.416666666666664,
             "clusteringCoefficient": 0.5319192407007101
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.1992529451924172e-06
         },
         {
           "id": "45",
@@ -791,7 +881,9 @@
             "loadCentrality": 0.011594202898550725,
             "harmonicCentrality": 23.583333333333314,
             "clusteringCoefficient": 0.38302636066977186
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5708949608517268e-06
         },
         {
           "id": "46",
@@ -808,7 +900,9 @@
             "loadCentrality": 0.005797101449275362,
             "harmonicCentrality": 21.283333333333328,
             "clusteringCoefficient": 0.404746979724459
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7279844569368993e-06
         }
       ],
       "edges": [
@@ -1582,7 +1676,9 @@
           "node2": "46",
           "similarity": 0.5549562370238386
         }
-      ]
+      ],
+      "absoluteFrequency": 10,
+      "normalisedFrequency": 1.5708949608517268e-06
     },
     {
       "year": "2001",
@@ -1606,7 +1702,9 @@
             "loadCentrality": 0.0101010101010101,
             "harmonicCentrality": 21.333333333333318,
             "clusteringCoefficient": 0.38253729284866345
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         },
         {
           "id": "1",
@@ -1623,7 +1721,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 16.266666666666673,
             "clusteringCoefficient": 0.7727908254359824
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "2",
@@ -1640,7 +1740,9 @@
             "loadCentrality": 0.06060606060606061,
             "harmonicCentrality": 20.499999999999996,
             "clusteringCoefficient": 0.15241053570656396
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.55681599991697e-06
         },
         {
           "id": "3",
@@ -1657,7 +1759,9 @@
             "loadCentrality": 0.07676767676767676,
             "harmonicCentrality": 22.916666666666654,
             "clusteringCoefficient": 0.07546828465089336
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         },
         {
           "id": "4",
@@ -1674,7 +1778,9 @@
             "loadCentrality": 0.013131313131313131,
             "harmonicCentrality": 20.78333333333332,
             "clusteringCoefficient": 0.36603740433181625
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "5",
@@ -1691,7 +1797,9 @@
             "loadCentrality": 0.05555555555555555,
             "harmonicCentrality": 29.666666666666657,
             "clusteringCoefficient": 0.2842098344076039
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "6",
@@ -1708,7 +1816,9 @@
             "loadCentrality": 0.00909090909090909,
             "harmonicCentrality": 16.783333333333342,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.55681599991697e-06
         },
         {
           "id": "7",
@@ -1725,7 +1835,9 @@
             "loadCentrality": 0.00101010101010101,
             "harmonicCentrality": 22.666666666666654,
             "clusteringCoefficient": 0.6190421500179031
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.55681599991697e-06
         },
         {
           "id": "8",
@@ -1742,7 +1854,9 @@
             "loadCentrality": 0.050505050505050504,
             "harmonicCentrality": 26.166666666666657,
             "clusteringCoefficient": 0.37063132140336247
-          }
+          },
+          "absoluteFrequency": 20,
+          "normalisedFrequency": 2.59469333319495e-06
         },
         {
           "id": "9",
@@ -1759,7 +1873,9 @@
             "loadCentrality": 0.00202020202020202,
             "harmonicCentrality": 20.16666666666666,
             "clusteringCoefficient": 0.49017087847963753
-          }
+          },
+          "absoluteFrequency": 20,
+          "normalisedFrequency": 2.59469333319495e-06
         },
         {
           "id": "10",
@@ -1776,7 +1892,9 @@
             "loadCentrality": 0.03737373737373737,
             "harmonicCentrality": 22.649999999999988,
             "clusteringCoefficient": 0.1425204215405192
-          }
+          },
+          "absoluteFrequency": 31,
+          "normalisedFrequency": 4.021774666452172e-06
         },
         {
           "id": "11",
@@ -1793,7 +1911,9 @@
             "loadCentrality": 0.24444444444444444,
             "harmonicCentrality": 33.50000000000001,
             "clusteringCoefficient": 0.19770009288150212
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "12",
@@ -1810,7 +1930,9 @@
             "loadCentrality": 0.011111111111111112,
             "harmonicCentrality": 22.99999999999999,
             "clusteringCoefficient": 0.3844521698172016
-          }
+          },
+          "absoluteFrequency": 19,
+          "normalisedFrequency": 2.4649586665352023e-06
         },
         {
           "id": "13",
@@ -1827,7 +1949,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 17.700000000000014,
             "clusteringCoefficient": 0.7089225537669888
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         },
         {
           "id": "14",
@@ -1844,7 +1968,9 @@
             "loadCentrality": 0.021212121212121213,
             "harmonicCentrality": 23.666666666666657,
             "clusteringCoefficient": 0.3219965878943713
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "15",
@@ -1861,7 +1987,9 @@
             "loadCentrality": 0.00909090909090909,
             "harmonicCentrality": 23.833333333333318,
             "clusteringCoefficient": 0.5553501745277027
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 1.8162853332364648e-06
         },
         {
           "id": "16",
@@ -1878,7 +2006,9 @@
             "loadCentrality": 0.03636363636363636,
             "harmonicCentrality": 18.366666666666674,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.0757546665559596e-06
         },
         {
           "id": "17",
@@ -1895,7 +2025,9 @@
             "loadCentrality": 0.06464646464646465,
             "harmonicCentrality": 22.583333333333314,
             "clusteringCoefficient": 0.1616511814618107
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.0757546665559596e-06
         },
         {
           "id": "18",
@@ -1912,7 +2044,9 @@
             "loadCentrality": 0.09191919191919191,
             "harmonicCentrality": 24.08333333333332,
             "clusteringCoefficient": 0.320341948611195
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         },
         {
           "id": "19",
@@ -1929,7 +2063,9 @@
             "loadCentrality": 0.015151515151515152,
             "harmonicCentrality": 27.83333333333332,
             "clusteringCoefficient": 0.3696157032261917
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "20",
@@ -1946,7 +2082,9 @@
             "loadCentrality": 0.044444444444444446,
             "harmonicCentrality": 17.616666666666678,
             "clusteringCoefficient": 0.24279355157917878
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         },
         {
           "id": "21",
@@ -1963,7 +2101,9 @@
             "loadCentrality": 0.00202020202020202,
             "harmonicCentrality": 19.983333333333327,
             "clusteringCoefficient": 0.49975292485014644
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.0757546665559596e-06
         },
         {
           "id": "22",
@@ -1980,7 +2120,9 @@
             "loadCentrality": 0.047474747474747475,
             "harmonicCentrality": 24.99999999999999,
             "clusteringCoefficient": 0.3340808660795013
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "23",
@@ -1997,7 +2139,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 16.23333333333334,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 1.6865506665767173e-06
         },
         {
           "id": "24",
@@ -2014,7 +2158,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 16.916666666666675,
             "clusteringCoefficient": 0.7718163682174166
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 1.6865506665767173e-06
         },
         {
           "id": "25",
@@ -2031,7 +2177,9 @@
             "loadCentrality": 0.00505050505050505,
             "harmonicCentrality": 23.999999999999986,
             "clusteringCoefficient": 0.6397468046456848
-          }
+          },
+          "absoluteFrequency": 9,
+          "normalisedFrequency": 1.1676119999377274e-06
         },
         {
           "id": "26",
@@ -2048,7 +2196,9 @@
             "loadCentrality": 0.030303030303030304,
             "harmonicCentrality": 26.33333333333332,
             "clusteringCoefficient": 0.37701419533422714
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "27",
@@ -2065,7 +2215,9 @@
             "loadCentrality": 0.07272727272727272,
             "harmonicCentrality": 25.666666666666657,
             "clusteringCoefficient": 0.3241724958822728
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         },
         {
           "id": "28",
@@ -2082,7 +2234,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 15.700000000000003,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.205489333215707e-06
         },
         {
           "id": "29",
@@ -2099,7 +2253,9 @@
             "loadCentrality": 0.012121212121212121,
             "harmonicCentrality": 23.166666666666657,
             "clusteringCoefficient": 0.36592893634332996
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.55681599991697e-06
         },
         {
           "id": "30",
@@ -2116,7 +2272,9 @@
             "loadCentrality": 0.00202020202020202,
             "harmonicCentrality": 21.833333333333318,
             "clusteringCoefficient": 0.7006538888016675
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 1.8162853332364648e-06
         },
         {
           "id": "31",
@@ -2133,7 +2291,9 @@
             "loadCentrality": 0.07575757575757576,
             "harmonicCentrality": 29.333333333333325,
             "clusteringCoefficient": 0.30998841273777455
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "32",
@@ -2150,7 +2310,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 12.71666666666666,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         },
         {
           "id": "33",
@@ -2167,7 +2329,9 @@
             "loadCentrality": 0.11515151515151516,
             "harmonicCentrality": 24.41666666666665,
             "clusteringCoefficient": 0.1865378906027993
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         },
         {
           "id": "34",
@@ -2184,7 +2348,9 @@
             "loadCentrality": 0.01919191919191919,
             "harmonicCentrality": 22.41666666666665,
             "clusteringCoefficient": 0.34841389829126507
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.55681599991697e-06
         },
         {
           "id": "35",
@@ -2201,7 +2367,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 20.16666666666666,
             "clusteringCoefficient": 0.7601627594222417
-          }
+          },
+          "absoluteFrequency": 15,
+          "normalisedFrequency": 1.9460199998962124e-06
         },
         {
           "id": "36",
@@ -2218,7 +2386,9 @@
             "loadCentrality": 0.015151515151515152,
             "harmonicCentrality": 23.166666666666654,
             "clusteringCoefficient": 0.5608237863883131
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.55681599991697e-06
         },
         {
           "id": "37",
@@ -2235,7 +2405,9 @@
             "loadCentrality": 0.00202020202020202,
             "harmonicCentrality": 22.833333333333318,
             "clusteringCoefficient": 0.553758070768786
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 1.6865506665767173e-06
         },
         {
           "id": "38",
@@ -2252,7 +2424,9 @@
             "loadCentrality": 0.0101010101010101,
             "harmonicCentrality": 14.883333333333328,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.55681599991697e-06
         },
         {
           "id": "39",
@@ -2269,7 +2443,9 @@
             "loadCentrality": 0.006060606060606061,
             "harmonicCentrality": 22.58333333333332,
             "clusteringCoefficient": 0.5795861529712744
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.55681599991697e-06
         },
         {
           "id": "40",
@@ -2286,7 +2462,9 @@
             "loadCentrality": 0.07474747474747474,
             "harmonicCentrality": 27.58333333333332,
             "clusteringCoefficient": 0.28712076529659325
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.297346666597475e-06
         },
         {
           "id": "41",
@@ -2303,7 +2481,9 @@
             "loadCentrality": 0.00101010101010101,
             "harmonicCentrality": 22.833333333333318,
             "clusteringCoefficient": 0.6586095366441354
-          }
+          },
+          "absoluteFrequency": 25,
+          "normalisedFrequency": 3.243366666493687e-06
         },
         {
           "id": "42",
@@ -2320,7 +2500,9 @@
             "loadCentrality": 0.00808080808080808,
             "harmonicCentrality": 17.15000000000001,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 22,
+          "normalisedFrequency": 2.8541626665144446e-06
         },
         {
           "id": "43",
@@ -2337,7 +2519,9 @@
             "loadCentrality": 0.00909090909090909,
             "harmonicCentrality": 16.23333333333334,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 1.8162853332364648e-06
         },
         {
           "id": "44",
@@ -2354,7 +2538,9 @@
             "loadCentrality": 0.0404040404040404,
             "harmonicCentrality": 24.666666666666657,
             "clusteringCoefficient": 0.31807860602399946
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.205489333215707e-06
         },
         {
           "id": "45",
@@ -2371,7 +2557,9 @@
             "loadCentrality": 0.09090909090909091,
             "harmonicCentrality": 27.999999999999993,
             "clusteringCoefficient": 0.372770342935199
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.4270813332572223e-06
         }
       ],
       "edges": [
@@ -3145,7 +3333,9 @@
           "node2": "45",
           "similarity": 0.5663528338547323
         }
-      ]
+      ],
+      "absoluteFrequency": 18,
+      "normalisedFrequency": 2.3352239998754547e-06
     },
     {
       "year": "2015",
@@ -3169,7 +3359,9 @@
             "loadCentrality": 0.05537098560354374,
             "harmonicCentrality": 25.416666666666657,
             "clusteringCoefficient": 0.335812299735248
-          }
+          },
+          "absoluteFrequency": 22,
+          "normalisedFrequency": 3.657797118287672e-06
         },
         {
           "id": "1",
@@ -3186,7 +3378,9 @@
             "loadCentrality": 0.0022148394241417496,
             "harmonicCentrality": 17.666666666666675,
             "clusteringCoefficient": 0.5377513530337965
-          }
+          },
+          "absoluteFrequency": 28,
+          "normalisedFrequency": 4.6553781505479465e-06
         },
         {
           "id": "2",
@@ -3203,7 +3397,9 @@
             "loadCentrality": 0.0033222591362126247,
             "harmonicCentrality": 19.499999999999993,
             "clusteringCoefficient": 0.5549241834580276
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.9927430967808227e-06
         },
         {
           "id": "3",
@@ -3220,7 +3416,9 @@
             "loadCentrality": 0.06201550387596899,
             "harmonicCentrality": 19.583333333333325,
             "clusteringCoefficient": 0.2738504680083354
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.3276890752739733e-06
         },
         {
           "id": "4",
@@ -3237,7 +3435,9 @@
             "loadCentrality": 0.004429678848283499,
             "harmonicCentrality": 21.58333333333332,
             "clusteringCoefficient": 0.5525233258359451
-          }
+          },
+          "absoluteFrequency": 33,
+          "normalisedFrequency": 5.486695677431508e-06
         },
         {
           "id": "5",
@@ -3254,7 +3454,9 @@
             "loadCentrality": 0.011074197120708748,
             "harmonicCentrality": 20.33333333333332,
             "clusteringCoefficient": 0.45268958609137866
-          }
+          },
+          "absoluteFrequency": 19,
+          "normalisedFrequency": 3.159006602157535e-06
         },
         {
           "id": "6",
@@ -3271,7 +3473,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 13.366666666666665,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.828898559143836e-06
         },
         {
           "id": "7",
@@ -3288,7 +3492,9 @@
             "loadCentrality": 0.08748615725359911,
             "harmonicCentrality": 21.41666666666665,
             "clusteringCoefficient": 0.3465619329485406
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.3276890752739733e-06
         },
         {
           "id": "8",
@@ -3305,7 +3511,9 @@
             "loadCentrality": 0.06976744186046512,
             "harmonicCentrality": 24.33333333333332,
             "clusteringCoefficient": 0.36976829586980114
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 2.161425569897261e-06
         },
         {
           "id": "9",
@@ -3322,7 +3530,9 @@
             "loadCentrality": 0.03433001107419712,
             "harmonicCentrality": 18.166666666666675,
             "clusteringCoefficient": 0.3249146094382319
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.6626350537671236e-06
         },
         {
           "id": "10",
@@ -3339,7 +3549,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 15.583333333333337,
             "clusteringCoefficient": 0.5351251999403337
-          }
+          },
+          "absoluteFrequency": 19,
+          "normalisedFrequency": 3.159006602157535e-06
         },
         {
           "id": "11",
@@ -3356,7 +3568,9 @@
             "loadCentrality": 0.03211517165005537,
             "harmonicCentrality": 23.99999999999999,
             "clusteringCoefficient": 0.4892881619282088
-          }
+          },
+          "absoluteFrequency": 41,
+          "normalisedFrequency": 6.816803720445207e-06
         },
         {
           "id": "12",
@@ -3373,7 +3587,9 @@
             "loadCentrality": 0.13732004429678848,
             "harmonicCentrality": 24.33333333333333,
             "clusteringCoefficient": 0.25524746154343814
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.828898559143836e-06
         },
         {
           "id": "13",
@@ -3390,7 +3606,9 @@
             "loadCentrality": 0.08527131782945736,
             "harmonicCentrality": 23.833333333333325,
             "clusteringCoefficient": 0.30024757402740604
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.828898559143836e-06
         },
         {
           "id": "14",
@@ -3407,7 +3625,9 @@
             "loadCentrality": 0.0011074197120708748,
             "harmonicCentrality": 22.33333333333332,
             "clusteringCoefficient": 0.5005173073843889
-          }
+          },
+          "absoluteFrequency": 24,
+          "normalisedFrequency": 3.990324129041097e-06
         },
         {
           "id": "15",
@@ -3424,7 +3644,9 @@
             "loadCentrality": 0.02547065337763012,
             "harmonicCentrality": 21.749999999999982,
             "clusteringCoefficient": 0.38068293480501114
-          }
+          },
+          "absoluteFrequency": 30,
+          "normalisedFrequency": 4.9879051613013715e-06
         },
         {
           "id": "16",
@@ -3441,7 +3663,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 17.750000000000004,
             "clusteringCoefficient": 0.8257633181258919
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.9951620645205483e-06
         },
         {
           "id": "17",
@@ -3458,7 +3682,9 @@
             "loadCentrality": 0.10741971207087486,
             "harmonicCentrality": 26.333333333333325,
             "clusteringCoefficient": 0.2301614772075258
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.828898559143836e-06
         },
         {
           "id": "18",
@@ -3475,7 +3701,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 18.16666666666667,
             "clusteringCoefficient": 0.7087504855106822
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 2.161425569897261e-06
         },
         {
           "id": "19",
@@ -3492,7 +3720,9 @@
             "loadCentrality": 0.011074197120708748,
             "harmonicCentrality": 23.666666666666654,
             "clusteringCoefficient": 0.5256424084904847
-          }
+          },
+          "absoluteFrequency": 28,
+          "normalisedFrequency": 4.6553781505479465e-06
         },
         {
           "id": "20",
@@ -3509,7 +3739,9 @@
             "loadCentrality": 0.012181616832779622,
             "harmonicCentrality": 17.916666666666675,
             "clusteringCoefficient": 0.5114861829013528
-          }
+          },
+          "absoluteFrequency": 23,
+          "normalisedFrequency": 3.824060623664384e-06
         },
         {
           "id": "21",
@@ -3526,7 +3758,9 @@
             "loadCentrality": 0.0033222591362126247,
             "harmonicCentrality": 17.41666666666668,
             "clusteringCoefficient": 0.5456480672331367
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.6602160860273978e-06
         },
         {
           "id": "22",
@@ -3543,7 +3777,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 20.333333333333325,
             "clusteringCoefficient": 0.6745578953955309
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.6602160860273978e-06
         },
         {
           "id": "23",
@@ -3560,7 +3796,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 15.950000000000005,
             "clusteringCoefficient": 0.8336236719527892
-          }
+          },
+          "absoluteFrequency": 31,
+          "normalisedFrequency": 5.154168666678083e-06
         },
         {
           "id": "24",
@@ -3577,7 +3815,9 @@
             "loadCentrality": 0.008859357696566999,
             "harmonicCentrality": 18.333333333333336,
             "clusteringCoefficient": 0.5570381587233411
-          }
+          },
+          "absoluteFrequency": 20,
+          "normalisedFrequency": 3.3252701075342472e-06
         },
         {
           "id": "25",
@@ -3594,7 +3834,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 1.0,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 20,
+          "normalisedFrequency": 3.3252701075342472e-06
         },
         {
           "id": "26",
@@ -3611,7 +3853,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 15.566666666666672,
             "clusteringCoefficient": 0.9167892146280261
-          }
+          },
+          "absoluteFrequency": 26,
+          "normalisedFrequency": 4.322851139794522e-06
         },
         {
           "id": "27",
@@ -3628,7 +3872,9 @@
             "loadCentrality": 0.0011074197120708748,
             "harmonicCentrality": 19.99999999999999,
             "clusteringCoefficient": 0.43008793116470995
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.828898559143836e-06
         },
         {
           "id": "28",
@@ -3645,7 +3891,9 @@
             "loadCentrality": 0.014396456256921373,
             "harmonicCentrality": 19.083333333333332,
             "clusteringCoefficient": 0.6090362788769729
-          }
+          },
+          "absoluteFrequency": 19,
+          "normalisedFrequency": 3.159006602157535e-06
         },
         {
           "id": "29",
@@ -3662,7 +3910,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 1.0,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.6602160860273978e-06
         },
         {
           "id": "30",
@@ -3679,7 +3929,9 @@
             "loadCentrality": 0.058693244739756366,
             "harmonicCentrality": 24.83333333333332,
             "clusteringCoefficient": 0.40785509707797035
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.3276890752739733e-06
         },
         {
           "id": "31",
@@ -3696,7 +3948,9 @@
             "loadCentrality": 0.05980066445182724,
             "harmonicCentrality": 26.583333333333325,
             "clusteringCoefficient": 0.3847032594045541
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.3276890752739733e-06
         },
         {
           "id": "32",
@@ -3713,7 +3967,9 @@
             "loadCentrality": 0.021040974529346623,
             "harmonicCentrality": 22.58333333333332,
             "clusteringCoefficient": 0.36129308881802596
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.6626350537671236e-06
         },
         {
           "id": "33",
@@ -3730,7 +3986,9 @@
             "loadCentrality": 0.04540420819490587,
             "harmonicCentrality": 19.99999999999999,
             "clusteringCoefficient": 0.16234570970281964
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.9951620645205483e-06
         },
         {
           "id": "34",
@@ -3747,7 +4005,9 @@
             "loadCentrality": 0.07751937984496124,
             "harmonicCentrality": 21.83333333333332,
             "clusteringCoefficient": 0.3985190229276394
-          }
+          },
+          "absoluteFrequency": 25,
+          "normalisedFrequency": 4.156587634417809e-06
         },
         {
           "id": "35",
@@ -3764,7 +4024,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 15.08333333333334,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 30,
+          "normalisedFrequency": 4.9879051613013715e-06
         },
         {
           "id": "36",
@@ -3781,7 +4043,9 @@
             "loadCentrality": 0.0011074197120708748,
             "harmonicCentrality": 19.083333333333332,
             "clusteringCoefficient": 0.544165917051672
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.8264795914041102e-06
         },
         {
           "id": "37",
@@ -3798,7 +4062,9 @@
             "loadCentrality": 0.03211517165005537,
             "harmonicCentrality": 22.666666666666654,
             "clusteringCoefficient": 0.3252467208812991
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.8264795914041102e-06
         },
         {
           "id": "38",
@@ -3815,7 +4081,9 @@
             "loadCentrality": 0.013289036544850499,
             "harmonicCentrality": 24.416666666666657,
             "clusteringCoefficient": 0.4927190188500938
-          }
+          },
+          "absoluteFrequency": 19,
+          "normalisedFrequency": 3.159006602157535e-06
         },
         {
           "id": "39",
@@ -3832,7 +4100,9 @@
             "loadCentrality": 0.053156146179401995,
             "harmonicCentrality": 26.33333333333332,
             "clusteringCoefficient": 0.3436276897815854
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.9951620645205483e-06
         },
         {
           "id": "40",
@@ -3849,7 +4119,9 @@
             "loadCentrality": 0.009966777408637873,
             "harmonicCentrality": 23.33333333333332,
             "clusteringCoefficient": 0.5178984361276021
-          }
+          },
+          "absoluteFrequency": 27,
+          "normalisedFrequency": 4.489114645171234e-06
         },
         {
           "id": "41",
@@ -3866,7 +4138,9 @@
             "loadCentrality": 0.011074197120708748,
             "harmonicCentrality": 18.916666666666668,
             "clusteringCoefficient": 0.6756670549312422
-          }
+          },
+          "absoluteFrequency": 25,
+          "normalisedFrequency": 4.156587634417809e-06
         },
         {
           "id": "42",
@@ -3883,7 +4157,9 @@
             "loadCentrality": 0.1450719822812846,
             "harmonicCentrality": 28.16666666666666,
             "clusteringCoefficient": 0.2773264426223818
-          }
+          },
+          "absoluteFrequency": 24,
+          "normalisedFrequency": 3.990324129041097e-06
         },
         {
           "id": "43",
@@ -3900,7 +4176,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 17.25000000000001,
             "clusteringCoefficient": 0.8453727567766812
-          }
+          },
+          "absoluteFrequency": 43,
+          "normalisedFrequency": 7.149330731198632e-06
         }
       ],
       "edges": [
@@ -4674,7 +4952,9 @@
           "node2": "43",
           "similarity": 0.6629104105901814
         }
-      ]
+      ],
+      "absoluteFrequency": 91,
+      "normalisedFrequency": 1.5129978989280825e-05
     },
     {
       "year": "2016",
@@ -4698,7 +4978,9 @@
             "loadCentrality": 0.011538461538461539,
             "harmonicCentrality": 20.249999999999986,
             "clusteringCoefficient": 0.1598712075502815
-          }
+          },
+          "absoluteFrequency": 50,
+          "normalisedFrequency": 7.828559556001679e-06
         },
         {
           "id": "1",
@@ -4715,7 +4997,9 @@
             "loadCentrality": 0.05128205128205128,
             "harmonicCentrality": 20.749999999999986,
             "clusteringCoefficient": 0.37227342393803986
-          }
+          },
+          "absoluteFrequency": 41,
+          "normalisedFrequency": 6.419418835921377e-06
         },
         {
           "id": "2",
@@ -4732,7 +5016,9 @@
             "loadCentrality": 0.1641025641025641,
             "harmonicCentrality": 30.999999999999996,
             "clusteringCoefficient": 0.2533947273150464
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7222831023203694e-06
         },
         {
           "id": "3",
@@ -4749,7 +5035,9 @@
             "loadCentrality": 0.017948717948717947,
             "harmonicCentrality": 27.166666666666664,
             "clusteringCoefficient": 0.394644200840973
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.661710249040571e-06
         },
         {
           "id": "4",
@@ -4766,7 +5054,9 @@
             "loadCentrality": 0.13205128205128205,
             "harmonicCentrality": 26.166666666666664,
             "clusteringCoefficient": 0.3203951202672761
-          }
+          },
+          "absoluteFrequency": 25,
+          "normalisedFrequency": 3.9142797780008395e-06
         },
         {
           "id": "5",
@@ -4783,7 +5073,9 @@
             "loadCentrality": 0.014102564102564103,
             "harmonicCentrality": 24.999999999999993,
             "clusteringCoefficient": 0.48146741766397166
-          }
+          },
+          "absoluteFrequency": 23,
+          "normalisedFrequency": 3.6011373957607723e-06
         },
         {
           "id": "6",
@@ -4800,7 +5092,9 @@
             "loadCentrality": 0.05128205128205128,
             "harmonicCentrality": 20.499999999999986,
             "clusteringCoefficient": 0.37931489833304954
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5657119112003358e-06
         },
         {
           "id": "7",
@@ -4817,7 +5111,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 12.949999999999998,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 15,
+          "normalisedFrequency": 2.3485678668005037e-06
         },
         {
           "id": "8",
@@ -4834,7 +5130,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 16.583333333333346,
             "clusteringCoefficient": 0.792674142758298
-          }
+          },
+          "absoluteFrequency": 30,
+          "normalisedFrequency": 4.697135733601007e-06
         },
         {
           "id": "9",
@@ -4851,7 +5149,9 @@
             "loadCentrality": 0.015384615384615385,
             "harmonicCentrality": 22.666666666666657,
             "clusteringCoefficient": 0.37742047882962415
-          }
+          },
+          "absoluteFrequency": 25,
+          "normalisedFrequency": 3.9142797780008395e-06
         },
         {
           "id": "10",
@@ -4868,7 +5168,9 @@
             "loadCentrality": 0.0782051282051282,
             "harmonicCentrality": 26.83333333333333,
             "clusteringCoefficient": 0.3423108003057425
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.878854293440403e-06
         },
         {
           "id": "11",
@@ -4885,7 +5187,9 @@
             "loadCentrality": 0.0038461538461538464,
             "harmonicCentrality": 20.74999999999999,
             "clusteringCoefficient": 0.482171653376614
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5657119112003358e-06
         },
         {
           "id": "12",
@@ -4902,7 +5206,9 @@
             "loadCentrality": 0.16538461538461538,
             "harmonicCentrality": 27.666666666666664,
             "clusteringCoefficient": 0.29376467038715925
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 2.0354254845604365e-06
         },
         {
           "id": "13",
@@ -4919,7 +5225,9 @@
             "loadCentrality": 0.12307692307692308,
             "harmonicCentrality": 25.999999999999996,
             "clusteringCoefficient": 0.2561351602794419
-          }
+          },
+          "absoluteFrequency": 28,
+          "normalisedFrequency": 4.38399335136094e-06
         },
         {
           "id": "14",
@@ -4936,7 +5244,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 17.500000000000007,
             "clusteringCoefficient": 0.5225264073273425
-          }
+          },
+          "absoluteFrequency": 123,
+          "normalisedFrequency": 1.925825650776413e-05
         },
         {
           "id": "15",
@@ -4953,7 +5263,9 @@
             "loadCentrality": 0.05,
             "harmonicCentrality": 18.91666666666666,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.661710249040571e-06
         },
         {
           "id": "16",
@@ -4970,7 +5282,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 13.566666666666666,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 28,
+          "normalisedFrequency": 4.38399335136094e-06
         },
         {
           "id": "17",
@@ -4987,7 +5301,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 17.41666666666667,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 33,
+          "normalisedFrequency": 5.166849306961108e-06
         },
         {
           "id": "18",
@@ -5004,7 +5320,9 @@
             "loadCentrality": 0.09230769230769231,
             "harmonicCentrality": 30.666666666666664,
             "clusteringCoefficient": 0.3101281855416634
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7222831023203694e-06
         },
         {
           "id": "19",
@@ -5021,7 +5339,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 16.333333333333346,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 31,
+          "normalisedFrequency": 4.853706924721041e-06
         },
         {
           "id": "20",
@@ -5038,7 +5358,9 @@
             "loadCentrality": 0.002564102564102564,
             "harmonicCentrality": 22.499999999999993,
             "clusteringCoefficient": 0.6356182099223802
-          }
+          },
+          "absoluteFrequency": 66,
+          "normalisedFrequency": 1.0333698613922216e-05
         },
         {
           "id": "21",
@@ -5055,7 +5377,9 @@
             "loadCentrality": 0.005128205128205128,
             "harmonicCentrality": 23.16666666666666,
             "clusteringCoefficient": 0.6736400479592739
-          }
+          },
+          "absoluteFrequency": 24,
+          "normalisedFrequency": 3.757708586880806e-06
         },
         {
           "id": "22",
@@ -5072,7 +5396,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 19.49999999999999,
             "clusteringCoefficient": 0.6666478011854596
-          }
+          },
+          "absoluteFrequency": 36,
+          "normalisedFrequency": 5.636562880321209e-06
         },
         {
           "id": "23",
@@ -5089,7 +5415,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 20.499999999999986,
             "clusteringCoefficient": 0.6040882002108248
-          }
+          },
+          "absoluteFrequency": 22,
+          "normalisedFrequency": 3.4445662046407387e-06
         },
         {
           "id": "24",
@@ -5106,7 +5434,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 18.0,
             "clusteringCoefficient": 0.7987114691379453
-          }
+          },
+          "absoluteFrequency": 23,
+          "normalisedFrequency": 3.6011373957607723e-06
         },
         {
           "id": "25",
@@ -5123,7 +5453,9 @@
             "loadCentrality": 0.046153846153846156,
             "harmonicCentrality": 25.999999999999996,
             "clusteringCoefficient": 0.3954399340241513
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5657119112003358e-06
         },
         {
           "id": "26",
@@ -5140,7 +5472,9 @@
             "loadCentrality": 0.06025641025641026,
             "harmonicCentrality": 26.16666666666666,
             "clusteringCoefficient": 0.4338039292912988
-          }
+          },
+          "absoluteFrequency": 49,
+          "normalisedFrequency": 7.671988364881645e-06
         },
         {
           "id": "27",
@@ -5157,7 +5491,9 @@
             "loadCentrality": 0.005128205128205128,
             "harmonicCentrality": 24.08333333333333,
             "clusteringCoefficient": 0.5985480278309683
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.661710249040571e-06
         },
         {
           "id": "28",
@@ -5174,7 +5510,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 17.41666666666667,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 68,
+          "normalisedFrequency": 1.0646840996162283e-05
         },
         {
           "id": "29",
@@ -5191,7 +5529,9 @@
             "loadCentrality": 0.05897435897435897,
             "harmonicCentrality": 25.58333333333333,
             "clusteringCoefficient": 0.4273235960887307
-          }
+          },
+          "absoluteFrequency": 19,
+          "normalisedFrequency": 2.974852631280638e-06
         },
         {
           "id": "30",
@@ -5208,7 +5548,9 @@
             "loadCentrality": 0.02435897435897436,
             "harmonicCentrality": 23.249999999999993,
             "clusteringCoefficient": 0.5424532361691007
-          }
+          },
+          "absoluteFrequency": 15,
+          "normalisedFrequency": 2.3485678668005037e-06
         },
         {
           "id": "31",
@@ -5225,7 +5567,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 18.25,
             "clusteringCoefficient": 0.8276781411557771
-          }
+          },
+          "absoluteFrequency": 23,
+          "normalisedFrequency": 3.6011373957607723e-06
         },
         {
           "id": "32",
@@ -5242,7 +5586,9 @@
             "loadCentrality": 0.007692307692307693,
             "harmonicCentrality": 21.74999999999999,
             "clusteringCoefficient": 0.22977456875518415
-          }
+          },
+          "absoluteFrequency": 21,
+          "normalisedFrequency": 3.287995013520705e-06
         },
         {
           "id": "33",
@@ -5259,7 +5605,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 20.24999999999999,
             "clusteringCoefficient": 0.5290608674177706
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.8182814401606044e-06
         },
         {
           "id": "34",
@@ -5276,7 +5624,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 15.833333333333345,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.8182814401606044e-06
         },
         {
           "id": "35",
@@ -5293,7 +5643,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 22.249999999999993,
             "clusteringCoefficient": 0.7294368481634648
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.7222831023203694e-06
         },
         {
           "id": "36",
@@ -5310,7 +5662,9 @@
             "loadCentrality": 0.029487179487179487,
             "harmonicCentrality": 23.999999999999993,
             "clusteringCoefficient": 0.41775881530410675
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.878854293440403e-06
         },
         {
           "id": "37",
@@ -5327,7 +5681,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 18.58333333333333,
             "clusteringCoefficient": 0.7781877209556793
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5657119112003358e-06
         },
         {
           "id": "38",
@@ -5344,7 +5700,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 14.200000000000001,
             "clusteringCoefficient": 0.7873951486262806
-          }
+          },
+          "absoluteFrequency": 79,
+          "normalisedFrequency": 1.2369124098482653e-05
         },
         {
           "id": "39",
@@ -5361,7 +5719,9 @@
             "loadCentrality": 0.023076923076923078,
             "harmonicCentrality": 23.499999999999993,
             "clusteringCoefficient": 0.4621724655329398
-          }
+          },
+          "absoluteFrequency": 21,
+          "normalisedFrequency": 3.287995013520705e-06
         },
         {
           "id": "40",
@@ -5378,7 +5738,9 @@
             "loadCentrality": 0.001282051282051282,
             "harmonicCentrality": 19.16666666666666,
             "clusteringCoefficient": 0.5608303722472393
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.8182814401606044e-06
         }
       ],
       "edges": [
@@ -6152,7 +6514,9 @@
           "node2": "36",
           "similarity": 0.5935780090496465
         }
-      ]
+      ],
+      "absoluteFrequency": 402,
+      "normalisedFrequency": 6.29416188302535e-05
     },
     {
       "year": "2017",
@@ -6176,7 +6540,9 @@
             "loadCentrality": 0.21483942414174972,
             "harmonicCentrality": 28.33333333333333,
             "clusteringCoefficient": 0.1934035604621317
-          }
+          },
+          "absoluteFrequency": 19,
+          "normalisedFrequency": 2.8687026503641816e-06
         },
         {
           "id": "1",
@@ -6193,7 +6559,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 12.049999999999995,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 132,
+          "normalisedFrequency": 1.9929934202530104e-05
         },
         {
           "id": "2",
@@ -6210,7 +6578,9 @@
             "loadCentrality": 0.04429678848283499,
             "harmonicCentrality": 16.866666666666678,
             "clusteringCoefficient": 0.2799972410469614
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.7177183003450145e-06
         },
         {
           "id": "3",
@@ -6227,7 +6597,9 @@
             "loadCentrality": 0.04983388704318937,
             "harmonicCentrality": 18.03333333333334,
             "clusteringCoefficient": 0.13250453897464856
-          }
+          },
+          "absoluteFrequency": 3119,
+          "normalisedFrequency": 0.0004709201877097833
         },
         {
           "id": "4",
@@ -6244,7 +6616,9 @@
             "loadCentrality": 0.03986710963455149,
             "harmonicCentrality": 27.83333333333333,
             "clusteringCoefficient": 0.32481881893971226
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.7177183003450145e-06
         },
         {
           "id": "5",
@@ -6261,7 +6635,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 19.416666666666657,
             "clusteringCoefficient": 0.5390191972459745
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5098435001916746e-06
         },
         {
           "id": "6",
@@ -6278,7 +6654,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 18.5,
             "clusteringCoefficient": 0.8108154019673323
-          }
+          },
+          "absoluteFrequency": 21,
+          "normalisedFrequency": 3.170671350402517e-06
         },
         {
           "id": "7",
@@ -6295,7 +6673,9 @@
             "loadCentrality": 0.0741971207087486,
             "harmonicCentrality": 23.74999999999999,
             "clusteringCoefficient": 0.3830038309297852
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 1.962796550249177e-06
         },
         {
           "id": "8",
@@ -6312,7 +6692,9 @@
             "loadCentrality": 0.018826135105204873,
             "harmonicCentrality": 23.666666666666657,
             "clusteringCoefficient": 0.5220783196855575
-          }
+          },
+          "absoluteFrequency": 20,
+          "normalisedFrequency": 3.0196870003833493e-06
         },
         {
           "id": "9",
@@ -6329,7 +6711,9 @@
             "loadCentrality": 0.0011074197120708748,
             "harmonicCentrality": 22.16666666666665,
             "clusteringCoefficient": 0.5609079598513291
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 1.962796550249177e-06
         },
         {
           "id": "10",
@@ -6346,7 +6730,9 @@
             "loadCentrality": 0.09413067552602436,
             "harmonicCentrality": 25.58333333333333,
             "clusteringCoefficient": 0.2556447286522566
-          }
+          },
+          "absoluteFrequency": 20,
+          "normalisedFrequency": 3.0196870003833493e-06
         },
         {
           "id": "11",
@@ -6363,7 +6749,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 18.166666666666668,
             "clusteringCoefficient": 0.831855633994273
-          }
+          },
+          "absoluteFrequency": 41,
+          "normalisedFrequency": 6.190358350785866e-06
         },
         {
           "id": "12",
@@ -6380,7 +6768,9 @@
             "loadCentrality": 0.028792912513842746,
             "harmonicCentrality": 22.083333333333325,
             "clusteringCoefficient": 0.446904001409636
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.7177183003450145e-06
         },
         {
           "id": "13",
@@ -6397,7 +6787,9 @@
             "loadCentrality": 0.012181616832779622,
             "harmonicCentrality": 23.08333333333332,
             "clusteringCoefficient": 0.5456942906501695
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.1137809002683444e-06
         },
         {
           "id": "14",
@@ -6414,7 +6806,9 @@
             "loadCentrality": 0.006644518272425249,
             "harmonicCentrality": 20.749999999999986,
             "clusteringCoefficient": 0.41880233299826813
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.660827850210842e-06
         },
         {
           "id": "15",
@@ -6431,7 +6825,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 15.816666666666672,
             "clusteringCoefficient": 0.8140021559633946
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.4157496003066792e-06
         },
         {
           "id": "16",
@@ -6448,7 +6844,9 @@
             "loadCentrality": 0.031007751937984496,
             "harmonicCentrality": 19.74999999999999,
             "clusteringCoefficient": 0.5457657616829278
-          }
+          },
+          "absoluteFrequency": 119,
+          "normalisedFrequency": 1.7967137652280927e-05
         },
         {
           "id": "17",
@@ -6465,7 +6863,9 @@
             "loadCentrality": 0.05537098560354374,
             "harmonicCentrality": 21.249999999999986,
             "clusteringCoefficient": 0.2812471984299788
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.8118122002300096e-06
         },
         {
           "id": "18",
@@ -6482,7 +6882,9 @@
             "loadCentrality": 0.0022148394241417496,
             "harmonicCentrality": 21.74999999999999,
             "clusteringCoefficient": 0.704715486265251
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.566733950325847e-06
         },
         {
           "id": "19",
@@ -6499,7 +6901,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 14.850000000000003,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 32,
+          "normalisedFrequency": 4.8314992006133585e-06
         },
         {
           "id": "20",
@@ -6516,7 +6920,9 @@
             "loadCentrality": 0.02768549280177187,
             "harmonicCentrality": 19.283333333333328,
             "clusteringCoefficient": 0.5229372976996293
-          }
+          },
+          "absoluteFrequency": 15,
+          "normalisedFrequency": 2.264765250287512e-06
         },
         {
           "id": "21",
@@ -6533,7 +6939,9 @@
             "loadCentrality": 0.01661129568106312,
             "harmonicCentrality": 24.08333333333332,
             "clusteringCoefficient": 0.5205400480584675
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.8118122002300096e-06
         },
         {
           "id": "22",
@@ -6550,7 +6958,9 @@
             "loadCentrality": 0.04540420819490587,
             "harmonicCentrality": 24.749999999999993,
             "clusteringCoefficient": 0.38837178578510223
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.8118122002300096e-06
         },
         {
           "id": "23",
@@ -6567,7 +6977,9 @@
             "loadCentrality": 0.031007751937984496,
             "harmonicCentrality": 20.58333333333332,
             "clusteringCoefficient": 0.446482069279649
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5098435001916746e-06
         },
         {
           "id": "24",
@@ -6584,7 +6996,9 @@
             "loadCentrality": 0.03433001107419712,
             "harmonicCentrality": 24.749999999999993,
             "clusteringCoefficient": 0.468437853946721
-          }
+          },
+          "absoluteFrequency": 23,
+          "normalisedFrequency": 3.4726400504408517e-06
         },
         {
           "id": "25",
@@ -6601,7 +7015,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 17.366666666666678,
             "clusteringCoefficient": 0.853597020493854
-          }
+          },
+          "absoluteFrequency": 17,
+          "normalisedFrequency": 2.566733950325847e-06
         },
         {
           "id": "26",
@@ -6618,7 +7034,9 @@
             "loadCentrality": 0.005537098560354374,
             "harmonicCentrality": 22.749999999999986,
             "clusteringCoefficient": 0.5982860434986685
-          }
+          },
+          "absoluteFrequency": 29,
+          "normalisedFrequency": 4.3785461505558565e-06
         },
         {
           "id": "27",
@@ -6635,7 +7053,9 @@
             "loadCentrality": 0.02547065337763012,
             "harmonicCentrality": 19.99999999999999,
             "clusteringCoefficient": 0.41941639459078434
-          }
+          },
+          "absoluteFrequency": 44,
+          "normalisedFrequency": 6.643311400843368e-06
         },
         {
           "id": "28",
@@ -6652,7 +7072,9 @@
             "loadCentrality": 0.019933554817275746,
             "harmonicCentrality": 22.916666666666654,
             "clusteringCoefficient": 0.32555841129495333
-          }
+          },
+          "absoluteFrequency": 21,
+          "normalisedFrequency": 3.170671350402517e-06
         },
         {
           "id": "29",
@@ -6669,7 +7091,9 @@
             "loadCentrality": 0.0011074197120708748,
             "harmonicCentrality": 21.999999999999986,
             "clusteringCoefficient": 0.5802990445199789
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.8118122002300096e-06
         },
         {
           "id": "30",
@@ -6686,7 +7110,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 16.66666666666668,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 14,
+          "normalisedFrequency": 2.1137809002683444e-06
         },
         {
           "id": "31",
@@ -6703,7 +7129,9 @@
             "loadCentrality": 0.026578073089700997,
             "harmonicCentrality": 24.24999999999999,
             "clusteringCoefficient": 0.46832466743838497
-          }
+          },
+          "absoluteFrequency": 12,
+          "normalisedFrequency": 1.8118122002300096e-06
         },
         {
           "id": "32",
@@ -6720,7 +7148,9 @@
             "loadCentrality": 0.008859357696566999,
             "harmonicCentrality": 19.58333333333332,
             "clusteringCoefficient": 0.568792905438772
-          }
+          },
+          "absoluteFrequency": 18,
+          "normalisedFrequency": 2.7177183003450145e-06
         },
         {
           "id": "33",
@@ -6737,7 +7167,9 @@
             "loadCentrality": 0.026578073089700997,
             "harmonicCentrality": 19.116666666666667,
             "clusteringCoefficient": 0.3347258051209609
-          }
+          },
+          "absoluteFrequency": 25,
+          "normalisedFrequency": 3.7746087504791865e-06
         },
         {
           "id": "34",
@@ -6754,7 +7186,9 @@
             "loadCentrality": 0.014396456256921373,
             "harmonicCentrality": 16.816666666666674,
             "clusteringCoefficient": 0.4084661393267903
-          }
+          },
+          "absoluteFrequency": 23,
+          "normalisedFrequency": 3.4726400504408517e-06
         },
         {
           "id": "35",
@@ -6771,7 +7205,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 1.0,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 27,
+          "normalisedFrequency": 4.076577450517521e-06
         },
         {
           "id": "36",
@@ -6788,7 +7224,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 12.549999999999995,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 801,
+          "normalisedFrequency": 0.00012093846436535314
         },
         {
           "id": "37",
@@ -6805,7 +7243,9 @@
             "loadCentrality": 0.022148394241417495,
             "harmonicCentrality": 23.166666666666654,
             "clusteringCoefficient": 0.5662894746590605
-          }
+          },
+          "absoluteFrequency": 11,
+          "normalisedFrequency": 1.660827850210842e-06
         },
         {
           "id": "38",
@@ -6822,7 +7262,9 @@
             "loadCentrality": 0.07641196013289037,
             "harmonicCentrality": 27.58333333333333,
             "clusteringCoefficient": 0.3279227903911489
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5098435001916746e-06
         },
         {
           "id": "39",
@@ -6839,7 +7281,9 @@
             "loadCentrality": 0.08970099667774085,
             "harmonicCentrality": 26.91666666666666,
             "clusteringCoefficient": 0.44855881118075985
-          }
+          },
+          "absoluteFrequency": 30,
+          "normalisedFrequency": 4.529530500575024e-06
         },
         {
           "id": "40",
@@ -6856,7 +7300,9 @@
             "loadCentrality": 0.10409745293466223,
             "harmonicCentrality": 27.333333333333325,
             "clusteringCoefficient": 0.3281832438670283
-          }
+          },
+          "absoluteFrequency": 10,
+          "normalisedFrequency": 1.5098435001916746e-06
         },
         {
           "id": "41",
@@ -6873,7 +7319,9 @@
             "loadCentrality": 0.013289036544850499,
             "harmonicCentrality": 20.58333333333332,
             "clusteringCoefficient": 0.7432199292720127
-          }
+          },
+          "absoluteFrequency": 13,
+          "normalisedFrequency": 1.962796550249177e-06
         },
         {
           "id": "42",
@@ -6890,7 +7338,9 @@
             "loadCentrality": 0.0,
             "harmonicCentrality": 1.0,
             "clusteringCoefficient": 0
-          }
+          },
+          "absoluteFrequency": 15,
+          "normalisedFrequency": 2.264765250287512e-06
         },
         {
           "id": "43",
@@ -6907,7 +7357,9 @@
             "loadCentrality": 0.0011074197120708748,
             "harmonicCentrality": 20.24999999999999,
             "clusteringCoefficient": 0.8261087023166219
-          }
+          },
+          "absoluteFrequency": 16,
+          "normalisedFrequency": 2.4157496003066792e-06
         }
       ],
       "edges": [
@@ -7681,7 +8133,111 @@
           "node2": "43",
           "similarity": 0.6056130049483099
         }
+      ],
+      "absoluteFrequency": 138,
+      "normalisedFrequency": 2.083584030264511e-05
+    }
+  ],
+  "timeSeries": {
+    "freqDiffNorm": {
+      "previousYear": [
+        0.7643290390237281,
+        12.794754989405371,
+        47.811639840972674,
+        42.105778527608386
+      ],
+      "firstYear": [
+        0.7643290390237281,
+        13.5590840284291,
+        61.37072386940177,
+        19.264945341793382
+      ],
+      "lastYear": [
+        19.264945341793382,
+        18.500616302769654,
+        5.705861313364284,
+        42.105778527608386
+      ]
+    },
+    "jaccardSimilarity": {
+      "previousYear": [
+        0.9550561797752809,
+        0.9772727272727273,
+        0.9240506329113924,
+        0.9102564102564102
+      ],
+      "firstYear": [
+        0.9550561797752809,
+        0.9888888888888889,
+        1.0,
+        0.9775280898876404
+      ],
+      "lastYear": [
+        0.9775280898876404,
+        0.9772727272727273,
+        0.9135802469135803,
+        0.9102564102564102
+      ]
+    },
+    "rankdcgSimilarity": {
+      "previousYear": [
+        0.579483057709244,
+        0.584111414792864,
+        0.4147475708435888,
+        0.5668300908221415
+      ],
+      "firstYear": [
+        0.579483057709244,
+        0.6120963622137571,
+        0.6885890363843977,
+        0.7241621111177781
+      ],
+      "lastYear": [
+        0.7241621111177781,
+        0.44188818330897156,
+        0.6703813083285528,
+        0.5668300908221415
+      ]
+    },
+    "localNeighbourhoodSimilarity": {
+      "previousYear": [
+        0.9534973842874681,
+        0.9177931964161699,
+        0.9743286911038403,
+        0.9851695050233988
+      ],
+      "firstYear": [
+        0.9534973842874681,
+        0.9084143458961546,
+        0.9165500364700903,
+        0.8981987544585189
+      ],
+      "lastYear": [
+        0.8981987544585189,
+        0.8715330764164643,
+        0.9855723113171015,
+        0.9851695050233988
+      ]
+    },
+    "frobeniusSimilarity": {
+      "previousYear": [
+        13.999787575825719,
+        14.7981797626728,
+        15.498666837192431,
+        15.116739035149346
+      ],
+      "firstYear": [
+        13.999787575825719,
+        14.911270422375772,
+        14.856426176437376,
+        14.556703141409967
+      ],
+      "lastYear": [
+        14.556703141409967,
+        14.39193897882336,
+        15.163320923237066,
+        15.116739035149346
       ]
     }
-  ]
+  }
 }

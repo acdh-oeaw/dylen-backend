@@ -17,7 +17,8 @@ public class EgoNetwork {
     @NonNull private List<Node> nodes;
     @NonNull private List<Edge> edges;
     @NonNull NetworkMetric metrics;
-    @NonNull TimeSeries timeSeries;
+    private int absoluteFrequency;
+    private double normalisedFrequency;
 
 
     private EgoNetwork(String id,
@@ -25,13 +26,15 @@ public class EgoNetwork {
                        List<Node> nodes,
                        List<Edge> edges,
                        NetworkMetric metrics,
-                       TimeSeries timeSeries) {
+                       int absoluteFrequency,
+                       double normalisedFrequency) {
         this.id = id;
         this.year = year;
         this.nodes = nodes;
         this.edges = edges;
         this.metrics = metrics;
-        this.timeSeries = timeSeries;
+        this.absoluteFrequency = absoluteFrequency;
+        this.normalisedFrequency = normalisedFrequency;
     }
 
     public static EgoNetwork of(
@@ -39,9 +42,10 @@ public class EgoNetwork {
                                 @JsonProperty("nodes") List<Node> nodes,
                                 @JsonProperty("edges") List<Edge> edges,
                                 @JsonProperty("metrics") NetworkMetric metrics,
-                                @JsonProperty("timeSeries") TimeSeries timeSeries
+                                @JsonProperty("absoluteFrequency") int absoluteFrequency,
+                                @JsonProperty("normalisedFrequency") double normalisedFrequency
     ) {
-        return new EgoNetwork(null, year, nodes, edges, metrics, timeSeries);
+        return new EgoNetwork(null, year, nodes, edges, metrics, absoluteFrequency, normalisedFrequency);
     }
 
     @JsonCreator
@@ -50,10 +54,11 @@ public class EgoNetwork {
                                 @JsonProperty("nodes") List<Node> nodes,
                                 @JsonProperty("edges") List<Edge> edges,
                                 @JsonProperty("metrics") NetworkMetric metrics,
-                                @JsonProperty("timeSeries") TimeSeries timeSeries
+                                @JsonProperty("absoluteFrequency") int absoluteFrequency,
+                                @JsonProperty("normalisedFrequency") double normalisedFrequency
                                 ) {
         var idNotNull = StringUtils.isEmpty(id)?UUID.randomUUID().toString():id;
-        return new EgoNetwork(idNotNull, year, nodes, edges, metrics, timeSeries);
+        return new EgoNetwork(idNotNull, year, nodes, edges, metrics, absoluteFrequency, normalisedFrequency);
     }
 
 }

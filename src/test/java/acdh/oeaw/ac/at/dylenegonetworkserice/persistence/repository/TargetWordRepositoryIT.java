@@ -98,11 +98,16 @@ class TargetWordRepositoryIT {
 
         @Test
         void shouldFindTargetWordWithId() {
-            var targetWords = repository.findByText("Abbaueinheit");
+            var targetWords = repository.findByText("begonnen");
 
             assertThat(targetWords.size()).isEqualTo(1);
         }
+        @Test
+        void shouldContainTimeSeries() {
+            var targetWords = repository.findByText("Befehl");
 
+            assertThat(targetWords.get(0).getTimeSeries().getFreqDiffNorm().getFirstYear().size()).isGreaterThan(0);
+        }
         @Test
         void shouldReturnAllAvailableTargetWords() {
 
@@ -116,7 +121,7 @@ class TargetWordRepositoryIT {
             var sources = repository.findSourceByCorpus("AMC");
 
             assertThat(sources).isNotEmpty();
-            assertThat(sources.get(0)).isEqualTo("KLEINE");
+            assertThat(sources.get(0)).isEqualTo("STANDARD");
         }
 
         @Test
