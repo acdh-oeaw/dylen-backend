@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -47,6 +48,7 @@ public class NetworkService implements EgoNetworkServiceInterface {
     public TargetWordsSliceDto getTargetWordsOfCorpusAndSource(String corpus, String source, Pageable pageRequest) {
         logger.info("Loading Targetwords of Corpus: " +  corpus + " and Source: " +  source);
         var targetWords = targetWordRepository.findByCorpusAndSource(corpus, source, pageRequest);
+        targetWords.forEach(TargetWord::sortByYear);
         return TargetWordsSliceDto.fromSlice(targetWords);
     }
 

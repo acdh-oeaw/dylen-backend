@@ -2,12 +2,15 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.common.collect.ImmutableList;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Data
@@ -33,9 +36,8 @@ public class TargetWord {
         this.pos = pos;
         this.corpus = corpus;
         this.source = source;
-        this.networks = networks;
+        this.networks = ImmutableList.copyOf(sortEgoNetworksByYear(networks));
         this.timeSeries = timeSeries;
-
     }
 
     @JsonCreator
@@ -60,5 +62,20 @@ public class TargetWord {
 
     public static TargetWord fromJson(String json) {
         return null;
+    }
+
+    private static List<EgoNetwork> sortEgoNetworksByYear(List<EgoNetwork> networks) {
+        var toSort = new ArrayList<EgoNetwork>(networks);
+        toSort.sort((network1, network2) -> {
+            if(network1.getYear() == network2.getYear()){
+                return 0;
+            }
+            return network1.getYear() < network2.getYear()? -1 : 1;
+        });
+        return toSort;
+    }
+
+    public void sortByYear() {
+        this.networks = ImmutableList.copyOf(sortEgoNetworksByYear(this.networks));
     }
 }
