@@ -28,14 +28,16 @@ public class TargetWord {
     @Indexed
     @NonNull private String source;
     @NonNull private List<EgoNetwork> networks;
+    @NonNull private TimeSeries timeSeries;
 
-    private TargetWord(String id, String targetWord, String pos, String corpus, String source, List<EgoNetwork> networks) {
+    private TargetWord(String id, String targetWord, String pos, String corpus, String source, List<EgoNetwork> networks, TimeSeries timeSeries) {
         this.id = id;
         this.text = targetWord;
         this.pos = pos;
         this.corpus = corpus;
         this.source = source;
         this.networks = ImmutableList.copyOf(sortEgoNetworksByYear(networks));
+        this.timeSeries = timeSeries;
     }
 
     @JsonCreator
@@ -44,18 +46,18 @@ public class TargetWord {
                                 @JsonProperty("pos") String pos,
                                 @JsonProperty("corpus") String corpus,
                                 @JsonProperty("source") String source,
-                                @JsonProperty("networks") List<EgoNetwork> networks
-    ) {
-        return new TargetWord(id, targetWord, pos, corpus, source, networks);
+                                @JsonProperty("networks") List<EgoNetwork> networks,
+                                @JsonProperty("timeSeries") TimeSeries timeSeries) {
+        return new TargetWord(id, targetWord, pos, corpus, source, networks, timeSeries);
     }
 
     public static TargetWord of(@JsonProperty("text") String targetWord,
                                 @JsonProperty("pos") String pos,
                                 @JsonProperty("corpus") String corpus,
                                 @JsonProperty("source") String source,
-                                @JsonProperty("networks") List<EgoNetwork> networks
-    ) {
-        return new TargetWord(null, targetWord, pos, corpus, source, networks);
+                                @JsonProperty("networks") List<EgoNetwork> networks,
+                                @JsonProperty("timeSeries") TimeSeries timeSeries) {
+        return new TargetWord(null, targetWord, pos, corpus, source, networks, timeSeries);
     }
 
     public static TargetWord fromJson(String json) {

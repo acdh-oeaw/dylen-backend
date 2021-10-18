@@ -17,6 +17,7 @@ type TargetWord {
     text: String
     pos: String
     networks: [EgoNetwork]
+    timeSeries: TimeSeries
 }
 
 type Corpus {
@@ -35,6 +36,20 @@ type EgoNetwork {
     year: Int
     nodes:[Node]
     edges:[Edge]
+}
+
+type TimeSeries {
+    freqDiffNorm: TimeSerieMetric
+    frobeniusSimilarity: TimeSerieMetric
+    jaccardSimilarity: TimeSerieMetric
+    rankdcgSimilarity: TimeSerieMetric
+    localNeighbourhoodSimilarity: TimeSerieMetric
+}
+
+type TimeSerieMetric {
+    firstYear: [Float]
+    lastYear: [Float]
+    previousYear: [Float]
 }
 
 type Node {
