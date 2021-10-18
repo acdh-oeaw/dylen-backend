@@ -55,7 +55,7 @@ public class NetworkServiceTest {
         var result = networkService.getTargetWordsOfCorpusAndSource(CORPUS_NAME, SOURCE_NAME, pageRequest);
 
         assertThat(result.getTargetWords()).contains(TARGET_WORD_WITH_ID);
-        assertThat(result.getTargetWords().get(0).getNetworks().size()).isEqualTo(2);
+        assertThat(result.getTargetWords().get(0).getNetworks().size()).isEqualTo(1);
         assertThat(result.getTargetWords().get(0).getNetworks().get(0).getYear()).isEqualTo(EGO_NETWORK_YEAR);
     }
 }
