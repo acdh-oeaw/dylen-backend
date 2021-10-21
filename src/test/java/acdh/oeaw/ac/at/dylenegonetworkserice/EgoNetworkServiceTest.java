@@ -1,11 +1,8 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
 import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
@@ -21,7 +18,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.SOURCE_NAME;
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.TARGET_WORD_WITH_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
@@ -89,6 +85,20 @@ public class EgoNetworkServiceTest {
 
         assertThat(response.readTree().get("errors")).isNull();
         assertThat(response.readTree().get("data").get("getAutocompleteSuggestions").size()).isEqualTo(1);
+
+    }
+
+    @Test
+    public void getTargetWordById() throws IOException {
+        var corpus = "AMC";
+        var source = "KLEINE";
+        var searchTerm = "AP";
+        doReturn(TARGET_WORD_WITH_ID).when(queryService).getTargetWord(TestFixture.TARGETWORD_ID);
+
+        var response = graphQLTestTemplate.postForResource("targetword.graphql");
+
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(response.readTree().get("data").get("getTargetWordById"));
 
     }
 }
