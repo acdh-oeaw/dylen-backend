@@ -2,6 +2,7 @@ type Query {
     allAvailableCorpora: [String]
     getNetwork(targetword_id: String, year: Int): EgoNetwork
     getSourcesByCorpus(corpus: String): [String]
+    getTargetWordById(targetword_id: String): TargetWord
     getNetworksByCorpusAndSource(corpus:String, source: String, page: Int, size: Int): TargetWordsSliceDto
     getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String): [TargetWord]
 }
