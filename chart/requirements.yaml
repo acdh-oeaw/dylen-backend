@@ -1,7 +1,0 @@
-dependencies:
-  # This is a legacy in-cluster PostgreSQL dependency that is no longer used for newer installations.
-  # We can remove this dependency when we drop support for the legacy instances.
-  - name: postgresql
-    version: "0.7.1"
-    repository: "@stable"
-    condition: postgresql.enabled

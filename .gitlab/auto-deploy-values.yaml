@@ -25,6 +25,10 @@ readinessProbe:
   probeType: "httpGet"
 tolerations:
   - key: "node.kubernetes.io/unreachable"
-    tolerationSeconds: 900
+    operator: "Exists"
+    effect: "NoExecute"
+    tolerationSeconds: 6000
   - key: "node.kubernetes.io/not-ready"
-    tolerationsSeconds: 900
+    operator: "Exists"
+    effect: "NoExecute"
+    tolerationSeconds: 6000
