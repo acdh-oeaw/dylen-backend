@@ -97,7 +97,7 @@ test:
 
 # deploy master
 deploy-master:
-  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v1.0.7"
+  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v2.10.0"
   stage: deploy
   variables:
     POSTGRES_ENABLED: "false"
@@ -125,7 +125,7 @@ deploy-master:
 
 # deploy prod
 deploy-prod:
-  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v1.0.7"
+  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v2.10.0"
   stage: deploy
   variables:
     POSTGRES_ENABLED: "false"
