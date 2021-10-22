@@ -1,34 +1,25 @@
 startupProbe:
   path: "/actuator/health/liveness"
   port: 5000
-  initialDelaySeconds: 900
-  timeoutSeconds: 60
+  initialDelaySeconds: 15
+  timeoutSeconds: 30
   scheme: "HTTP"
   probeType: "httpGet"
   failureThreshold: 50
-  periodSeconds: 60
+  periodSeconds: 15
 livenessProbe:
   path: "/actuator/health/liveness"
   port: 5000
-  initialDelaySeconds: 900
-  timeoutSeconds: 60
-  failureThreshold: 60
+  initialDelaySeconds: 180
+  timeoutSeconds: 20
+  failureThreshold: 20
   scheme: "HTTP"
   probeType: "httpGet"
 readinessProbe:
   path: "/actuator/health/readiness"
   port: 5000
-  initialDelaySeconds: 900
-  timeoutSeconds: 60
-  failureThreshold: 60
+  initialDelaySeconds: 60
+  timeoutSeconds: 20
+  failureThreshold: 20
   scheme: "HTTP"
   probeType: "httpGet"
-tolerations:
-  - key: "node.kubernetes.io/unreachable"
-    operator: "Exists"
-    effect: "NoExecute"
-    tolerationSeconds: 6000
-  - key: "node.kubernetes.io/not-ready"
-    operator: "Exists"
-    effect: "NoExecute"
-    tolerationSeconds: 6000
