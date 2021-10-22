@@ -23,3 +23,8 @@ readinessProbe:
   failureThreshold: 60
   scheme: "HTTP"
   probeType: "httpGet"
+tolerations:
+  - key: "node.kubernetes.io/unreachable"
+    tolerationSeconds: 900
+  - key: "node.kubernetes.io/not-ready"
+    tolerationsSeconds: 900
