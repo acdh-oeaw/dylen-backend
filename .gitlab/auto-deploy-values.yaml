@@ -32,3 +32,10 @@ tolerations:
     operator: "Exists"
     effect: "NoExecute"
     tolerationSeconds: 6000
+resources:
+  #  limits:
+  #    cpu: 100m
+  #    memory: 128Mi
+  requests:
+#    cpu: 100m
+    memory: 2000Mi
