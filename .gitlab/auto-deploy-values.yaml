@@ -33,9 +33,9 @@ tolerations:
     effect: "NoExecute"
     tolerationSeconds: 6000
 resources:
-  #  limits:
+  limits:
   #    cpu: 100m
-  #    memory: 128Mi
+    memory: 3000Mi
   requests:
 #    cpu: 100m
     memory: 2000Mi
