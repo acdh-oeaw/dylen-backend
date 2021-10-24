@@ -10,7 +10,7 @@ startupProbe:
 livenessProbe:
   path: "/actuator/health/liveness"
   port: 5000
-  initialDelaySeconds: 360
+  initialDelaySeconds: 240
   timeoutSeconds: 60
   failureThreshold: 60
   scheme: "HTTP"
@@ -18,7 +18,7 @@ livenessProbe:
 readinessProbe:
   path: "/actuator/health/readiness"
   port: 5000
-  initialDelaySeconds: 360
+  initialDelaySeconds: 240
   timeoutSeconds: 60
   failureThreshold: 60
   scheme: "HTTP"
