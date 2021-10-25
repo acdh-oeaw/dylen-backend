@@ -1,26 +1,26 @@
 startupProbe:
   path: "/actuator/health/liveness"
   port: 5000
-  initialDelaySeconds: 150
+  initialDelaySeconds: 600
   timeoutSeconds: 30
   scheme: "HTTP"
   probeType: "httpGet"
   failureThreshold: 100
-  periodSeconds: 30
+  periodSeconds: 60
 livenessProbe:
   path: "/actuator/health/liveness"
   port: 5000
-  initialDelaySeconds: 240
+  initialDelaySeconds: 600
   timeoutSeconds: 60
-  failureThreshold: 60
+  failureThreshold: 100
   scheme: "HTTP"
   probeType: "httpGet"
 readinessProbe:
   path: "/actuator/health/readiness"
   port: 5000
-  initialDelaySeconds: 240
+  initialDelaySeconds: 600
   timeoutSeconds: 60
-  failureThreshold: 60
+  failureThreshold: 100
   scheme: "HTTP"
   probeType: "httpGet"
 tolerations:
