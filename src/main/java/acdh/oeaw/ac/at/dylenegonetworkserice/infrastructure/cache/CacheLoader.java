@@ -33,8 +33,8 @@ public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
         logger.info("Loading cache");
         var corpora = corpusService.getAllCorpora();
         logger.info("Corpora loaded...");
-        corpora.forEach((corpus) -> queryService.getSourcesByCorpus(corpus)
-                .forEach((source) -> networkService.getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0, 20))));
-        logger.info("Sources and Targetwords loaded..");
+        //corpora.forEach((corpus) -> queryService.getSourcesByCorpus(corpus)
+        //        .forEach((source) -> networkService.getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0, 20))));
+        //logger.info("Sources and Targetwords loaded..");
     }
 }
