@@ -1,8 +1,9 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.cache;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks.GeneralNetworkServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.EgoNetworkServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.QueryServiceInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -19,13 +20,18 @@ public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
 
     final EgoNetworkServiceInterface networkService;
 
+    final GeneralNetworkServiceInterface generalNetworkService;
+
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-
-    public CacheLoader(CorpusServiceInterface corpusService, QueryServiceInterface queryService, EgoNetworkServiceInterface networkService) {
+    public CacheLoader(CorpusServiceInterface corpusService,
+                       QueryServiceInterface queryService,
+                       EgoNetworkServiceInterface networkService,
+                       GeneralNetworkServiceInterface generalNetworkService) {
         this.corpusService = corpusService;
         this.queryService = queryService;
         this.networkService = networkService;
+        this.generalNetworkService = generalNetworkService;
     }
 
     @Override

@@ -1,0 +1,95 @@
+type Query {
+    allAvailableCorpora: [String]
+    getNetwork(targetword_id: String, year: Int): EgoNetwork
+    getSourcesByCorpus(corpus: String): [String]
+    getNetworksByCorpusAndSource(corpus:String, source: String, page: Int, size: Int): TargetWordsSliceDto
+    getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String): [TargetWord]
+    getGeneralSourceByParty(entity:String): [GeneralTargetWord]
+    getGeneralSourceByPartyYear(entity:String, year: String): GeneralTargetWord
+    getGeneralSourceBySpeakerYear(entity_name:String, year:String): GeneralTargetWordSpeaker
+}
+
+type TargetWordsSliceDto {
+    sliceNumber: Int
+    hasNext: Boolean
+    targetWords: [TargetWord]
+}
+
+type TargetWord {
+    id: ID
+    text: String
+    pos: String
+    networks: [EgoNetwork]
+}
+
+type Corpus {
+    id: ID
+    name: String
+    sources: [Source]
+}
+
+type Source {
+    name: String
+    targetWords: [TargetWord]
+}
+
+type GeneralTargetWord {
+    type: String,
+    entity: String,
+    networks: GeneralNetwork
+}
+
+type GeneralTargetWordSpeaker {
+    type: String,
+    entity_name: String,
+    networks: [GeneralNetwork]
+}
+
+type GeneralNetwork {
+    year: String
+    nodes:[GeneralNetworkNode]
+    edges:[Edge]
+}
+
+type EgoNetwork {
+    id: ID
+    year: Int
+    nodes:[Node]
+    edges:[Edge]
+}
+
+type GeneralNetworkNode {
+    id: ID
+    clusterId: Int
+    text: String
+    pos: String
+    absolute_frequency: Float
+    normalized_frequency: Float
+}
+
+type Node {
+    id: ID
+    clusterId: Int
+    text: String
+    pos: String
+    similarity: Float
+    metrics: NodeMetric
+}
+
+type NodeMetric {
+    degreeCentrality: Float
+    closenessCentrality: Float
+    betweennessCentrality: Float
+    eigenvectorCentrality: Float
+    pagerank: Float
+    loadCentrality: Float
+    harmonicCentrality: Float
+    clusteringCoefficient: Float
+}
+
+type Edge {
+    id: ID
+    node1: ID
+    node2: ID
+    similarity: Float
+}

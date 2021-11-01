@@ -1,12 +1,12 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Source;
-import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSliceDto;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusService;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.Corpus;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.Source;
+import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.targetWord.dto.TargetWordsSliceDto;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.EgoNetworkServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusService;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.QueryServiceInterface;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
