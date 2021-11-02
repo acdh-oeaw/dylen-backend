@@ -3,17 +3,17 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.cache;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationListener;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-
-@Service
-public class CacheLoader{
+@Component
+public class CacheLoader {
 
     final CorpusServiceInterface corpusService;
 
@@ -21,22 +21,19 @@ public class CacheLoader{
 
     final EgoNetworkServiceInterface networkService;
 
-    final Logger logger = LoggerFactory.getLogger(this.getClass());
-
-
-    public CacheLoader(CorpusServiceInterface corpusService, QueryServiceInterface queryService, EgoNetworkServiceInterface networkService) {
+    public CacheLoader(CorpusServiceInterface corpusService, QueryServiceInterface queryService,
+                       EgoNetworkServiceInterface networkService) {
         this.corpusService = corpusService;
         this.queryService = queryService;
         this.networkService = networkService;
     }
 
-    @PostConstruct
-    public void initCache() {
-        logger.info("Loading cache");
-        var corpora = corpusService.getAllCorpora();
-        logger.info("Corpora loaded...");
-        corpora.forEach((corpus) -> queryService.getSourcesByCorpus(corpus)
-                .forEach((source) -> networkService.getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0, 10))));
-        logger.info("Sources and Targetwords loaded..");
+    @Bean
+    public CommandLineRunner schedulingRunner(@Qualifier("taskExecutor") TaskExecutor executor) {
+        return new CommandLineRunner() {
+            public void run(String... args) throws Exception {
+                executor.execute(new CacheRunner(corpusService, queryService, networkService));
+            }
+        };
     }
 }
