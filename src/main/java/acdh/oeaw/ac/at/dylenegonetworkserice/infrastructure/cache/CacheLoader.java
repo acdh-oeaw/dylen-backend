@@ -31,7 +31,7 @@ public class CacheLoader{
     }
 
     @PostConstruct
-    public void initCache(ApplicationReadyEvent event) {
+    public void initCache() {
         logger.info("Loading cache");
         var corpora = corpusService.getAllCorpora();
         logger.info("Corpora loaded...");
