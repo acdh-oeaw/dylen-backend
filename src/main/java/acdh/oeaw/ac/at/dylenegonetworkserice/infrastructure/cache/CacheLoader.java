@@ -10,8 +10,10 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.PostConstruct;
+
 @Service
-public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
+public class CacheLoader{
 
     final CorpusServiceInterface corpusService;
 
@@ -28,8 +30,8 @@ public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
         this.networkService = networkService;
     }
 
-    @Override
-    public void onApplicationEvent(ApplicationReadyEvent event) {
+    @PostConstruct
+    public void initCache(ApplicationReadyEvent event) {
         logger.info("Loading cache");
         var corpora = corpusService.getAllCorpora();
         logger.info("Corpora loaded...");
