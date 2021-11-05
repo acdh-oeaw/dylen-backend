@@ -27,18 +27,21 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+	implementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 	implementation 'org.springframework.boot:spring-boot-starter-cache'
 	implementation 'org.ehcache:ehcache:3.9.0'
 	implementation 'javax.cache:cache-api:1.1.1'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	testImplementation 'org.springframework.boot:spring-boot-starter-data-elasticsearch'
 	testImplementation 'com.graphql-java-kickstart:graphql-spring-boot-starter-test:8.0.0'
 	testImplementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.16.1'
 	testImplementation "org.testcontainers:testcontainers:1.15.0"
 	testImplementation "org.testcontainers:junit-jupiter:1.15.0"
 	testImplementation "org.testcontainers:mongodb:1.15.0"
+	testImplementation "org.testcontainers:elasticsearch:1.15.0"
 	testImplementation 'org.projectlombok:lombok:1.18.12'
 	testImplementation 'ch.qos.logback:logback-classic:1.2.3'
 	testAnnotationProcessor "org.projectlombok:lombok:1.18.12"

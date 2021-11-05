@@ -1,6 +1,6 @@
 # Gitlab Auto Deploy Image
 * https://gitlab.com/gitlab-org/cluster-integration/auto-deploy-image
-# Dylen Ego-Network-service
+# Build and run Dylen Ego-Network-service
 
 ./gradlew build && java -jar build/libs/dylen-ego-network-service
 
@@ -21,9 +21,13 @@ Endpoint is http://localhost:5000/graphql
 # https://github.com/graphql-java-kickstart/graphql-java-tools
 
 # REFERENCES
-Read models in DDD: 
-http://gorodinski.com/blog/2012/04/25/read-models-as-a-tactical-pattern-in-domain-driven-design-ddd/
+* Read models in DDD: 
+  * http://gorodinski.com/blog/2012/04/25/read-models-as-a-tactical-pattern-in-domain-driven-design-ddd/
 {$match: {corpus:"AMC"}}, {$group: {_id:"$source"}}
+
+# Spring boot application.properties
+* https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html#application-properties.data
+
 
 # RUNNING MONGODB LOCALLY ON MAC
 ```/usr/local/opt/mongodb-community/bin/mongod --dbpath /usr/local/var/mongodb```

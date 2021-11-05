@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -30,6 +31,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @GraphQLTest
 @Slf4j
 @ActiveProfiles("prod")
+@EnableElasticsearchRepositories(basePackages = "acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository")
 public class QueryServiceIT {
     @Autowired
     QueryServiceInterface queryService;
