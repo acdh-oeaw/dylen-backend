@@ -8,7 +8,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.targetWord.T
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks.GeneralNetworkIT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -7,7 +7,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetwo
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.graphql.spring.boot.test.GraphQLTest;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -65,7 +65,6 @@ public class GeneralNetworkIT {
         String jsonStr = new String(Objects.requireNonNull(GeneralNetworkIT.class.getClassLoader().getResourceAsStream(
                 "GeneralNetworks/fpoe-2006.json")).readAllBytes());
         var generalNetwork = new ObjectMapper().readValue(jsonStr, GeneralTargetWord.class);
-        assertThat(repository).isNotNull();
 
         var inserted = repository.insert(generalNetwork);
 
