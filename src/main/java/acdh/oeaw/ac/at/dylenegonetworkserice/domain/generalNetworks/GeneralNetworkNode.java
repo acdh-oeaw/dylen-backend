@@ -1,5 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.Node;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.NodeMetric;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.PropertyNamingStrategy;
@@ -26,13 +28,16 @@ public class GeneralNetworkNode {
     @Field("normalized_frequency")
     private Float normalized_frequency;
 
-    public GeneralNetworkNode(@NonNull String id, int clusterId, @NonNull String text, String pos, Float absolute_frequency, Float normalized_frequency) {
+    private NodeMetric metrics;
+
+    public GeneralNetworkNode(@NonNull String id, int clusterId, @NonNull String text, String pos, Float absolute_frequency, Float normalized_frequency, NodeMetric metrics) {
         this.id = id;
         this.clusterId = clusterId;
         this.text = text;
         this.pos = pos;
         this.absolute_frequency = absolute_frequency;
         this.normalized_frequency = normalized_frequency;
+        this.metrics = metrics;
     }
 
     @JsonCreator
@@ -41,7 +46,8 @@ public class GeneralNetworkNode {
                                         @JsonProperty("text") String text,
                                         @JsonProperty("pos") String pos,
                                         @JsonProperty("absolute_frequency") Float absolute_frequency,
-                                        @JsonProperty("normalized_frequency") Float normalized_frequency) {
-        return new GeneralNetworkNode(id, clusterId, text, pos, absolute_frequency, normalized_frequency);
+                                        @JsonProperty("normalized_frequency") Float normalized_frequency,
+                                        @JsonProperty("metrics") NodeMetric metrics) {
+        return new GeneralNetworkNode(id, clusterId, text, pos, absolute_frequency, normalized_frequency, metrics);
     }
 }

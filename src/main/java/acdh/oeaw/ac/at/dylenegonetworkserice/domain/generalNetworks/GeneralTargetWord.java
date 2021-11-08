@@ -1,5 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.NetworkMetric;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.NodeMetric;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.collect.ImmutableList;
@@ -39,7 +41,6 @@ public class GeneralTargetWord {
         return new GeneralTargetWord(id, targetWord, pos, networks);
     }
 
-    @JsonCreator
     public static GeneralTargetWord of(@JsonProperty("type") String targetWord,
                                        @JsonProperty("entity") String pos,
                                        @JsonProperty("networks") GeneralNetwork networks

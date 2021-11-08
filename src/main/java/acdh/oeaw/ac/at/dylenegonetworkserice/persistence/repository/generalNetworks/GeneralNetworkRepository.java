@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
 public interface GeneralNetworkRepository extends MongoRepository<GeneralTargetWord, String> {
     @Query("{'entity':?0, 'available_years': {$exists: false}}")
     List<GeneralTargetWord> findGeneralSourceByParty(String entity);

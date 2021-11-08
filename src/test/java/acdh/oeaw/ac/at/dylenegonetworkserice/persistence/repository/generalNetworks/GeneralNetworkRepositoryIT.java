@@ -1,10 +1,14 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.generalNetworks.GeneralNetworkQuery;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.targetWord.TargetWordRepository;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks.GeneralNetworkIT;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +34,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @ExtendWith(SpringExtension.class)
 @Testcontainers
 @DataMongoTest
-@DirtiesContext(classMode =DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.AFTER_EACH_TEST_METHOD)
 @Slf4j
 class GeneralNetworkRepositoryIT {
     @Autowired
@@ -57,5 +61,16 @@ class GeneralNetworkRepositoryIT {
     @DynamicPropertySource
     static void mongoDbProperties(DynamicPropertyRegistry registry) {
         registry.add("spring.data.mongodb.uri", mongoDBContainer::getReplicaSetUrl);
+    }
+
+    @Test
+    public void shouldReturnPartyByYear() throws IOException {
+        String jsonStr = new String(Objects.requireNonNull(GeneralNetworkIT.class.getClassLoader().getResourceAsStream(
+                "GeneralNetworks/fpoe-2006.json")).readAllBytes());
+        var generalNetwork = new ObjectMapper().readValue(jsonStr, GeneralTargetWord.class);
+        assertThat(repository).isNotNull();
+
+        var inserted = repository.insert(generalNetwork);
+        assertThat(inserted).isNotNull();
     }
 }

@@ -3,6 +3,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.Corpus;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.Source;
 import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.targetWord.dto.TargetWordsSliceDto;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks.GeneralNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusService;
@@ -39,6 +40,8 @@ public class EgoNetworkServiceTest {
     private GraphQLTestTemplate graphQLTestTemplate;
     @MockBean
     QueryServiceInterface queryService;
+    @MockBean
+    GeneralNetworkServiceInterface generalNetworkService;
 
     @Test
     public void getAllAvailableCorpora() throws IOException {
@@ -90,5 +93,16 @@ public class EgoNetworkServiceTest {
         assertThat(response.readTree().get("errors")).isNull();
         assertThat(response.readTree().get("data").get("getAutocompleteSuggestions").size()).isEqualTo(1);
 
+    }
+
+    @Test
+    public void getPartyByYear() throws IOException {
+        var response = graphQLTestTemplate.postForResource("party-by-year.graphql");
+
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(response.readTree().get("data")).isEqualTo("FPOe");
+        assertThat(response.readTree().get("data").get("getGeneralSourceByPartyYear").get("entity")).isEqualTo("FPOe");
+        assertThat(response.readTree().get("data").get("getGeneralSourceByPartyYear").get("networks").get("year")).isEqualTo("2006");
+        assertThat(response.isOk()).isTrue();
     }
 }

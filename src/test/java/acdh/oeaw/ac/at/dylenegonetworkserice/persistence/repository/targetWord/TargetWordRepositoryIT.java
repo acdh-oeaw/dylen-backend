@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.targetWord;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks.GeneralNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;

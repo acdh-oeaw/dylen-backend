@@ -1,7 +1,5 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.NetworkService;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 

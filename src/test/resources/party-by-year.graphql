@@ -1,0 +1,20 @@
+{
+    getGeneralSourceByPartyYear(entity: "FPOe", year: "2006") {
+        type
+        entity
+        networks {
+            year
+            nodes {
+                clusterId
+                text
+                pos
+            }
+            edges {
+                id
+                node1
+                node2
+                similarity
+            }
+        }
+    }
+}
