@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface AutocompleteRepository extends ElasticsearchRepository<Suggestion, String> {
 
-     List<Suggestion> findByTextLike(String text);
+     List<Suggestion> findSuggestionByCorpusAndSourceAndTextLike(String corpus, String source, String text);
 }

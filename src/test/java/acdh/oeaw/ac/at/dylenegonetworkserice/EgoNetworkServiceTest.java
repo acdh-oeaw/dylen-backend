@@ -80,7 +80,7 @@ public class EgoNetworkServiceTest {
         var corpus = "AMC";
         var source = "KLEINE";
         var searchTerm = "AP";
-        doReturn(ImmutableList.of(Suggestion.of("TEST", "Apfel"))).when(queryService).getAutocompleteSuggestion(corpus, source, searchTerm, 0, 10);
+        doReturn(ImmutableList.of(Suggestion.of("TEST", TestFixture.AMC_CORPUS, TestFixture.SOURCE_NAME, "nou", "Apfel"))).when(queryService).getAutocompleteSuggestion(corpus, source, searchTerm, 0, 10);
 
         var response = graphQLTestTemplate.postForResource("autocomplete.graphql");
 

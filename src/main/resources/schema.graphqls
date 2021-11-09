@@ -8,6 +8,9 @@ type Query {
 }
 type Suggestion {
     id: String
+    corpus: String
+    source: String
+    pos: String
     text: String
 }
 type TargetWordsSliceDto {

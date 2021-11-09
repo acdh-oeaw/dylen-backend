@@ -36,10 +36,10 @@ class QueryServiceTest {
     @Test
     public void shouldGetAutocompleteSuggestions() throws IOException {
         var queryService = new QueryService(targetWordRepository, autocompleteRepository);
-        var pageRequest = PageRequest.of(0,10);
+        var pageRequest = PageRequest.of(0, 10);
         var source = "STANDARD";
 
-        Mockito.when(autocompleteRepository.findByTextLike("AP")).thenReturn(ImmutableList.of(Suggestion.of("Test", "Apfel")));
+        Mockito.when(autocompleteRepository.findSuggestionByCorpusAndSourceAndTextLike(TestFixture.AMC_CORPUS, source, "AP")).thenReturn(ImmutableList.of(Suggestion.of("Test", "AMC", "Falter", "noun", "Apfel")));
 
         var response = queryService.getAutocompleteSuggestion(TestFixture.AMC_CORPUS, source, "AP", 0, 10);
 
@@ -62,7 +62,9 @@ class QueryServiceTest {
         var queryService = new QueryService(targetWordRepository, autocompleteRepository);
         Mockito.when(targetWordRepository.findById(TestFixture.TARGETWORD_ID)).thenReturn(Optional.ofNullable(TestFixture.TARGET_WORD_WITH_ID));
 
-        Throwable thrown = catchThrowable(() -> { queryService.getTargetWord("WRONG_ID"); });
+        Throwable thrown = catchThrowable(() -> {
+            queryService.getTargetWord("WRONG_ID");
+        });
 
         assertThat(thrown).isInstanceOf(TargetWordNotFoundException.class);
     }

@@ -30,7 +30,7 @@ public class QueryService implements QueryServiceInterface {
 
     @Override
     public List<Suggestion> getAutocompleteSuggestion(String corpus, String source, String searchTerm, int page, int size) {
-        var hits = autocompleteRepository.findByTextLike(searchTerm);
+        var hits = autocompleteRepository.findSuggestionByCorpusAndSourceAndTextLike(corpus, source, searchTerm);
         return hits;
     }
 

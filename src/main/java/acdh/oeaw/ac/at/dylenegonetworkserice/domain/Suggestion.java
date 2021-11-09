@@ -19,12 +19,21 @@ public class Suggestion {
 
     private String text;
 
-    private Suggestion(String id, String text) {
+    private String corpus;
+
+    private String source;
+
+    private String pos;
+
+    private Suggestion(String id, String corpus, String source, String pos, String text) {
         this.id = id;
+        this.corpus = corpus;
+        this.source = source;
+        this.pos = pos;
         this.text = text;
     }
 
-    public static Suggestion of(String id, String text) {
-        return new Suggestion(id, text);
+    public static Suggestion of(String id, String corpus, String source, String pos, String text) {
+        return new Suggestion(id, corpus, source, pos, text);
     }
 }
