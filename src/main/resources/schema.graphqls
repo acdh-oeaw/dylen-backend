@@ -4,9 +4,15 @@ type Query {
     getSourcesByCorpus(corpus: String): [String]
     getTargetWordById(targetword_id: String): TargetWord
     getNetworksByCorpusAndSource(corpus:String, source: String, page: Int, size: Int): TargetWordsSliceDto
-    getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String): [TargetWord]
+    getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String): [Suggestion]
 }
-
+type Suggestion {
+    id: String
+    corpus: String
+    source: String
+    pos: String
+    text: String
+}
 type TargetWordsSliceDto {
     sliceNumber: Int
     hasNext: Boolean

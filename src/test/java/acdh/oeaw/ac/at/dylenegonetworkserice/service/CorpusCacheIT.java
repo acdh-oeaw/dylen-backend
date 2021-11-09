@@ -13,6 +13,7 @@ import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataM
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.cache.CacheManager;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -34,6 +35,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @GraphQLTest
 @Slf4j
 @ActiveProfiles("prod")
+@EnableElasticsearchRepositories(basePackages = "acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository")
 public class CorpusCacheIT {
 
     @Autowired

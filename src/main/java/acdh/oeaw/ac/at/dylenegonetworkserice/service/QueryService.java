@@ -1,21 +1,25 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.AutocompleteRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class QueryService implements QueryServiceInterface {
 
     final TargetWordRepository targetWordRepository;
+    final AutocompleteRepository autocompleteRepository;
 
-    public QueryService(TargetWordRepository targetWordRepository) {
+    public QueryService(TargetWordRepository targetWordRepository, AutocompleteRepository autocompleteRepository) {
         this.targetWordRepository = targetWordRepository;
+        this.autocompleteRepository = autocompleteRepository;
     }
 
     @Override
@@ -25,9 +29,9 @@ public class QueryService implements QueryServiceInterface {
     }
 
     @Override
-    public List<TargetWord> getAutocompleteSuggestion(String corpus, String source, String searchTerm, int page, int size) {
-        var pageRequest = PageRequest.of(page, size);
-        return targetWordRepository.findByCorpusAndSource(corpus, source, searchTerm, pageRequest);
+    public List<Suggestion> getAutocompleteSuggestion(String corpus, String source, String searchTerm, int page, int size) {
+        var hits = autocompleteRepository.findSuggestionByCorpusAndSourceAndTextLike(corpus, source, searchTerm);
+        return hits;
     }
 
     @Override
