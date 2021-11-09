@@ -1,10 +1,10 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -28,5 +28,12 @@ public class QueryService implements QueryServiceInterface {
     public List<TargetWord> getAutocompleteSuggestion(String corpus, String source, String searchTerm, int page, int size) {
         var pageRequest = PageRequest.of(page, size);
         return targetWordRepository.findByCorpusAndSource(corpus, source, searchTerm, pageRequest);
+    }
+
+    @Override
+    public TargetWord getTargetWord(String id) {
+        return targetWordRepository.findById(id).orElseThrow(()-> {
+            throw new TargetWordNotFoundException("No ego network found with the id", id);
+        });
     }
 }

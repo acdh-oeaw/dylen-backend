@@ -14,8 +14,11 @@ import org.springframework.data.mongodb.core.query.TextCriteria;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
+import java.util.Optional;
 
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.EGO_NETWORK_ID;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 
 @ExtendWith(SpringExtension.class)
 class QueryServiceTest {
@@ -33,5 +36,25 @@ class QueryServiceTest {
 
         assertThat(response).isNotEmpty();
         assertThat(response.get(0)).isEqualTo(TestFixture.TARGET_WORD_WITH_ID);
+    }
+
+    @Test
+    public void shouldReturnTargetWord() {
+        var queryService = new QueryService(targetWordRepository);
+        Mockito.when(targetWordRepository.findById(TestFixture.TARGETWORD_ID)).thenReturn(Optional.ofNullable(TestFixture.TARGET_WORD_WITH_ID));
+
+        var result = queryService.getTargetWord(TestFixture.TARGETWORD_ID);
+
+        assertThat(result).isNotNull();
+    }
+
+    @Test
+    public void shouldThrowExceptionIfTargetwordNotExists() {
+        var queryService = new QueryService(targetWordRepository);
+        Mockito.when(targetWordRepository.findById(TestFixture.TARGETWORD_ID)).thenReturn(Optional.ofNullable(TestFixture.TARGET_WORD_WITH_ID));
+
+        Throwable thrown = catchThrowable(() -> { queryService.getTargetWord("WRONG_ID"); });
+
+        assertThat(thrown).isInstanceOf(TargetWordNotFoundException.class);
     }
 }

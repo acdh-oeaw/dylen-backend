@@ -1,5 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import com.google.common.collect.ImmutableList;
@@ -12,6 +14,8 @@ import org.springframework.data.domain.SliceImpl;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
 import static org.assertj.core.api.Assertions.*;
@@ -43,7 +47,7 @@ public class NetworkServiceTest {
 
     @Test
     public void shouldRetrieveTargetWordsOfCorpusAndSource() throws IOException {
-        var targetWords = new SliceImpl(ImmutableList.of(TARGET_WORD_WITH_ID));
+        var targetWords = new SliceImpl<TargetWord>(ImmutableList.of(TARGET_WORD_WITH_ID));
         var pageRequest = PageRequest.of(0,5);
         Mockito.when(targetWordRepository.findByCorpusAndSource(CORPUS_NAME, SOURCE_NAME, pageRequest)).thenReturn(targetWords);
         var networkService = new NetworkService(targetWordRepository);
@@ -51,5 +55,7 @@ public class NetworkServiceTest {
         var result = networkService.getTargetWordsOfCorpusAndSource(CORPUS_NAME, SOURCE_NAME, pageRequest);
 
         assertThat(result.getTargetWords()).contains(TARGET_WORD_WITH_ID);
+        assertThat(result.getTargetWords().get(0).getNetworks().size()).isEqualTo(1);
+        assertThat(result.getTargetWords().get(0).getNetworks().get(0).getYear()).isEqualTo(EGO_NETWORK_YEAR);
     }
 }

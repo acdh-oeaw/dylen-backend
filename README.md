@@ -1,3 +1,5 @@
+# Gitlab Auto Deploy Image
+* https://gitlab.com/gitlab-org/cluster-integration/auto-deploy-image
 # Dylen Ego-Network-service
 
 ./gradlew build && java -jar build/libs/dylen-ego-network-service

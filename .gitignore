@@ -3,3 +3,4 @@
 .idea/
 build/
 resoures/data/**/*.json
+.local

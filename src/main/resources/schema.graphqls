@@ -2,6 +2,7 @@ type Query {
     allAvailableCorpora: [String]
     getNetwork(targetword_id: String, year: Int): EgoNetwork
     getSourcesByCorpus(corpus: String): [String]
+    getTargetWordById(targetword_id: String): TargetWord
     getNetworksByCorpusAndSource(corpus:String, source: String, page: Int, size: Int): TargetWordsSliceDto
     getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String): [TargetWord]
 }
@@ -17,6 +18,7 @@ type TargetWord {
     text: String
     pos: String
     networks: [EgoNetwork]
+    timeSeries: TimeSeries
 }
 
 type Corpus {
@@ -35,6 +37,20 @@ type EgoNetwork {
     year: Int
     nodes:[Node]
     edges:[Edge]
+}
+
+type TimeSeries {
+    freqDiffNorm: TimeSerieMetric
+    frobeniusSimilarity: TimeSerieMetric
+    jaccardSimilarity: TimeSerieMetric
+    rankdcgSimilarity: TimeSerieMetric
+    localNeighbourhoodSimilarity: TimeSerieMetric
+}
+
+type TimeSerieMetric {
+    firstYear: [Float]
+    lastYear: [Float]
+    previousYear: [Float]
 }
 
 type Node {

@@ -51,7 +51,19 @@ public class QueryServiceIT {
         mongoDBContainer.start();
     }
 
+    @Test
+    void shouldReturnTargetwordIT() throws IOException {
+        var jsonStr = new String(Objects.requireNonNull(NetworkServiceIT.class.getClassLoader().getResourceAsStream(
+                "AMC/Balkanroute-n.json")).readAllBytes());
+        var targetWord = new ObjectMapper().readValue(jsonStr, TargetWord.class);
+        var inserted = repository.insert(targetWord);
 
+        var result = queryService.getTargetWord(targetWord.getId());
+
+        assertThat(result).isNotNull();
+        assertThat(result.getTimeSeries().getFreqDiffNorm().getFirstYear().size()).isGreaterThan(0);
+
+    }
 
     @Test
     void shouldReturnAutoCompleteSuggestionsWithPagination() throws IOException {
