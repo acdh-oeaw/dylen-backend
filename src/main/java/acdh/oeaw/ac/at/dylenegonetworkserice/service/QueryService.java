@@ -6,10 +6,10 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundExcept
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.AutocompleteRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Service
 public class QueryService implements QueryServiceInterface {
@@ -30,8 +30,9 @@ public class QueryService implements QueryServiceInterface {
 
     @Override
     public List<Suggestion> getAutocompleteSuggestion(String corpus, String source, String searchTerm, int page, int size) {
-        var hits = autocompleteRepository.findSuggestionByCorpusAndSourceAndTextLike(corpus, source, searchTerm);
-        return hits;
+        var pageRequest =  PageRequest.of(page, size);
+        var result = autocompleteRepository.findByCorpusAndSourceAndTextLike(corpus, source, searchTerm, pageRequest);
+        return result;
     }
 
     @Override

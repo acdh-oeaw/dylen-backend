@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.SuggestionSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.data.elasticsearch.core.SearchHits;
@@ -17,7 +18,7 @@ public class SearchQuery implements GraphQLQueryResolver {
         this.queryService = queryService;
     }
 
-    public List<Suggestion> getAutocompleteSuggestions(String corpus, String source, String searchTerm) {
-        return queryService.getAutocompleteSuggestion(corpus, source, searchTerm, 0, 10);
+    public List<Suggestion> getAutocompleteSuggestions(String corpus, String source, String searchTerm, int page, int size) {
+        return queryService.getAutocompleteSuggestion(corpus, source, searchTerm, page, size);
     }
 }
