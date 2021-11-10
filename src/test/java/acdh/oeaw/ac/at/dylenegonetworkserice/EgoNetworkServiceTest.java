@@ -1,5 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
+import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.SuggestionSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
@@ -14,6 +16,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
@@ -31,10 +34,10 @@ public class EgoNetworkServiceTest {
     CorpusServiceInterface corpusService;
     @MockBean
     EgoNetworkServiceInterface networkService;
-    @Autowired
-    private GraphQLTestTemplate graphQLTestTemplate;
     @MockBean
     QueryServiceInterface queryService;
+    @Autowired
+    private GraphQLTestTemplate graphQLTestTemplate;
 
     @Test
     public void getAllAvailableCorpora() throws IOException {
@@ -65,8 +68,8 @@ public class EgoNetworkServiceTest {
     public void getTargetWordsByCorpusAndSource() throws IOException {
         var corpus = "AMC";
         var source = "KLEINE";
-        var slice = TargetWordsSliceDto.of(0, false,ImmutableList.of(TARGET_WORD_WITH_ID));
-        doReturn(slice).when(networkService).getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0,5));
+        var slice = TargetWordsSliceDto.of(0, false, ImmutableList.of(TARGET_WORD_WITH_ID));
+        doReturn(slice).when(networkService).getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0, 5));
 
         var response = graphQLTestTemplate.postForResource("targetwords-by-corpus-source.graphql");
 
@@ -79,7 +82,9 @@ public class EgoNetworkServiceTest {
         var corpus = "AMC";
         var source = "KLEINE";
         var searchTerm = "AP";
-        doReturn(ImmutableList.of(TARGET_WORD_WITH_ID)).when(queryService).getAutocompleteSuggestion(corpus, source, searchTerm, 0, 10);
+        doReturn(ImmutableList.of(Suggestion.of("TEST",
+                TestFixture.AMC_CORPUS, TestFixture.SOURCE_NAME, "nou", "Apfel")))
+                .when(queryService).getAutocompleteSuggestion(corpus, source, searchTerm, 0, 10);
 
         var response = graphQLTestTemplate.postForResource("autocomplete.graphql");
 

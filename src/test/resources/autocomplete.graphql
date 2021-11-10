@@ -1,7 +1,9 @@
 {
-    getAutocompleteSuggestions(corpus: "AMC", source: "KLEINE", searchTerm: "AP") {
-        id
-        text
-        pos
+    getAutocompleteSuggestions(corpus: "AMC", source: "KLEINE", searchTerm: "AP", page: 0, size: 10) {
+            id
+            corpus
+            source
+            pos
+            text
     }
 }
