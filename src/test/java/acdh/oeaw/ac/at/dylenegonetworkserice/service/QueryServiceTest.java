@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.AutocompleteRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
@@ -12,6 +13,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.SearchHitsImpl;
 import org.springframework.data.mongodb.core.query.TextCriteria;
@@ -22,6 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.EGO_NETWORK_ID;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.TARGET_WORD_WITH_ID;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
 
@@ -38,12 +41,13 @@ class QueryServiceTest {
         var queryService = new QueryService(targetWordRepository, autocompleteRepository);
         var pageRequest = PageRequest.of(0, 10);
         var source = "STANDARD";
-
-        Mockito.when(autocompleteRepository.findSuggestionByCorpusAndSourceAndTextLike(TestFixture.AMC_CORPUS, source, "AP")).thenReturn(ImmutableList.of(Suggestion.of("Test", "AMC", "Falter", "noun", "Apfel")));
+        var suggestions = ImmutableList.of(Suggestion.of("Test", "AMC", "Falter", "noun", "Apfel"));
+        Mockito.when(autocompleteRepository.findByCorpusAndSourceAndTextLike(TestFixture.AMC_CORPUS, source, "AP", pageRequest))
+                .thenReturn(suggestions);
 
         var response = queryService.getAutocompleteSuggestion(TestFixture.AMC_CORPUS, source, "AP", 0, 10);
 
-        assertThat(response).isNotEmpty();
+        assertThat(response).isNotNull();
         assertThat(response.size()).isGreaterThan(0);
     }
 
