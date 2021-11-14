@@ -6,6 +6,7 @@ import java.util.List;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWordSpeaker;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks.GeneralNetworkRepository;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks.GeneralNetworkSpeakerRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -13,10 +14,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class GeneralNetworkService implements GeneralNetworkServiceInterface {
     final GeneralNetworkRepository generalNetworkRepository;
+    final GeneralNetworkSpeakerRepository generalNetworkSpeakerRepository;
+
     final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    public GeneralNetworkService(GeneralNetworkRepository generalNetworkRepository) {
+    public GeneralNetworkService(GeneralNetworkRepository generalNetworkRepository,
+                                 GeneralNetworkSpeakerRepository generalNetworkSpeakerRepository) {
         this.generalNetworkRepository = generalNetworkRepository;
+        this.generalNetworkSpeakerRepository = generalNetworkSpeakerRepository;
     }
 
     @Override
@@ -32,7 +37,7 @@ public class GeneralNetworkService implements GeneralNetworkServiceInterface {
 
     @Override
     public GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entityName, String year) {
-        return generalNetworkRepository.findGeneralSourceBySpeakerYear(entityName, year);
+        return generalNetworkSpeakerRepository.findGeneralSourceBySpeakerYear(entityName, year);
     }
 
 }

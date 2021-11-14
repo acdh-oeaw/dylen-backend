@@ -11,6 +11,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.QueryServiceInte
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.slf4j.Logger;
@@ -21,9 +22,12 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.SOURCE_NAME;
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.TARGET_WORD_WITH_ID;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
 
@@ -92,17 +96,35 @@ public class EgoNetworkServiceTest {
 
         assertThat(response.readTree().get("errors")).isNull();
         assertThat(response.readTree().get("data").get("getAutocompleteSuggestions").size()).isEqualTo(1);
-
     }
 
     @Test
     public void getPartyByYear() throws IOException {
+        doReturn(GENERAL_TARGET_WORD).when(generalNetworkService).getGeneralSourceByPartyYear("FPOe", "2006");
+
         var response = graphQLTestTemplate.postForResource("party-by-year.graphql");
 
         assertThat(response.readTree().get("errors")).isNull();
-        assertThat(response.readTree().get("data")).isEqualTo("FPOe");
-        assertThat(response.readTree().get("data").get("getGeneralSourceByPartyYear").get("entity")).isEqualTo("FPOe");
-        assertThat(response.readTree().get("data").get("getGeneralSourceByPartyYear").get("networks").get("year")).isEqualTo("2006");
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceByPartyYear").get("entity").toPrettyString(), "FPOe"));
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceByPartyYear").get("networks").get("year").toPrettyString(), "2006"));
+        assertThat(response.isOk()).isTrue();
+    }
+
+    @Test
+    public void getPartyByYearSpeaker() throws IOException {
+        var name = "Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth";
+        doReturn(GENERAL_TARGET_WORD_SPEAKER).when(generalNetworkService).getGeneralSourceBySpeakerYear(name, "1998");
+
+        var response = graphQLTestTemplate.postForResource("party-speaker-year.graphql");
+
+        Path path = Paths.get("test.txt");
+        Files.write(path, response.readTree().get("data").get("getGeneralSourceBySpeakerYear").toPrettyString().getBytes(), StandardOpenOption.CREATE);
+        Files.write(path, response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("networks").toPrettyString().getBytes(), StandardOpenOption.APPEND);
+
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("type").toPrettyString(), "speaker"));
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("entity_name").toPrettyString(), name));
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("networks").get(0).get("year").toPrettyString(), "1996"));
         assertThat(response.isOk()).isTrue();
     }
 }

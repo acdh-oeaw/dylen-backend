@@ -4,12 +4,15 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTarge
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWordSpeaker;
 import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.generalNetworks.GeneralNetworkQuery;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks.GeneralNetworkRepository;
+import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks.GeneralNetworkSpeakerRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.graphql.spring.boot.test.GraphQLTest;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +26,10 @@ import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Objects;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -42,7 +49,12 @@ public class GeneralNetworkIT {
     GeneralNetworkRepository repository;
 
     @Autowired
+    GeneralNetworkSpeakerRepository speakerRepository;
+
+    @Autowired
     GeneralNetworkServiceInterface generalNetworkServiceInterface;
+
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
 
     @Container
     private static final MongoDBContainer mongoDBContainer = new MongoDBContainer("mongo:4.2.0")
@@ -65,22 +77,21 @@ public class GeneralNetworkIT {
         String jsonStr = new String(Objects.requireNonNull(GeneralNetworkIT.class.getClassLoader().getResourceAsStream(
                 "GeneralNetworks/fpoe-2006.json")).readAllBytes());
         var generalNetwork = new ObjectMapper().readValue(jsonStr, GeneralTargetWord.class);
-
         var inserted = repository.insert(generalNetwork);
 
-        GeneralTargetWord partyGeneralNetwork = generalNetworkService.getGeneralSourceByPartyYear("FPOe", "2016");
+        GeneralTargetWord partyGeneralNetwork = generalNetworkService.getGeneralSourceByPartyYear("FPOe", "2006");
         assertThat(partyGeneralNetwork).isEqualTo(generalNetwork);
     }
 
-    /*@Test
+    @Test
     void shouldReturnSpeakerByYear() throws IOException {
         GeneralNetworkQuery generalNetworkService = new GeneralNetworkQuery(generalNetworkServiceInterface);
         String jsonStr = new String(Objects.requireNonNull(GeneralNetworkIT.class.getClassLoader().getResourceAsStream(
                 "GeneralNetworks/aumayr.json")).readAllBytes());
         var generalNetworkSpeaker = new ObjectMapper().readValue(jsonStr, GeneralTargetWordSpeaker.class);
-        var inserted = repository.insert(generalNetworkSpeaker);
+        var inserted = speakerRepository.insert(generalNetworkSpeaker);
 
-        GeneralTargetWordSpeaker speakerGeneralNetwork = generalNetworkService.getGeneralSourceBySpeakerYear("Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth", "1999");
+        GeneralTargetWordSpeaker speakerGeneralNetwork = generalNetworkService.getGeneralSourceBySpeakerYear("Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth", "1998");
         assertThat(speakerGeneralNetwork).isEqualTo(generalNetworkSpeaker);
-    }*/
+    }
 }

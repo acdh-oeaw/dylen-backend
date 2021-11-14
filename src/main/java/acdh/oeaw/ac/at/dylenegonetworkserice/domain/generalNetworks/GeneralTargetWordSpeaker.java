@@ -20,12 +20,15 @@ public class GeneralTargetWordSpeaker {
     @NonNull
     private String type;
     @NonNull
+    private String entity;
+    @NonNull
     private String entity_name;
     @NonNull private List<GeneralNetwork> networks;
 
-    private GeneralTargetWordSpeaker(String id, String type, String entity_name, List<GeneralNetwork> networks) {
+    private GeneralTargetWordSpeaker(String id, String type, String entity, String entity_name, List<GeneralNetwork> networks) {
         this.id = id;
         this.type = type;
+        this.entity = entity;
         this.entity_name = entity_name;
         this.networks = networks;
     }
@@ -33,17 +36,18 @@ public class GeneralTargetWordSpeaker {
     @JsonCreator
     public static GeneralTargetWordSpeaker of(@JsonProperty("_id") String id,
                                        @JsonProperty("type") String type,
+                                       @JsonProperty("entity") String entity,
                                        @JsonProperty("entity_name") String entity_name,
                                        @JsonProperty("networks") List<GeneralNetwork> networks
     ) {
-        return new GeneralTargetWordSpeaker(id, type, entity_name, networks);
+        return new GeneralTargetWordSpeaker(id, type, entity, entity_name, networks);
     }
 
-    @JsonCreator
     public static GeneralTargetWordSpeaker of(@JsonProperty("type") String type,
-                                       @JsonProperty("entity_name") String entity_name,
-                                       @JsonProperty("networks") List<GeneralNetwork> networks
+                                              @JsonProperty("entity") String entity,
+                                              @JsonProperty("entity_name") String entity_name,
+                                              @JsonProperty("networks") List<GeneralNetwork> networks
     ) {
-        return new GeneralTargetWordSpeaker(null, type, entity_name, networks);
+        return new GeneralTargetWordSpeaker(null, type, entity, entity_name, networks);
     }
 }

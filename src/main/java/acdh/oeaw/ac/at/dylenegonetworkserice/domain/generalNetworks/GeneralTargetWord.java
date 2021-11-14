@@ -35,16 +35,16 @@ public class GeneralTargetWord {
     @JsonCreator
     public static GeneralTargetWord of(@JsonProperty("_id") String id,
                                        @JsonProperty("type") String targetWord,
-                                       @JsonProperty("entity") String pos,
+                                       @JsonProperty("entity") String entity,
                                        @JsonProperty("networks") GeneralNetwork networks
     ) {
-        return new GeneralTargetWord(id, targetWord, pos, networks);
+        return new GeneralTargetWord(id, targetWord, entity, networks);
     }
 
-    public static GeneralTargetWord of(@JsonProperty("type") String targetWord,
-                                       @JsonProperty("entity") String pos,
+    public static GeneralTargetWord of(@JsonProperty("type") String type,
+                                       @JsonProperty("entity") String entity,
                                        @JsonProperty("networks") GeneralNetwork networks
     ) {
-        return new GeneralTargetWord(null, targetWord, pos, networks);
+        return new GeneralTargetWord(null, type, entity, networks);
     }
 }

@@ -1,5 +1,8 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWordSpeaker;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.*;
 import com.google.common.collect.ImmutableList;
 
@@ -13,6 +16,12 @@ public class TestFixture {
     public static final String NODE_TEXT_1 = "TEST_NODE_1";
     public static final String NODE_POS = "NOUN";
     public static final float SIMILARITY = 0.4f;
+    public static final GeneralTargetWord GENERAL_TARGET_WORD = GeneralTargetWord.of("party", "FPOe",
+            GeneralNetwork.of("2006", null, null, null));
+    public static final GeneralTargetWordSpeaker GENERAL_TARGET_WORD_SPEAKER = GeneralTargetWordSpeaker.of("speaker", "00041", "Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth",
+            ImmutableList.of(GeneralNetwork.of("1996", null, null, null),
+                    GeneralNetwork.of("1997", null, null, null),
+                    GeneralNetwork.of("1998", null, null, null)));
     public static final NodeMetric NODE_METRICS = NodeMetric.of(0.21, 0.51, 0.001, 0.077, 0.012, 0.043, 0.444, 0.435);
     public static final Node NODE_1 = Node.of(NODE_ID_1, CLUTER_ID_1, NODE_TEXT_1, NODE_POS, SIMILARITY, NODE_METRICS);
     public static final String NODE_ID_2 = "NODE_2";

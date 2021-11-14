@@ -11,12 +11,12 @@ import java.util.List;
 
 @Data
 public class GeneralNetwork {
-    private int year;
+    private String year;
     @NonNull private List<GeneralNetworkNode> nodes;
     @NonNull private List<Edge> edges;
     private NetworkMetric metrics;
 
-    private GeneralNetwork(int year,
+    private GeneralNetwork(String year,
                            List<GeneralNetworkNode> nodes,
                            List<Edge> edges,
                            NetworkMetric metrics) {
@@ -28,7 +28,7 @@ public class GeneralNetwork {
 
     @JsonCreator
     public static GeneralNetwork of(
-                                @JsonProperty("year") int year,
+                                @JsonProperty("year") String year,
                                 @JsonProperty("nodes") List<GeneralNetworkNode> nodes,
                                 @JsonProperty("edges") List<Edge> edges,
                                 @JsonProperty("metrics") NetworkMetric metrics
