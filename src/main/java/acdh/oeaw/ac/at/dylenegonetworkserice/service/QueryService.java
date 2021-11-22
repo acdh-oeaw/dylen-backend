@@ -31,7 +31,14 @@ public class QueryService implements QueryServiceInterface {
     @Override
     public List<Suggestion> getAutocompleteSuggestion(String corpus, String source, String searchTerm, int page, int size) {
         var pageRequest =  PageRequest.of(page, size);
-        var result = autocompleteRepository.findByCorpusAndSourceAndTextLike(corpus, source, searchTerm, pageRequest);
+        List<Suggestion> result = null;
+
+        if (corpus.equals("ParlAT") && source.equals("-")) {
+            result = autocompleteRepository.findByCorpusAndTextLike(corpus, searchTerm, pageRequest);
+        } else {
+            result = autocompleteRepository.findByCorpusAndSourceAndTextLike(corpus, source, searchTerm, pageRequest);
+        }
+
         return result;
     }
 
