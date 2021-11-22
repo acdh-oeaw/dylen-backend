@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface AutocompleteRepository extends ElasticsearchRepository<Suggestion, String> {
      List<Suggestion> findByCorpusAndSourceAndTextLike(String corpus, String source, String text, Pageable pageable);
+     List<Suggestion> findByCorpusAndTextLike(String corpus, String text, Pageable pageable);
+
 }
