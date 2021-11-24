@@ -77,7 +77,7 @@ test:
     - "postgres:${POSTGRES_VERSION}"
     - docker:19.03.12-dind
   stage: test
-  image: gliderlabs/herokuish:latest
+  image: gliderlabs/herokuish:v0.5.30-20
   needs: []
   script:
     - |
@@ -88,6 +88,7 @@ test:
       fi
     - export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:5432/${POSTGRES_DB}"
     - cp -R . /tmp/app
+    - /bin/herokuish version
     - /bin/herokuish buildpack test
   rules:
     - if: '$TEST_DISABLED'
