@@ -33,7 +33,7 @@ public class QueryService implements QueryServiceInterface {
         var pageRequest =  PageRequest.of(page, size);
         List<Suggestion> result = null;
 
-        if (corpus.equals("ParlAT") && source.equals("-")) {
+        if (corpus.equals("ParlAT") && source.equals("all")) {
             result = autocompleteRepository.findByCorpusAndTextLike(corpus, searchTerm, pageRequest);
         } else {
             result = autocompleteRepository.findByCorpusAndSourceAndTextLike(corpus, source, searchTerm, pageRequest);
