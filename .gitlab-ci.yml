@@ -77,7 +77,7 @@ test:
     - "postgres:${POSTGRES_VERSION}"
     - docker:19.03.12-dind
   stage: test
-  image: gliderlabs/herokuish:latest
+  image: gliderlabs/herokuish:v0.5.30-20
   needs: []
   script:
     - |
