@@ -9,4 +9,5 @@ public interface GeneralNetworkServiceInterface {
     List<GeneralTargetWord> getGeneralSourceByParty(String party);
     GeneralTargetWord getGeneralSourceByPartyYear(String party, String year);
     GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entityName, String year);
+    List<GeneralTargetWordSpeaker> findSpeakerByParty(String party);
 }

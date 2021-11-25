@@ -40,4 +40,9 @@ public class GeneralNetworkService implements GeneralNetworkServiceInterface {
         return generalNetworkSpeakerRepository.findGeneralSourceBySpeakerYear(entityName, year);
     }
 
+    @Override
+    public List<GeneralTargetWordSpeaker> findSpeakerByParty(String party) {
+        return generalNetworkSpeakerRepository.findSpeakerByParty(party);
+    }
+
 }

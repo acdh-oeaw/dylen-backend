@@ -7,6 +7,7 @@ type Query {
     getGeneralSourceByParty(entity:String): [GeneralTargetWord]
     getGeneralSourceByPartyYear(entity:String, year: String): GeneralTargetWord
     getGeneralSourceBySpeakerYear(entity_name:String, year:String): GeneralTargetWordSpeaker
+    findSpeakerByParty(party:String): [GeneralTargetWordSpeaker]
 }
 
 type TargetWordsSliceDto {

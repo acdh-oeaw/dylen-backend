@@ -11,4 +11,7 @@ public interface GeneralNetworkSpeakerRepository extends MongoRepository<General
 
     @Query("{'entity_name':?0, 'networks.year': ?1}")
     GeneralTargetWordSpeaker findGeneralSourceBySpeakerYear(String entity_name, String year);
+
+    @Query("{'party': /.*?0.*/}")
+    List<GeneralTargetWordSpeaker> findSpeakerByParty(String party);
 }
