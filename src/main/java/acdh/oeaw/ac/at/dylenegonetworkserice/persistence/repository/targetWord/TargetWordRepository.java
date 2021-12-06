@@ -19,7 +19,7 @@ public interface TargetWordRepository extends MongoRepository<TargetWord, String
 
     Slice<TargetWord> findByCorpusAndSource(String corpus, String source, Pageable pageable);
 
-    List<TargetWord>findByCorpus(String corpus);
+    List<TargetWord> findByCorpus(String corpus);
 
     @Aggregation(pipeline = { "{$match: {corpus:?0 }}", "{$group: {_id:\"$source\"}}" })
     List<String> findSourceByCorpus(String corpus);

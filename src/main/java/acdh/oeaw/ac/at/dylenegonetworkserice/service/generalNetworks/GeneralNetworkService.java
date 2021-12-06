@@ -5,6 +5,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTarge
 import java.util.List;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWordSpeaker;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.PartyMetrics;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks.GeneralNetworkRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks.GeneralNetworkSpeakerRepository;
 import org.slf4j.Logger;
@@ -36,12 +37,22 @@ public class GeneralNetworkService implements GeneralNetworkServiceInterface {
     }
 
     @Override
+    public PartyMetrics getAvailableYearsForParty(String party) {
+        return generalNetworkRepository.getAvailableYearsForParty(party);
+    }
+
+    @Override
+    public PartyMetrics getAvailableYearsForSpeaker(String entityName) {
+        return generalNetworkSpeakerRepository.getAvailableYearsForSpeaker(entityName);
+    }
+
+    @Override
     public GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entityName, String year) {
         return generalNetworkSpeakerRepository.findGeneralSourceBySpeakerYear(entityName, year);
     }
 
     @Override
-    public List<GeneralTargetWordSpeaker> findSpeakerByParty(String party) {
+    public PartyMetrics findSpeakerByParty(String party) {
         return generalNetworkSpeakerRepository.findSpeakerByParty(party);
     }
 

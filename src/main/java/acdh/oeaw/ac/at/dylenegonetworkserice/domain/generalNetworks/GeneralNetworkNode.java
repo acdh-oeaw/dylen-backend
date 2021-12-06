@@ -28,9 +28,13 @@ public class GeneralNetworkNode {
     @Field("normalized_frequency")
     private Float normalized_frequency;
 
-    private NodeMetric metrics;
+    private GeneralNodeMetric metrics;
 
-    public GeneralNetworkNode(@NonNull String id, int clusterId, @NonNull String text, String pos, Float absolute_frequency, Float normalized_frequency, NodeMetric metrics) {
+    public GeneralNetworkNode(@NonNull String id,
+                              int clusterId,
+                              @NonNull String text, String pos, Float absolute_frequency,
+                              Float normalized_frequency,
+                              GeneralNodeMetric metrics) {
         this.id = id;
         this.clusterId = clusterId;
         this.text = text;
@@ -47,7 +51,7 @@ public class GeneralNetworkNode {
                                         @JsonProperty("pos") String pos,
                                         @JsonProperty("absolute_frequency") Float absolute_frequency,
                                         @JsonProperty("normalized_frequency") Float normalized_frequency,
-                                        @JsonProperty("metrics") NodeMetric metrics) {
+                                        @JsonProperty("metrics") GeneralNodeMetric metrics) {
         return new GeneralNetworkNode(id, clusterId, text, pos, absolute_frequency, normalized_frequency, metrics);
     }
 }

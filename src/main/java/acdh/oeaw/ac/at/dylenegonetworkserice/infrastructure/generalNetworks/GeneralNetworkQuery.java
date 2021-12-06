@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.generalNetworks;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWordSpeaker;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.PartyMetrics;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks.GeneralNetworkServiceInterface;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.stereotype.Component;
@@ -29,7 +30,15 @@ public class GeneralNetworkQuery implements GraphQLQueryResolver {
         return gnsInterface.getGeneralSourceBySpeakerYear(entity_name, year);
     }
 
-    public List<GeneralTargetWordSpeaker> findSpeakerByParty(String party) {
+    public PartyMetrics findSpeakerByParty(String party) {
         return gnsInterface.findSpeakerByParty(party);
+    }
+
+    public PartyMetrics getAvailableYearsForParty(String party) {
+        return gnsInterface.getAvailableYearsForParty(party);
+    }
+
+    public PartyMetrics getAvailableYearsForSpeaker(String entityName) {
+        return gnsInterface.getAvailableYearsForSpeaker(entityName);
     }
 }

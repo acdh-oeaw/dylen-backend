@@ -2,6 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetw
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWordSpeaker;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.PartyMetrics;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -12,6 +13,9 @@ public interface GeneralNetworkSpeakerRepository extends MongoRepository<General
     @Query("{'entity_name':?0, 'networks.year': ?1}")
     GeneralTargetWordSpeaker findGeneralSourceBySpeakerYear(String entity_name, String year);
 
-    @Query("{'party': ?0}")
-    List<GeneralTargetWordSpeaker> findSpeakerByParty(String party);
+    @Query("{'entity_name':?0, 'available_years': {$exists: true}}")
+    PartyMetrics getAvailableYearsForSpeaker(String entityName);
+
+    @Query("{'entity':?0, 'available_years': {$exists: true}}")
+    PartyMetrics findSpeakerByParty(String party);
 }
