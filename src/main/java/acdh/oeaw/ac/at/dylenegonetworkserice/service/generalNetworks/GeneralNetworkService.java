@@ -47,8 +47,8 @@ public class GeneralNetworkService implements GeneralNetworkServiceInterface {
     }
 
     @Override
-    public GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entityName, String year) {
-        return generalNetworkSpeakerRepository.findGeneralSourceBySpeakerYear(entityName, year);
+    public GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entityName) {
+        return generalNetworkSpeakerRepository.findGeneralSourceBySpeakerYear(entityName);
     }
 
     @Override

@@ -6,7 +6,7 @@ type Query {
     getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String): [TargetWord]
     getGeneralSourceByParty(entity:String): [GeneralTargetWord]
     getGeneralSourceByPartyYear(entity:String, year: String): GeneralTargetWord
-    getGeneralSourceBySpeakerYear(entity_name:String, year:String): GeneralTargetWordSpeaker
+    getGeneralSourceBySpeakerYear(entity_name:String): GeneralTargetWordSpeaker
     getAvailableYearsForParty(party:String): PartyMetrics
     getAvailableYearsForSpeaker(entity_name:String): PartyMetrics
     findSpeakerByParty(party:String): PartyMetrics

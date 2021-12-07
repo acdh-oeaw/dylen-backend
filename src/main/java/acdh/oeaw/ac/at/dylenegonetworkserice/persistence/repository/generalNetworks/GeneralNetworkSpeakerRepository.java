@@ -10,8 +10,8 @@ import java.util.List;
 
 public interface GeneralNetworkSpeakerRepository extends MongoRepository<GeneralTargetWordSpeaker, String> {
 
-    @Query("{'entity_name':?0, 'networks.year': ?1}")
-    GeneralTargetWordSpeaker findGeneralSourceBySpeakerYear(String entity_name, String year);
+    @Query("{'entity_name':?0, 'available_years': {$exists: false}}")
+    GeneralTargetWordSpeaker findGeneralSourceBySpeakerYear(String entity_name);
 
     @Query("{'entity_name':?0, 'available_years': {$exists: true}}")
     PartyMetrics getAvailableYearsForSpeaker(String entityName);

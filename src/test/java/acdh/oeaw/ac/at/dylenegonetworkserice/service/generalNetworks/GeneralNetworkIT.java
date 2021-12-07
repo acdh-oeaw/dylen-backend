@@ -91,7 +91,7 @@ public class GeneralNetworkIT {
         var generalNetworkSpeaker = new ObjectMapper().readValue(jsonStr, GeneralTargetWordSpeaker.class);
         var inserted = speakerRepository.insert(generalNetworkSpeaker);
 
-        GeneralTargetWordSpeaker speakerGeneralNetwork = generalNetworkService.getGeneralSourceBySpeakerYear("Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth", "1998");
+        GeneralTargetWordSpeaker speakerGeneralNetwork = generalNetworkService.getGeneralSourceBySpeakerYear("Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth");
         assertThat(speakerGeneralNetwork).isEqualTo(generalNetworkSpeaker);
     }
 }

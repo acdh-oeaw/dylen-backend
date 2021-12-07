@@ -113,13 +113,9 @@ public class EgoNetworkServiceTest {
     @Test
     public void getPartyByYearSpeaker() throws IOException {
         var name = "Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth";
-        doReturn(GENERAL_TARGET_WORD_SPEAKER).when(generalNetworkService).getGeneralSourceBySpeakerYear(name, "1998");
+        doReturn(GENERAL_TARGET_WORD_SPEAKER).when(generalNetworkService).getGeneralSourceBySpeakerYear(name);
 
         var response = graphQLTestTemplate.postForResource("party-speaker-year.graphql");
-
-        Path path = Paths.get("test.txt");
-        Files.write(path, response.readTree().get("data").get("getGeneralSourceBySpeakerYear").toPrettyString().getBytes(), StandardOpenOption.CREATE);
-        Files.write(path, response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("networks").toPrettyString().getBytes(), StandardOpenOption.APPEND);
 
         assertThat(response.readTree().get("errors")).isNull();
         assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("type").toPrettyString(), "speaker"));

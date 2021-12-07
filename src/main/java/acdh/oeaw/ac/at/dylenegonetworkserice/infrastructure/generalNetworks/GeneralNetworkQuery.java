@@ -26,8 +26,8 @@ public class GeneralNetworkQuery implements GraphQLQueryResolver {
         return gnsInterface.getGeneralSourceByPartyYear(party, year);
     }
 
-    public GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entity_name, String year) {
-        return gnsInterface.getGeneralSourceBySpeakerYear(entity_name, year);
+    public GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entity_name) {
+        return gnsInterface.getGeneralSourceBySpeakerYear(entity_name);
     }
 
     public PartyMetrics findSpeakerByParty(String party) {

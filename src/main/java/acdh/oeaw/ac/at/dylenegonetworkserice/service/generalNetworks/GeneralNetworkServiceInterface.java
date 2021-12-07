@@ -11,6 +11,6 @@ public interface GeneralNetworkServiceInterface {
     GeneralTargetWord getGeneralSourceByPartyYear(String party, String year);
     PartyMetrics getAvailableYearsForParty(String party);
     PartyMetrics getAvailableYearsForSpeaker(String entityName);
-    GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entityName, String year);
+    GeneralTargetWordSpeaker getGeneralSourceBySpeakerYear(String entityName);
     PartyMetrics findSpeakerByParty(String party);
 }
