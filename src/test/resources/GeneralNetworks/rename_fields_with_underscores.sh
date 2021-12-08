@@ -1,8 +1,8 @@
-sed -i '.bak' 's/closeness_centrality/closenessCentrality/g' *.json
-sed -i '.bak' 's/degree_centrality/degreeCentrality/g' *.json
-sed -i '.bak' 's/betweenness_centrality/betweennessCentrality/g' *.json
-sed -i '.bak' 's/eigenvector_centrality/eigenvectorCentrality/g' *.json
-sed -i '.bak' 's/load_centrality/loadCentrality/g' *.json
-sed -i '.bak' 's/harmonic_centrality/harmonicCentrality/g' *.json
-sed -i '.bak' 's/clustering_coefficient/clusteringCoefficient/g' *.json
-sed -i '.bak' 's/normalised_frequency/normalized_frequency/g' *.json
+sed -i '.bak' 's/closenessCentrality/closeness_centrality/g' *.json
+sed -i '.bak' 's/degreeCentrality/degree_centrality/g' *.json
+sed -i '.bak' 's/betweennessCentrality/betweenness_centrality/g' *.json
+sed -i '.bak' 's/eigenvectorCentrality/eigenvector_centrality/g' *.json
+sed -i '.bak' 's/loadCentrality/load_centrality/g' *.json
+sed -i '.bak' 's/harmonicCentrality/harmonic_centrality/g' *.json
+sed -i '.bak' 's/clusteringCoefficient/clustering_coefficient/g' *.json
+sed -i '.bak' 's/normalisedFrequency/normalised_frequency/g' *.json
