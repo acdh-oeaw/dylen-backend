@@ -1,13 +1,11 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.Corpus;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.Source;
 import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.targetWord.dto.TargetWordsSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks.GeneralNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusService;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.QueryServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
@@ -22,10 +20,6 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.nio.file.StandardOpenOption;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -35,15 +29,14 @@ import static org.mockito.Mockito.doReturn;
 @GraphQLTest
 public class EgoNetworkServiceTest {
 
-    Logger log = LoggerFactory.getLogger(this.getClass().getName());
     @MockBean
     CorpusServiceInterface corpusService;
     @MockBean
     EgoNetworkServiceInterface networkService;
-    @Autowired
-    private GraphQLTestTemplate graphQLTestTemplate;
     @MockBean
     QueryServiceInterface queryService;
+    @Autowired
+    private GraphQLTestTemplate graphQLTestTemplate;
     @MockBean
     GeneralNetworkServiceInterface generalNetworkService;
 
@@ -76,8 +69,8 @@ public class EgoNetworkServiceTest {
     public void getTargetWordsByCorpusAndSource() throws IOException {
         var corpus = "AMC";
         var source = "KLEINE";
-        var slice = TargetWordsSliceDto.of(0, false,ImmutableList.of(TARGET_WORD_WITH_ID));
-        doReturn(slice).when(networkService).getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0,5));
+        var slice = TargetWordsSliceDto.of(0, false, ImmutableList.of(TARGET_WORD_WITH_ID));
+        doReturn(slice).when(networkService).getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0, 5));
 
         var response = graphQLTestTemplate.postForResource("targetwords-by-corpus-source.graphql");
 
@@ -90,7 +83,9 @@ public class EgoNetworkServiceTest {
         var corpus = "AMC";
         var source = "KLEINE";
         var searchTerm = "AP";
-        doReturn(ImmutableList.of(TARGET_WORD_WITH_ID)).when(queryService).getAutocompleteSuggestion(corpus, source, searchTerm, 0, 10);
+        doReturn(ImmutableList.of(Suggestion.of("TEST",
+                TestFixture.AMC_CORPUS, TestFixture.SOURCE_NAME, "nou", "Apfel")))
+                .when(queryService).getAutocompleteSuggestion(corpus, source, searchTerm, 0, 10);
 
         var response = graphQLTestTemplate.postForResource("autocomplete.graphql");
 
@@ -122,5 +117,19 @@ public class EgoNetworkServiceTest {
         assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("entity_name").toPrettyString(), name));
         assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("networks").get(0).get("year").toPrettyString(), "1996"));
         assertThat(response.isOk()).isTrue();
+    }
+
+    @Test
+    public void getTargetWordById() throws IOException {
+        var corpus = "AMC";
+        var source = "KLEINE";
+        var searchTerm = "AP";
+        doReturn(TARGET_WORD_WITH_ID).when(queryService).getTargetWord(TestFixture.TARGETWORD_ID);
+
+        var response = graphQLTestTemplate.postForResource("targetword.graphql");
+
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(response.readTree().get("data").get("getTargetWordById"));
+
     }
 }

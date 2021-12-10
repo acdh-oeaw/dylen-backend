@@ -1,6 +1,5 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.targetWord.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.targetWord.TargetWordRepository;
@@ -14,8 +13,6 @@ import org.springframework.data.domain.SliceImpl;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
 import static org.assertj.core.api.Assertions.*;
@@ -55,7 +52,7 @@ public class NetworkServiceTest {
         var result = networkService.getTargetWordsOfCorpusAndSource(CORPUS_NAME, SOURCE_NAME, pageRequest);
 
         assertThat(result.getTargetWords()).contains(TARGET_WORD_WITH_ID);
-        assertThat(result.getTargetWords().get(0).getNetworks().size()).isEqualTo(2);
+        assertThat(result.getTargetWords().get(0).getNetworks().size()).isEqualTo(1);
         assertThat(result.getTargetWords().get(0).getNetworks().get(0).getYear()).isEqualTo(EGO_NETWORK_YEAR);
     }
 }

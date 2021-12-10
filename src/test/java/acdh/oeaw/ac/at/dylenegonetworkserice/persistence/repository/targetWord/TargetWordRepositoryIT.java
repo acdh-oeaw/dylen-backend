@@ -2,7 +2,6 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.targetWord;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestUtil;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
-import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks.GeneralNetworkRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.*;
@@ -89,11 +88,16 @@ class TargetWordRepositoryIT {
 
         @Test
         void shouldFindTargetWordWithId() {
-            var targetWords = repository.findByText("Abbaueinheit");
+            var targetWords = repository.findByText("begonnen");
 
             assertThat(targetWords.size()).isEqualTo(1);
         }
+        @Test
+        void shouldContainTimeSeries() {
+            var targetWords = repository.findByText("Befehl");
 
+            assertThat(targetWords.get(0).getTimeSeries().getFreqDiffNorm().getFirstYear().size()).isGreaterThan(0);
+        }
         @Test
         void shouldReturnAllAvailableTargetWords() {
 
@@ -107,7 +111,7 @@ class TargetWordRepositoryIT {
             var sources = repository.findSourceByCorpus("AMC");
 
             assertThat(sources).isNotEmpty();
-            assertThat(sources.get(0)).isEqualTo("KLEINE");
+            assertThat(sources.get(0)).isEqualTo("STANDARD");
         }
 
         @Test

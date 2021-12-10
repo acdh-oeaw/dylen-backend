@@ -17,27 +17,35 @@ public class EgoNetwork {
     @NonNull private List<Node> nodes;
     @NonNull private List<Edge> edges;
     @NonNull NetworkMetric metrics;
+    private int absoluteFrequency;
+    private double normalisedFrequency;
 
 
     private EgoNetwork(String id,
                        int year,
                        List<Node> nodes,
                        List<Edge> edges,
-                       NetworkMetric metrics) {
+                       NetworkMetric metrics,
+                       int absoluteFrequency,
+                       double normalisedFrequency) {
         this.id = id;
         this.year = year;
         this.nodes = nodes;
         this.edges = edges;
         this.metrics = metrics;
+        this.absoluteFrequency = absoluteFrequency;
+        this.normalisedFrequency = normalisedFrequency;
     }
 
     public static EgoNetwork of(
                                 @JsonProperty("year") int year,
                                 @JsonProperty("nodes") List<Node> nodes,
                                 @JsonProperty("edges") List<Edge> edges,
-                                @JsonProperty("metrics") NetworkMetric metrics
+                                @JsonProperty("metrics") NetworkMetric metrics,
+                                @JsonProperty("absoluteFrequency") int absoluteFrequency,
+                                @JsonProperty("normalisedFrequency") double normalisedFrequency
     ) {
-        return new EgoNetwork(null, year, nodes, edges, metrics);
+        return new EgoNetwork(null, year, nodes, edges, metrics, absoluteFrequency, normalisedFrequency);
     }
 
     @JsonCreator
@@ -45,14 +53,12 @@ public class EgoNetwork {
                                 @JsonProperty("year") int year,
                                 @JsonProperty("nodes") List<Node> nodes,
                                 @JsonProperty("edges") List<Edge> edges,
-                                @JsonProperty("metrics") NetworkMetric metrics
+                                @JsonProperty("metrics") NetworkMetric metrics,
+                                @JsonProperty("absoluteFrequency") int absoluteFrequency,
+                                @JsonProperty("normalisedFrequency") double normalisedFrequency
                                 ) {
         var idNotNull = StringUtils.isEmpty(id)?UUID.randomUUID().toString():id;
-        return new EgoNetwork(idNotNull, year, nodes, edges, metrics);
-    }
-
-    public static EgoNetwork fromJson(String json) {
-        return null;
+        return new EgoNetwork(idNotNull, year, nodes, edges, metrics, absoluteFrequency, normalisedFrequency);
     }
 
 }

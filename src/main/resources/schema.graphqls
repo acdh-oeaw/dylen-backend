@@ -2,8 +2,9 @@ type Query {
     allAvailableCorpora: [String]
     getNetwork(targetword_id: String, year: Int): EgoNetwork
     getSourcesByCorpus(corpus: String): [String]
+    getTargetWordById(targetword_id: String): TargetWord
     getNetworksByCorpusAndSource(corpus:String, source: String, page: Int, size: Int): TargetWordsSliceDto
-    getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String): [TargetWord]
+    getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String, page:Int, size:Int): [Suggestion]
     getGeneralSourceByParty(entity:String): [GeneralTargetWord]
     getGeneralSourceByPartyYear(entity:String, year: String): GeneralTargetWord
     getGeneralSourceBySpeakerYear(entity_name:String): GeneralTargetWordSpeaker
@@ -25,11 +26,23 @@ type PartyMetricsSimilarity {
     last_year: [Float]
     previous_year: [Float]
 }
-
+type SuggestionSliceDto {
+    sliceNumber: Int
+    hasNext: Boolean
+    suggestions: [Suggestion]
+}
 type TargetWordsSliceDto {
     sliceNumber: Int
     hasNext: Boolean
     targetWords: [TargetWord]
+}
+
+type Suggestion {
+    id: String
+    corpus: String
+    source: String
+    pos: String
+    text: String
 }
 
 type TargetWord {
@@ -37,6 +50,7 @@ type TargetWord {
     text: String
     pos: String
     networks: [EgoNetwork]
+    timeSeries: TimeSeries
 }
 
 type Corpus {
@@ -73,6 +87,20 @@ type EgoNetwork {
     year: Int
     nodes:[Node]
     edges:[Edge]
+}
+
+type TimeSeries {
+    freqDiffNorm: TimeSerieMetric
+    frobeniusSimilarity: TimeSerieMetric
+    jaccardSimilarity: TimeSerieMetric
+    rankdcgSimilarity: TimeSerieMetric
+    localNeighbourhoodSimilarity: TimeSerieMetric
+}
+
+type TimeSerieMetric {
+    firstYear: [Float]
+    lastYear: [Float]
+    previousYear: [Float]
 }
 
 type GeneralNetworkNode {

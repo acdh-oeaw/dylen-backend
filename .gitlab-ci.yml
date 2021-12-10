@@ -77,7 +77,7 @@ test:
     - "postgres:${POSTGRES_VERSION}"
     - docker:19.03.12-dind
   stage: test
-  image: gliderlabs/herokuish:latest
+  image: gliderlabs/herokuish:v0.5.30-20
   needs: []
   script:
     - |
@@ -88,6 +88,7 @@ test:
       fi
     - export DATABASE_URL="postgres://${POSTGRES_USER}:${POSTGRES_PASSWORD}@${DB_HOST}:5432/${POSTGRES_DB}"
     - cp -R . /tmp/app
+    - /bin/herokuish version
     - /bin/herokuish buildpack test
   rules:
     - if: '$TEST_DISABLED'
@@ -97,7 +98,7 @@ test:
 
 # deploy master
 deploy-master:
-  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v1.0.7"
+  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v2.10.0"
   stage: deploy
   variables:
     POSTGRES_ENABLED: "false"
@@ -125,7 +126,7 @@ deploy-master:
 
 # deploy prod
 deploy-prod:
-  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v1.0.7"
+  image: "registry.gitlab.com/gitlab-org/cluster-integration/auto-deploy-image:v2.10.0"
   stage: deploy
   variables:
     POSTGRES_ENABLED: "false"

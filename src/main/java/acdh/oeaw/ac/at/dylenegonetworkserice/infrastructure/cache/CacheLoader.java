@@ -6,13 +6,14 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.EgoNetworkServic
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.QueryServiceInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationListener;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.core.task.TaskExecutor;
+import org.springframework.stereotype.Component;
 
-@Service
-public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
+@Component
+public class CacheLoader {
 
     final CorpusServiceInterface corpusService;
 
@@ -34,13 +35,12 @@ public class CacheLoader implements ApplicationListener<ApplicationReadyEvent> {
         this.generalNetworkService = generalNetworkService;
     }
 
-    @Override
-    public void onApplicationEvent(ApplicationReadyEvent event) {
-        logger.info("Loading cache");
-        var corpora = corpusService.getAllCorpora();
-        logger.info("Corpora loaded...");
-        corpora.forEach((corpus) -> queryService.getSourcesByCorpus(corpus)
-                .forEach((source) -> networkService.getTargetWordsOfCorpusAndSource(corpus, source, PageRequest.of(0, 20))));
-        logger.info("Sources and Targetwords loaded..");
+    @Bean
+    public CommandLineRunner schedulingRunner(@Qualifier("taskExecutor") TaskExecutor executor) {
+        return new CommandLineRunner() {
+            public void run(String... args) throws Exception {
+                executor.execute(new CacheRunner(corpusService, queryService, networkService));
+            }
+        };
     }
 }

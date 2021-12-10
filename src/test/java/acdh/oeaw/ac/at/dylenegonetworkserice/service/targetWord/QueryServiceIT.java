@@ -1,6 +1,5 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.targetWord.TargetWordRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -11,6 +10,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.mongo.AutoConfigureDataMongo;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -29,6 +29,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @GraphQLTest
 @Slf4j
 @ActiveProfiles("prod")
+@EnableElasticsearchRepositories(basePackages = "acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository")
 public class QueryServiceIT {
     @Autowired
     QueryServiceInterface queryService;
@@ -50,18 +51,17 @@ public class QueryServiceIT {
         mongoDBContainer.start();
     }
 
-
-
     @Test
-    void shouldReturnAutoCompleteSuggestionsWithPagination() throws IOException {
+    void shouldReturnTargetwordIT() throws IOException {
         var jsonStr = new String(Objects.requireNonNull(NetworkServiceIT.class.getClassLoader().getResourceAsStream(
                 "AMC/Balkanroute-n.json")).readAllBytes());
         var targetWord = new ObjectMapper().readValue(jsonStr, TargetWord.class);
         var inserted = repository.insert(targetWord);
 
-        var result = queryService.getAutocompleteSuggestion(TestFixture.AMC_CORPUS, "STANDARD", "Balk", 0, 10);
+        var result = queryService.getTargetWord(targetWord.getId());
 
         assertThat(result).isNotNull();
-        //assertThat(result.get(0).getId()).isEqualTo(targetWord.getId());
+        assertThat(result.getTimeSeries().getFreqDiffNorm().getFirstYear().size()).isGreaterThan(0);
+
     }
 }
