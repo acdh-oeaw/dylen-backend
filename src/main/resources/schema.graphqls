@@ -49,6 +49,8 @@ type EgoNetwork {
     year: Int
     nodes:[Node]
     edges:[Edge]
+    absoluteFrequency: Float
+    normalisedFrequency: Float
 }
 
 type TimeSeries {
@@ -72,6 +74,8 @@ type Node {
     pos: String
     similarity: Float
     metrics: NodeMetric
+    absoluteFrequency: Float
+    normalisedFrequency: Float
 }
 
 type NodeMetric {

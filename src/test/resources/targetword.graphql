@@ -1,11 +1,19 @@
 {
-    getTargetWordById(targetword_id: "NETWORK_ID") {
+    getTargetWordById(targetword_id: "TARGET_ID") {
         id
         text
         pos
         networks {
             id
             year
+            absoluteFrequency
+            normalisedFrequency
+            nodes {
+                id
+                clusterId
+                normalisedFrequency
+                absoluteFrequency
+            }
         }
         timeSeries {
             freqDiffNorm {

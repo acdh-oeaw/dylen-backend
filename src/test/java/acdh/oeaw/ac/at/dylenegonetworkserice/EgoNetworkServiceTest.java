@@ -103,7 +103,6 @@ public class EgoNetworkServiceTest {
         var response = graphQLTestTemplate.postForResource("targetword.graphql");
 
         assertThat(response.readTree().get("errors")).isNull();
-        assertThat(response.readTree().get("data").get("getTargetWordById"));
-
+        assertThat(response.readTree().get("data").get("getTargetWordById")).isNotNull();
     }
 }
