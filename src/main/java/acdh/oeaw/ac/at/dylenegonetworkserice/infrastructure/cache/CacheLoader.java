@@ -1,9 +1,9 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.cache;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks.GeneralNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.QueryServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.GeneralNetworkServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;

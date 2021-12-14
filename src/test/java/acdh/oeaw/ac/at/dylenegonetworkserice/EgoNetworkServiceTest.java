@@ -1,10 +1,10 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.targetWord.dto.TargetWordsSliceDto;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks.GeneralNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.CorpusServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord.QueryServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSliceDto;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.GeneralNetworkServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
@@ -12,8 +12,6 @@ import com.graphql.spring.boot.test.GraphQLTestTemplate;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageRequest;

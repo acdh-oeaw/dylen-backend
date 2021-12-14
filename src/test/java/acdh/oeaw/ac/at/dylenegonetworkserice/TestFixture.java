@@ -1,5 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Edge;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.NetworkMetric;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TimeSeries;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TimeSeriesMetric;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralNetwork;
@@ -7,8 +9,6 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTarge
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks.GeneralTargetWordSpeaker;
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.*;
 import com.google.common.collect.ImmutableList;
-
-import java.util.List;
 
 public class TestFixture {
     public static final String CORPUS_ID = "TEST_ID";

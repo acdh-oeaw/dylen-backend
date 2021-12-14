@@ -1,17 +1,12 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.NetworkMetric;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.NodeMetric;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.collect.ImmutableList;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.List;
 
 @Data
 @NoArgsConstructor

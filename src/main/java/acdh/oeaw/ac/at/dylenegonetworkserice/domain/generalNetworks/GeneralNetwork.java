@@ -1,7 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.domain.generalNetworks;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.Edge;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.NetworkMetric;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Edge;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.NetworkMetric;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
