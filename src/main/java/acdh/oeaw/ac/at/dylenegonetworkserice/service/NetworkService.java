@@ -1,7 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
@@ -10,12 +10,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.function.Predicate;
-import java.util.stream.Collectors;
 
 @Service
 public class NetworkService implements EgoNetworkServiceInterface {

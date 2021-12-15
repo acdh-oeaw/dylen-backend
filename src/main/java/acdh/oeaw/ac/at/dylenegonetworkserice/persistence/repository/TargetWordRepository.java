@@ -1,6 +1,6 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.mongodb.repository.Aggregation;
@@ -19,7 +19,7 @@ public interface TargetWordRepository extends MongoRepository<TargetWord, String
 
     Slice<TargetWord> findByCorpusAndSource(String corpus, String source, Pageable pageable);
 
-    List<TargetWord>findByCorpus(String corpus);
+    List<TargetWord> findByCorpus(String corpus);
 
     @Aggregation(pipeline = { "{$match: {corpus:?0 }}", "{$group: {_id:\"$source\"}}" })
     List<String> findSourceByCorpus(String corpus);

@@ -1,13 +1,13 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.cache;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.GeneralNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.core.task.TaskExecutor;
 import org.springframework.stereotype.Component;
@@ -21,11 +21,18 @@ public class CacheLoader {
 
     final EgoNetworkServiceInterface networkService;
 
-    public CacheLoader(CorpusServiceInterface corpusService, QueryServiceInterface queryService,
-                       EgoNetworkServiceInterface networkService) {
+    final GeneralNetworkServiceInterface generalNetworkService;
+
+    final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    public CacheLoader(CorpusServiceInterface corpusService,
+                       QueryServiceInterface queryService,
+                       EgoNetworkServiceInterface networkService,
+                       GeneralNetworkServiceInterface generalNetworkService) {
         this.corpusService = corpusService;
         this.queryService = queryService;
         this.networkService = networkService;
+        this.generalNetworkService = generalNetworkService;
     }
 
     @Bean

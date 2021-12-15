@@ -1,6 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
+import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.SourceQuery;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryService;
 import org.junit.jupiter.api.Test;
@@ -10,10 +11,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.testcontainers.shaded.com.google.common.collect.ImmutableList;
 
-import java.util.Optional;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)

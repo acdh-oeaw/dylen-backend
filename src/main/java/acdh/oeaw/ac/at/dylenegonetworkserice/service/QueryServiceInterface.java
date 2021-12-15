@@ -1,9 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
-import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.SuggestionSliceDto;
-import org.springframework.data.domain.Pageable;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
 
 import java.util.List;
 

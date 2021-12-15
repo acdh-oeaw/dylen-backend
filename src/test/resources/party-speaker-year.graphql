@@ -1,0 +1,9 @@
+{
+    getGeneralSourceBySpeakerYear(entity_name: "Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth") {
+        type
+        entity_name
+        networks {
+            year
+        }
+    }
+}

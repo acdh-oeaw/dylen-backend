@@ -1,4 +1,4 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord;
 
 import org.junit.Test;
 

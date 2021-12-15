@@ -1,11 +1,8 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
-import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.SuggestionSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
 import graphql.kickstart.tools.GraphQLQueryResolver;
-import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.stereotype.Component;
 
 import java.util.List;

@@ -1,27 +1,25 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
-import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.SuggestionSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSliceDto;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.GeneralNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
 import com.google.common.collect.ImmutableList;
 import com.graphql.spring.boot.test.GraphQLTest;
 import com.graphql.spring.boot.test.GraphQLTestTemplate;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.SliceImpl;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.TARGET_WORD_WITH_ID;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.doReturn;
 
@@ -29,7 +27,6 @@ import static org.mockito.Mockito.doReturn;
 @GraphQLTest
 public class EgoNetworkServiceTest {
 
-    Logger log = LoggerFactory.getLogger(this.getClass().getName());
     @MockBean
     CorpusServiceInterface corpusService;
     @MockBean
@@ -38,6 +35,8 @@ public class EgoNetworkServiceTest {
     QueryServiceInterface queryService;
     @Autowired
     private GraphQLTestTemplate graphQLTestTemplate;
+    @MockBean
+    GeneralNetworkServiceInterface generalNetworkService;
 
     @Test
     public void getAllAvailableCorpora() throws IOException {
@@ -90,7 +89,32 @@ public class EgoNetworkServiceTest {
 
         assertThat(response.readTree().get("errors")).isNull();
         assertThat(response.readTree().get("data").get("getAutocompleteSuggestions").size()).isEqualTo(1);
+    }
 
+    @Test
+    public void getPartyByYear() throws IOException {
+        doReturn(GENERAL_TARGET_WORD).when(generalNetworkService).getGeneralSourceByPartyYear("FPOe", "2006");
+
+        var response = graphQLTestTemplate.postForResource("party-by-year.graphql");
+
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceByPartyYear").get("entity").toPrettyString(), "FPOe"));
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceByPartyYear").get("networks").get("year").toPrettyString(), "2006"));
+        assertThat(response.isOk()).isTrue();
+    }
+
+    @Test
+    public void getPartyByYearSpeaker() throws IOException {
+        var name = "Aumayr Anna Elisabeth siehe Achatz Anna Elisabeth";
+        doReturn(GENERAL_TARGET_WORD_SPEAKER).when(generalNetworkService).getGeneralSourceBySpeakerYear(name);
+
+        var response = graphQLTestTemplate.postForResource("party-speaker-year.graphql");
+
+        assertThat(response.readTree().get("errors")).isNull();
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("type").toPrettyString(), "speaker"));
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("entity_name").toPrettyString(), name));
+        assertThat(StringUtils.equals(response.readTree().get("data").get("getGeneralSourceBySpeakerYear").get("networks").get(0).get("year").toPrettyString(), "1996"));
+        assertThat(response.isOk()).isTrue();
     }
 
     @Test

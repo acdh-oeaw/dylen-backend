@@ -1,7 +1,7 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Suggestion;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.AutocompleteRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;

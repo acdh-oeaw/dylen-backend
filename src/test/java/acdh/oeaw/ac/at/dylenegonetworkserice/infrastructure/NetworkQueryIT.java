@@ -1,7 +1,8 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.NetworkQuery;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
 import com.google.common.collect.ImmutableList;

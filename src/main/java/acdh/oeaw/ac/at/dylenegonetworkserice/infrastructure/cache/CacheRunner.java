@@ -5,15 +5,8 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.QueryServiceInterface;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationListener;
-import org.springframework.context.annotation.Bean;
-import org.springframework.core.task.TaskExecutor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-
-import javax.annotation.PostConstruct;
 
 @Service
 public class CacheRunner implements Runnable{

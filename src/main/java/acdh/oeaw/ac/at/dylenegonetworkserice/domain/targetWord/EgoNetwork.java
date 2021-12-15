@@ -1,5 +1,7 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Edge;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.NetworkMetric;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;

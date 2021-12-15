@@ -1,5 +1,6 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord;
 
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.Edge;
 import org.junit.Test;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;

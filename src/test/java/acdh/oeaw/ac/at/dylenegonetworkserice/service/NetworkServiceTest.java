@@ -1,9 +1,9 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice.service;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.TargetWord;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.TargetWord;
 import acdh.oeaw.ac.at.dylenegonetworkserice.exceptions.TargetWordNotFoundException;
 import acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.TargetWordRepository;
+import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
 import com.google.common.collect.ImmutableList;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -14,8 +14,6 @@ import org.springframework.data.domain.SliceImpl;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
 import static org.assertj.core.api.Assertions.*;

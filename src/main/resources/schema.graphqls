@@ -5,6 +5,26 @@ type Query {
     getTargetWordById(targetword_id: String): TargetWord
     getNetworksByCorpusAndSource(corpus:String, source: String, page: Int, size: Int): TargetWordsSliceDto
     getAutocompleteSuggestions(corpus:String, source: String, searchTerm: String, page:Int, size:Int): [Suggestion]
+    getGeneralSourceByParty(entity:String): [GeneralTargetWord]
+    getGeneralSourceByPartyYear(entity:String, year: String): GeneralTargetWord
+    getGeneralSourceBySpeakerYear(entity_name:String): GeneralTargetWordSpeaker
+    getAvailableYearsForParty(party:String): PartyMetrics
+    getAvailableYearsForSpeaker(entity_name:String): PartyMetrics
+    findSpeakerByParty(party:String): PartyMetrics
+}
+
+type PartyMetrics {
+    jaccard_similarity: PartyMetricsSimilarity
+    rankdcg_similarity: PartyMetricsSimilarity
+    frobenius_similarity: PartyMetricsSimilarity
+    available_years: [String]
+    speakers: [String]
+}
+
+type PartyMetricsSimilarity {
+    first_year: [Float]
+    last_year: [Float]
+    previous_year: [Float]
 }
 type SuggestionSliceDto {
     sliceNumber: Int
@@ -44,6 +64,24 @@ type Source {
     targetWords: [TargetWord]
 }
 
+type GeneralTargetWord {
+    type: String,
+    entity: String,
+    networks: GeneralNetwork
+}
+
+type GeneralTargetWordSpeaker {
+    type: String,
+    entity_name: String,
+    networks: [GeneralNetwork]
+}
+
+type GeneralNetwork {
+    year: String
+    nodes:[GeneralNetworkNode]
+    edges:[Edge]
+}
+
 type EgoNetwork {
     id: ID
     year: Int
@@ -67,6 +105,16 @@ type TimeSerieMetric {
     previousYear: [Float]
 }
 
+type GeneralNetworkNode {
+    id: ID
+    clusterId: Int
+    text: String
+    pos: String
+    absolute_frequency: Float
+    normalized_frequency: Float
+    metrics: GeneralNodeMetric
+}
+
 type Node {
     id: ID
     clusterId: Int
@@ -87,6 +135,17 @@ type NodeMetric {
     loadCentrality: Float
     harmonicCentrality: Float
     clusteringCoefficient: Float
+}
+
+type GeneralNodeMetric {
+    degree_centrality: Float
+    closeness_centrality: Float
+    betweenness_centrality: Float
+    eigenvector_centrality: Float
+    pagerank: Float
+    load_centrality: Float
+    harmonic_centrality: Float
+    clustering_coefficient: Float
 }
 
 type Edge {

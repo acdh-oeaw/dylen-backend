@@ -1,0 +1,9 @@
+{
+    getGeneralSourceByPartyYear(entity: "FPOe", year: "2006") {
+        type
+        entity
+        networks {
+            year
+        }
+    }
+}

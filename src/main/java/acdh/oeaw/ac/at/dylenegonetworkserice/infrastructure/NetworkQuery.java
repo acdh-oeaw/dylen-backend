@@ -2,7 +2,7 @@ package acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure;
 
 import acdh.oeaw.ac.at.dylenegonetworkserice.infrastructure.dto.TargetWordsSliceDto;
 import acdh.oeaw.ac.at.dylenegonetworkserice.service.EgoNetworkServiceInterface;
-import acdh.oeaw.ac.at.dylenegonetworkserice.domain.EgoNetwork;
+import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;

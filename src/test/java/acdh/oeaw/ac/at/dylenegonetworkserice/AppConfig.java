@@ -1,6 +1,5 @@
 package acdh.oeaw.ac.at.dylenegonetworkserice;
 
-import acdh.oeaw.ac.at.dylenegonetworkserice.service.NetworkService;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.transport.TransportClient;
@@ -12,22 +11,16 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.elasticsearch.client.ClientConfiguration;
 import org.springframework.data.elasticsearch.client.RestClients;
-import org.springframework.data.elasticsearch.client.reactive.DefaultReactiveElasticsearchClient;
-import org.springframework.data.elasticsearch.client.reactive.HostProvider;
-import org.springframework.data.elasticsearch.client.reactive.ReactiveElasticsearchClient;
-import org.springframework.data.elasticsearch.client.reactive.ReactiveRestClients;
 import org.springframework.data.elasticsearch.config.AbstractElasticsearchConfiguration;
-import org.springframework.data.elasticsearch.config.AbstractReactiveElasticsearchConfiguration;
-import org.springframework.data.elasticsearch.config.ElasticsearchConfigurationSupport;
 import org.springframework.data.elasticsearch.core.*;
-import org.springframework.data.elasticsearch.core.convert.ElasticsearchConverter;
-import org.springframework.data.elasticsearch.core.convert.MappingElasticsearchConverter;
 
-import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 @Configuration
-@ComponentScan({"acdh.oeaw.ac.at.dylenegonetworkserice.service", "acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository"})
+@ComponentScan({"acdh.oeaw.ac.at.dylenegonetworkserice.service.targetWord",
+                "acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.targetWord",
+                "acdh.oeaw.ac.at.dylenegonetworkserice.service.generalNetworks",
+                "acdh.oeaw.ac.at.dylenegonetworkserice.persistence.repository.generalNetworks"})
 public class AppConfig extends AbstractElasticsearchConfiguration {
     @Value("${elasticsearch.host}")
     private String EsHost="localhost";

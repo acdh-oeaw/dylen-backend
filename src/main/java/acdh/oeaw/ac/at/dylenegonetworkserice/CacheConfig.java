@@ -13,7 +13,7 @@ import org.springframework.core.task.TaskExecutor;
 public class CacheConfig{
     @Bean(name = "cacheMgr")
     public CacheManager cacheManager() {
-        return new ConcurrentMapCacheManager("corpora", "sources", "targetwords");
+        return new ConcurrentMapCacheManager("corpora", "sources", "targetwords", "generalNet");
     }
 
     @Bean

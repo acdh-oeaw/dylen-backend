@@ -6,16 +6,16 @@ import lombok.Data;
 
 @Data
 public class NetworkMetric {
-    double density;
-    double clusteringCoefficient;
+    Double density;
+    Double clusteringCoefficient;
 
-    private NetworkMetric(double density, double clusteringCoefficient) {
+    private NetworkMetric(Double density, Double clusteringCoefficient) {
         this.density = density;
         this.clusteringCoefficient = clusteringCoefficient;
     }
 
     @JsonCreator
-    public static NetworkMetric of(@JsonProperty("density") double density, @JsonProperty("clustering_coefficient") double clusteringCoefficient) {
+    public static NetworkMetric of(@JsonProperty("density") Double density, @JsonProperty("clustering_coefficient") Double clusteringCoefficient) {
         return new NetworkMetric(density, clusteringCoefficient);
     }
 }

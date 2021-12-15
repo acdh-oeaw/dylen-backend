@@ -1,9 +1,10 @@
-package acdh.oeaw.ac.at.dylenegonetworkserice.domain;
+package acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord;
 
 import com.google.common.collect.ImmutableList;
 import org.junit.Test;
 
-import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.*;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.SOURCE_NAME;
+import static acdh.oeaw.ac.at.dylenegonetworkserice.TestFixture.TARGET_WORD;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SourceTest {
