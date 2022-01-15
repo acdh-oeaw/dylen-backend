@@ -23,7 +23,7 @@ public class GeneralNetworkNode {
     @Field("absolute_frequency")
     private Float absolute_frequency;
 
-    @Field("normalized_frequency")
+    @Field("normalised_frequency")
     private Float normalised_frequency;
 
     private GeneralNodeMetric metrics;
