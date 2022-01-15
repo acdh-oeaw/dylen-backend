@@ -111,7 +111,7 @@ type GeneralNetworkNode {
     text: String
     pos: String
     absolute_frequency: Float
-    normalized_frequency: Float
+    normalised_frequency: Float
     metrics: GeneralNodeMetric
 }
 

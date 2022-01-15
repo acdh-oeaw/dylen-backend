@@ -61,8 +61,17 @@ class GeneralNetworkRepositoryIT {
                 "GeneralNetworks/fpoe-2006.json")).readAllBytes());
         var generalNetwork = new ObjectMapper().readValue(jsonStr, GeneralTargetWord.class);
         assertThat(repository).isNotNull();
-
         var inserted = repository.insert(generalNetwork);
-        assertThat(inserted).isNotNull();
+
+        var generalTargetword = repository.findGeneralSourceByPartyYear("FPOe", "2006");
+
+        assertThat(generalTargetword).isNotNull();
+        assertThat(generalTargetword.getId()).isNotNull();
+        assertThat(generalTargetword.getEntity()).isEqualTo("FPOe");
+        assertThat(generalTargetword.getNetworks()).isNotNull();
+        assertThat(generalTargetword.getNetworks().getYear()).isEqualTo("2006");
+        assertThat(generalTargetword.getNetworks().getNodes().get(0).getNormalised_frequency()).isNotNull();
+        assertThat(generalTargetword.getNetworks().getNodes().get(0).getAbsolute_frequency()).isNotNull();
+
     }
 }

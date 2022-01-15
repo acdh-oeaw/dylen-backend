@@ -4,6 +4,14 @@
         entity
         networks {
             year
+            nodes {
+                id
+                clusterId
+                text
+                pos
+                absolute_frequency
+                normalised_frequency
+            }
         }
     }
 }
