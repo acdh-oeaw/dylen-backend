@@ -4,6 +4,8 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.service.CorpusServiceInterface;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import java.util.List;
 
 @Component
@@ -16,6 +18,7 @@ public class CorpusQuery implements GraphQLQueryResolver {
         this.corpusService = corpusService;
     }
 
+    @CrossOrigin(origins = "https://dylen-tool.acdh.oeaw.ac.at")
     public List<String> getAllAvailableCorpora(){
         return corpusService.getAllCorpora();
     }

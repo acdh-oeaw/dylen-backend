@@ -6,6 +6,7 @@ import acdh.oeaw.ac.at.dylenegonetworkserice.domain.targetWord.EgoNetwork;
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import static acdh.oeaw.ac.at.dylenegonetworkserice.util.StreamUtils.toSingleton;
 
@@ -19,6 +20,7 @@ public class NetworkQuery implements GraphQLQueryResolver {
         this.networkService = networkService;
     }
 
+    @CrossOrigin(origins = "https://dylen-tool.acdh.oeaw.ac.at")
     public EgoNetwork getNetwork(String targetWordId, int year) {
         var targetWord = networkService.getTargetWordById(targetWordId);
         var network = targetWord.getNetworks().stream()
@@ -28,6 +30,7 @@ public class NetworkQuery implements GraphQLQueryResolver {
         return network;
     }
 
+    @CrossOrigin(origins = "https://dylen-tool.acdh.oeaw.ac.at")
     public TargetWordsSliceDto getNetworksByCorpusAndSource(String corpus, String source, int page, int size) {
         var pageRequest = PageRequest.of(page, size);
         return networkService.getTargetWordsOfCorpusAndSource(corpus, source, pageRequest);
