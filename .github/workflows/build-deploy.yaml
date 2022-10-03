@@ -20,7 +20,7 @@ jobs:
       - uses: gradle/gradle-build-action@v2
         with:
           gradle-version: 6.4.1
-      - run: ./gradlew build --scan
+      - run: ./gradlew build -x test --scan
       - name: Upload build libs
         uses: actions/upload-artifact@v3
         with:
