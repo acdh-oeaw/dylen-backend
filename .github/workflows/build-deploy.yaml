@@ -13,9 +13,14 @@ jobs:
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v3
-      - name: Setup Gradle
-        uses: gradle/gradle-build-action@v2
-      - name: Run build with Gradle wrapper
+      - uses: actions/setup-java@v3
+        with:
+          distribution: temurin
+          java-version: 11
+      - uses: gradle/gradle-build-action@v2
+        with:
+          gradle-version: 6.5
+      - name: Execute Gradle build
         run: ./gradlew build 
       - name: Upload build libs
         uses: actions/upload-artifact@v3
