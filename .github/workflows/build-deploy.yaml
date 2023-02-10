@@ -9,7 +9,7 @@ jobs:
     outputs:
       environment: ${{ steps.get_environment_from_git_ref.outputs.environment }}
       DOCKER_TAG: ${{ secrets.DOCKER_TAG || vars.DOCKER_TAG }}
-      APP_NAME: dylen-backend
+      APP_NAME: dylen-back
       APP_ROOT: "/"
     steps:
       - name: Get environment from git ref
