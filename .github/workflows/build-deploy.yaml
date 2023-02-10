@@ -92,5 +92,5 @@ jobs:
     with:
       environment: ${{ needs.setup_workflow_env.outputs.environment }}
       DOCKER_TAG: ${{ needs.setup_workflow_env.outputs.DOCKER_TAG }}
-      APP_NAME: ${{ needs.setup_workflow_env.outputs.APP_NAME }}
+      APP_NAME: ${{ needs.setup_workflow_env.outputs.APP_NAME }}-${{ needs.setup_workflow_env.outputs.environment }}
       APP_ROOT: ${{ needs.setup_workflow_env.outputs.APP_ROOT }}
