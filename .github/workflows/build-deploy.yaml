@@ -1,12 +1,28 @@
 name: Build and deploy 
-env:
-  DOCKER_TAG: ${{ secrets.DOCKER_TAG || vars.DOCKER_TAG }}
 on:
   push: {}
   repository_dispatch:
     types: [run]
 jobs:
+  setup_workflow_env:
+    runs-on: ubuntu-latest
+    outputs:
+      environment: ${{ steps.get_environment_from_git_ref.outputs.environment }}
+      DOCKER_TAG: ${{ secrets.DOCKER_TAG || vars.DOCKER_TAG }}
+    steps:
+      - name: Get environment from git ref
+        id: get_environment_from_git_ref
+        run: |
+          echo "Running on branch ${{ github.ref_name }}"
+          if [ "${{ github.ref }}" = "refs/heads/prod" ]; then
+            echo "environment=prod"
+            echo "environment=prod" >> $GITHUB_OUTPUT
+          else
+            echo "environment=review/${{ github.ref_name }}"
+            echo "environment=review/${{ github.ref_name }}" >> $GITHUB_OUTPUT
+          fi  
   build:
+    needs: [setup_workflow_env]
     name: Build Docker image from the branch ${{ github.ref_name }}
     runs-on: ubuntu-20.04
     environment: ${{ github.ref_name }}
@@ -38,7 +54,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            ${{ env.DOCKER_TAG }}
+            ${{ needs.setup_workflow_env.outputs.DOCKER_TAG }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -72,5 +88,5 @@ jobs:
     uses: acdh-oeaw/gl-autodevops-minimal-port/.github/workflows/deploy-cluster-2.yml@main
     secrets: inherit
     with:
-      environment: ${{ github.ref_name }}
-      DOCKER_TAG: ${{ env.DOCKER_TAG }}
+      environment: ${{ needs.setup_workflow_env.outputs.environment }}
+      DOCKER_TAG: ${{ needs.setup_workflow_env.outputs.DOCKER_TAG }}
