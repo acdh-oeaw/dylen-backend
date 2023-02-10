@@ -27,7 +27,7 @@ jobs:
     needs: [setup_workflow_env]
     name: Build Docker image from the branch ${{ github.ref_name }}
     runs-on: ubuntu-20.04
-    environment: ${{ github.ref_name }}
+    environment: ${{ needs.setup_workflow_env.outputs.environment }}
     steps:
       - name: Checkout project sources
         uses: actions/checkout@v3
@@ -86,7 +86,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
   _3:
-    needs: [build]
+    needs: [setup_workflow_env, build]
     uses: acdh-oeaw/gl-autodevops-minimal-port/.github/workflows/deploy-cluster-2.yml@main
     secrets: inherit
     with:
