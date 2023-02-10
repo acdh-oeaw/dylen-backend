@@ -1,6 +1,6 @@
 name: Build and deploy 
 env:
-  DOCKER_TAG: ${{ secrets.DOCKER_TAG }}
+  DOCKER_TAG: ${{ secrets.DOCKER_TAG || vars.DOCKER_TAG }}
 on:
   push: {}
   repository_dispatch:
@@ -27,12 +27,7 @@ jobs:
           name: build-libs
           path: build/libs/*.jar
           retention-days: 7
-      - name: Set secrets context
-        env:
-          SECRETS_CONTEXT: ${{ toJson(secrets) }}
-        run: |
-          echo -n "$SECRETS_CONTEXT" | jq -r '[to_entries[]|select(.key|startswith("K8S_SECRET_"))]|map("\(.key|sub("K8S_SECRET_"; ""))=\(.value|tostring|@sh)")|.[]' > secrets.env 
-      - name: login to github container registry
+      - name: Login to GitHub Container Registry
         uses: docker/login-action@v2
         with:
           registry: ghcr.io
@@ -40,10 +35,10 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Create tags based on git data
         id: meta
-        uses: docker/metadata-action@v4.0.1
+        uses: docker/metadata-action@v4
         with:
           images: |
-             ${{ env.DOCKER_TAG }}/${{ github.ref_name }}
+            ${{ env.DOCKER_TAG }}
           tags: |
             type=ref,event=branch
             type=ref,event=pr
@@ -51,8 +46,17 @@ jobs:
             type=semver,pattern={{major}}.{{minor}}
             type=raw,value=latest,enable={{is_default_branch}}
             type=raw,value={{sha}}
+      - name: Set build environment
+        env:
+          SECRETS_CONTEXT: ${{ toJson(secrets) }}
+          VARS_CONTEXT: ${{ toJson(vars) }} 
+        run: |
+          echo -n "$SECRETS_CONTEXT" | jq -r '[to_entries[]|select(.key|startswith("K8S_SECRET_"))]|map("\(.key|sub("K8S_SECRET_"; ""))=\(.value|tostring|@sh)")|.[]' > secrets.env
+          echo -n "$VARS_CONTEXT" | jq -r '[to_entries[]|select(.key|startswith("K8S_SECRET_"))]|map("  \(.key|sub("K8S_SECRET_"; "")): \(.value|tostring|@base64)")|.[]' >> secrets.env
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
       - name: Build and push
-        uses: docker/build-push-action@v3.1.1
+        uses: docker/build-push-action@v4
         with:
           context: .
           platforms: linux/amd64
@@ -61,131 +65,12 @@ jobs:
             "secrets_env=./secrets.env"
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-  deploy:
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+  _3:
     needs: [build]
-    name: Deploy Docker image from the branch ${{ github.ref_name }}
-    runs-on: 'ubuntu-latest'
-    environment: ${{ github.ref_name }}
-    env:
-      SECRETS_CONTEXT: ${{ toJson(secrets) }}
-    steps:
-      - uses: actions/checkout@v3.0.2
-        name: Checkout
-      - name: Kubernetes credentials
-        run: |
-          mkdir ${HOME}/.kube
-          echo ${{ secrets.C2_KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
-          chmod 0600 ${HOME}/.kube/config
-          KUBE_NAMESPACE="${{ secrets.KUBE_NAMESPACE }}"
-          if [ "$KUBE_NAMESPACE"x == 'x' ]
-          then KUBE_NAMESPACE="${{ inputs.APP_NAME }}-${{ github.ref_name }}"
-          fi
-          echo "KUBE_NAMESPACE=$KUBE_NAMESPACE" >> $GITHUB_ENV
-          kubectl config set-context --current --namespace=${{ secrets.KUBE_NAMESPACE }}
-          kubectl get pod
-      - name: Create tags based on git data
-        id: meta
-        uses: docker/metadata-action@v4.0.1
-        with:
-          images: |
-            ${{ env.DOCKER_TAG }}/${{ github.ref_name }}
-          tags: |
-            type=raw,value={{sha}}
-      - name: Create auto-deploy-app-values.yaml
-        run: |
-          docker_tag="${{ steps.meta.outputs.tags }}"
-          repository=${docker_tag/:*/}
-          tag=${docker_tag/*:/}
-          cat > auto-deploy-app-values.yaml <<EOF
-          replicaCount: 1
-          image:
-            repository: $repository
-            tag: $tag
-            pullPolicy: Always
-          extraLabels:
-            "ID": "${{ secrets.SERVICE_ID }}"
-          github:
-            app: ${{ secrets.APP_NAME }}
-            envURL: ${{ github.repositoryUrl }}
-          service:
-            enabled: true
-            name: ${{ secrets.APP_NAME }}-${{ github.ref_name }}
-            url: ${{ secrets.PUBLIC_URL }}
-            additionalHosts:
-              - ${{ secrets.APP_NAME }}-${{ github.ref_name }}.acdh-cluster.arz.oeaw.ac.at
-            type: ClusterIP
-            externalPort: 5000
-            internalPort: 5000
-          ingress:
-            enabled: true
-            path: "/"
-            annotations:
-              kubernetes.io/ingress.class: "nginx"
-              kubernetes.io/proxy-read-timeout: "3600"
-          EOF
-          if [ '${{ secrets.APP_ROOT }}x' != '/x' ]
-          then echo '    nginx.ingress.kubernetes.io/app-root: ${{ secrets.APP_ROOT }}' >> auto-deploy-app-values.yaml
-          fi
-          cat >> auto-deploy-app-values.yaml <<EOF
-          startupProbe:
-            path: "/actuator/health/liveness"
-            port: 5000
-            initialDelaySeconds: 60
-            timeoutSeconds: 30
-            scheme: "HTTP"
-            probeType: "httpGet"
-            failureThreshold: 100
-            periodSeconds: 60
-          livenessProbe:
-            path: "/actuator/health/liveness"
-            port: 5000
-            initialDelaySeconds: 120
-            timeoutSeconds: 15
-            failureThreshold: 100
-            scheme: "HTTP"
-            probeType: "httpGet"
-          readinessProbe:
-            path: "/actuator/health/readiness"
-            port: 5000
-            initialDelaySeconds: 120
-            timeoutSeconds: 15
-            failureThreshold: 100
-            scheme: "HTTP"
-            probeType: "httpGet"
-          tolerations:
-            - key: "node.kubernetes.io/unreachable"
-              operator: "Exists"
-              effect: "NoExecute"
-              tolerationSeconds: 6000
-            - key: "node.kubernetes.io/not-ready"
-              operator: "Exists"
-              effect: "NoExecute"
-              tolerationSeconds: 6000
-          EOF
-      - name: Set environment variables
-        env:
-          SECRETS_CONTEXT: ${{ toJson(secrets) }}     
-        run: |
-          cat > secrets.yaml <<EOF
-          apiVersion: v1
-          kind: Secret
-          metadata:
-            name: ${{ secrets.APP_NAME }}-${{ github.ref_name }}
-          type: Opaque
-          data:
-          EOF
-          k8s_secrets=$(echo -n "$SECRETS_CONTEXT" | jq -r '[to_entries[]|select(.key|startswith("K8S_SECRET_"))]|map("  \(.key|sub("K8S_SECRET_"; "")): \(.value|tostring|@base64)")|.[]')
-          if [ "$k8s_secrets"x == 'x' ]
-          then echo ' {}' >> secrets.yaml
-          else echo "$k8s_secrets" >> secrets.yaml
-          fi
-          kubectl replace -f secrets.yaml -n "${{ secrets.KUBE_NAMESPACE }}" --force
-          rm secrets.yaml
-      - name: Deploy using helm and the local helm chart
-        env:
-          SECRETS_CONTEXT: ${{ toJson(secrets) }} 
-        run: |
-          helm upgrade "${{ secrets.APP_NAME }}-${{ github.ref_name }}" \
-            --values auto-deploy-app-values.yaml --install --atomic --wait \
-            --set application.secretName="${{ secrets.APP_NAME }}-${{ github.ref_name }}" ${{ secrets.HELM_UPGRADE_EXTRA_ARGS }} \
-          .github/auto-deploy-app
+    uses: acdh-oeaw/gl-autodevops-minimal-port/.github/workflows/deploy-cluster-2.yml@main
+    secrets: inherit
+    with:
+      environment: ${{ github.ref_name }}
+      DOCKER_TAG: ${{ env.DOCKER_TAG }}
